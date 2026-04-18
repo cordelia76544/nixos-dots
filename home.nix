@@ -84,7 +84,7 @@
   };
 
   programs.ncmpcpp = {
-    enable = true;
+    enable = false;
     settings = {
       startup_screen = "media_library";
       media_library_primary_tag = "artist";
