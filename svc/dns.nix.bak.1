@@ -1,0 +1,32 @@
+{
+  config,
+  pkgs,
+  ...
+}: {
+  services.smartdns.enable = false;
+
+  services.resolved = {
+    enable = true;
+    # 结构化配置开始
+    settings = {
+      Resolve = {
+        DNSSEC = "false";
+        Domains = "~.";
+        # 这里的 FallbackDNS 需要是空格分隔的字符串
+        FallbackDNS = "223.5.5.5#313510-yjs5pfa4ui89k60b.alidns.com 223.6.6.6#313510-yjs5pfa4ui89k60b.alidns.com";
+        # 按照你的注释要求：改为 "yes" 以实现 "DoT or Die"
+        DNSOverTLS = "yes";
+        MulticastDNS = "resolve";
+      };
+    };
+  };
+
+  networking = {
+    networkmanager.dns = "systemd-resolved";
+    # 这里也要写带域名的格式，配合 resolved 的严格验证
+    nameservers = [
+      "223.5.5.5#313510-yjs5pfa4ui89k60b.alidns.com"
+      "223.6.6.6#313510-yjs5pfa4ui89k60b.alidns.com"
+    ];
+  };
+}
