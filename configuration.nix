@@ -70,7 +70,6 @@
     description = "Davy Jones";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "incus-admin"];
     shell = pkgs.zsh;
-    initialHashedPassword = "$6$1Ly1vtsloQrVLK/X$367PYBpU2GYnDTJPEuxRexAyrspAuUyk0QPuATCFIyss1bbq9DYrN9XsqX/wxNITOndD5twi5VvyWscEh7s4d/";
   };
 
   fonts = {
