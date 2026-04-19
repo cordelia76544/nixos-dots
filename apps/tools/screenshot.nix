@@ -23,7 +23,7 @@
     fi
 
     if ! img_b64="$(
-      ${pkgs.grim}/bin/grim -g "$region" - \
+      ${pkgs.grim}/bin/grim -g "$region" -t jpeg -q 70 - \
         | ${pkgs.coreutils}/bin/base64 -w 0
     )"; then
       notify "Umi OCR" "Failed to capture screenshot."
