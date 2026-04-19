@@ -8,28 +8,58 @@
   '';
 
   screenshot-ocr-area = pkgs.writeShellScriptBin "screenshot-ocr-area" ''
-    #!/usr/bin/env bash
+    #!${pkgs.bash}/bin/bash
     set -euo pipefail
 
-    tmp="$(mktemp --suffix=.png)"
-    trap 'rm -f "$tmp"' EXIT
+    UMI_URL="''${UMI_URL:-http://127.0.0.1:1224/api/ocr}"
 
-    # 选区截图到临时文件
-    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" "$tmp"
+    notify() {
+      ${pkgs.libnotify}/bin/notify-send "$@"
+    }
 
-    # OCR
-    text="$(${pkgs.tesseract}/bin/tesseract "$tmp" stdout -l chi_tra+eng 2>/dev/null || true)"
-
-    # 去掉前后空白
-    text="$(printf '%s' "$text" | ${pkgs.gnused}/bin/sed -e 's/^[[:space:]]*//' -e :a -e '/^\n*$/{$d;N;ba' -e '}' )"
-
-    if [ -z "$text" ]; then
-      ${pkgs.libnotify}/bin/notify-send "OCR" "no text found"
+    if ! region="$(${pkgs.slurp}/bin/slurp)"; then
+      notify "Umi OCR" "Selection cancelled."
       exit 1
     fi
 
-    printf '%s' "$text" | ${pkgs.wl-clipboard}/bin/wl-copy --type text/plain
-    ${pkgs.libnotify}/bin/notify-send "OCR completed" "copied"
+    if ! img_b64="$(
+      ${pkgs.grim}/bin/grim -g "$region" - \
+        | ${pkgs.coreutils}/bin/base64 -w 0
+    )"; then
+      notify "Umi OCR" "Failed to capture screenshot."
+      exit 1
+    fi
+
+    if ! result="$(
+      ${pkgs.jq}/bin/jq -n \
+        --arg base64 "$img_b64" \
+        '{
+          base64: $base64,
+          options: {
+            "ocr.language": "models/config_chinese.txt",
+            "ocr.cls": true,
+            "data.format": "text"
+          }
+        }' \
+      | ${pkgs.curl}/bin/curl -fsS \
+          -H 'Content-Type: application/json' \
+          -d @- \
+          "$UMI_URL" \
+      | ${pkgs.jq}/bin/jq -r '.data'
+    )"; then
+      notify "Umi OCR" "OCR request failed."
+      exit 1
+    fi
+
+    if [ -z "$result" ] || [ "$result" = "null" ]; then
+      notify "Umi OCR" "No text recognized."
+      exit 1
+    fi
+
+    printf '%s' "$result" | ${pkgs.wl-clipboard}/bin/wl-copy
+    printf '%s\n' "$result"
+
+    notify "Umi OCR" "OCR text copied to clipboard."
   '';
 in {
   home.packages = with pkgs; [
