@@ -455,7 +455,8 @@
         "Mod+Shift+Equal".action = set-window-height "+10%";
 
         # screenshot
-        "Mod+Shift+S".action = spawn "${config.home.homeDirectory}/bin/screenshot-area";
+        "Mod+Shift+S".action = spawn "screenshot-area";
+        "Mod+Shift+O".action = spawn "screenshot-ocr-area";
 
         "Mod+Return".action = spawn "kitty";
         "Mod+B".action = spawn "google-chrome-stable";
