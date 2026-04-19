@@ -66,7 +66,6 @@ in {
     grim
     slurp
     wl-clipboard
-    tesseract
     libnotify
     gnused
 
