@@ -16,6 +16,7 @@
     buildkit
     nvidia-container-toolkit
     libnvidia-container
+    iptables
   ];
 
   environment.sessionVariables = {
