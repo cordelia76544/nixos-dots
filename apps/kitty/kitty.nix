@@ -1,6 +1,7 @@
 {...}: {
   programs.kitty = {
     enable = true;
+    shellIntegration.enableZshIntegration = true;
 
     # 1. 字体配置
     font = {
