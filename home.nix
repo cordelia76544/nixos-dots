@@ -11,6 +11,7 @@
     x11.enable = true;
     name = "Adwaita";
     size = 32;
+    package = pkgs.adwaita-icon-theme;
   };
 
   imports = [
