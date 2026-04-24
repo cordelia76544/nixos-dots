@@ -6,7 +6,7 @@
   home.username = "davyjones";
   home.homeDirectory = "/home/davyjones";
   home.shell.enableNushellIntegration = true;
-  home.pointerCursor = "32";
+  home.pointerCursor = 32;
 
   imports = [
     inputs.dankMaterialShell.homeModules.dank-material-shell
