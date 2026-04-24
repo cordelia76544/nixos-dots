@@ -16,23 +16,49 @@
     ];
 
     configFile.text = ''
-      $env.config = {
-        show_banner: false
+      $env.config = ($env.config? | default {})
 
-        completions: {
-          case_sensitive: false
-          quick: true
-          partial: true
-          algorithm: "fuzzy"
+      $env.config = ($env.config
+        | upsert show_banner false
+        | upsert completions.case_sensitive false
+        | upsert completions.quick true
+        | upsert completions.partial false
+        | upsert completions.algorithm "fuzzy"
+        | upsert history.max_size 10000
+        | upsert history.sync_on_enter true
+        | upsert history.file_format "sqlite"
+        | upsert edit_mode emacs
+      )
+
+      # 安全 rm
+      def rm [...args] {
+        if ($args | is-empty) {
+          print "rm: missing operand"
+          return
         }
 
-        history: {
-          max_size: 10000
-          sync_on_enter: true
-          file_format: "sqlite"
+        if ($args | any {|x| $x == "-r" or $x == "--recursive"}) {
+          print "⚠️ recursive delete → moved to trash"
         }
 
-        edit_mode: emacs
+        ^rip ...$args
+      }
+
+      # 真删除
+      def real-rm [...args] {
+        if ($args | is-empty) {
+          print "real-rm: missing operand"
+          return
+        }
+
+        print "⚠️ Permanently delete? (y/N)"
+        let confirm = (input)
+
+        if ($confirm | str downcase) == "y" {
+          ^rm ...$args
+        } else {
+          print "Cancelled"
+        }
       }
     '';
 
@@ -44,6 +70,11 @@
   };
 
   programs.eza = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
+
+  programs.carapace = {
     enable = true;
     enableNushellIntegration = true;
   };
