@@ -30,35 +30,12 @@
         | upsert edit_mode emacs
       )
 
-      # 安全 rm
-      def rm [...args] {
-        if ($args | is-empty) {
-          print "rm: missing operand"
-          return
-        }
-
-        if ($args | any {|x| $x == "-r" or $x == "--recursive"}) {
-          print "⚠️ recursive delete → moved to trash"
-        }
-
+      def --wrapped rm [...args] {
         ^rip ...$args
       }
 
-      # 真删除
-      def real-rm [...args] {
-        if ($args | is-empty) {
-          print "real-rm: missing operand"
-          return
-        }
-
-        print "⚠️ Permanently delete? (y/N)"
-        let confirm = (input)
-
-        if ($confirm | str downcase) == "y" {
-          ^rm ...$args
-        } else {
-          print "Cancelled"
-        }
+      def --wrapped real-rm [...args] {
+        ^rm ...$args
       }
     '';
 
@@ -78,4 +55,8 @@
     enable = true;
     enableNushellIntegration = true;
   };
+
+  home.packages = with pkgs; [
+    rm-improved
+  ];
 }
