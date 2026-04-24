@@ -3,8 +3,6 @@
     enable = true;
 
     shellAliases = {
-      ll = "eza -alh --icons=always";
-      ls = "eza --icons=always";
       update = "sudo nixos-rebuild switch --flake ~/nixos#nixos";
       sduo = "sudo";
     };
@@ -44,11 +42,6 @@
       # 例如：
       # $env.EDITOR = "nvim"
     '';
-  };
-
-  programs.eza = {
-    enable = true;
-    enableNushellIntegration = true;
   };
 
   programs.carapace = {
