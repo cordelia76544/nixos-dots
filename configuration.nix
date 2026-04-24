@@ -69,7 +69,7 @@
     isNormalUser = true;
     description = "Davy Jones";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "incus-admin"];
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
 
   fonts = {

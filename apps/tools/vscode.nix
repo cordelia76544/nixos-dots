@@ -9,17 +9,18 @@
     enable = true;
     package = pkgs.vscode;
     profiles.default.extensions = with pkgs.vscode-extensions; [
-      # --- NixOS 开发必备 ---
-      bbenoist.nix # 基础语法高亮
-      jnoortheen.nix-ide # 核心插件：提供 LSP 支持、格式化等
-      mkhl.direnv # 自动加载 .envrc / shell.nix 环境
-      kamadorueda.alejandra # Nix 格式化工具 (可选，或者用 nil 自带的)
+      bbenoist.nix
+      jnoortheen.nix-ide
+      mkhl.direnv
+      kamadorueda.alejandra
       ms-ceintl.vscode-language-pack-zh-hans
       # --- 通用工具 ---
-      eamodio.gitlens # 强大的 Git 增强
-      editorconfig.editorconfig # 统一代码风格
-      usernamehw.errorlens # (可选) 把错误直接显示在行尾，推荐！
+      eamodio.gitlens
+      editorconfig.editorconfig
+      usernamehw.errorlens
       redhat.vscode-yaml
+      redhat.vscode-xml
+      github.copilot
     ];
 
     profiles.default.userSettings = {

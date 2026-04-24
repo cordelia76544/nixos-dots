@@ -5,6 +5,7 @@
 }: {
   home.username = "davyjones";
   home.homeDirectory = "/home/davyjones";
+  home.shell.enableNushellIntegration = true;
 
   imports = [
     inputs.dankMaterialShell.homeModules.dank-material-shell
@@ -13,7 +14,7 @@
     inputs.niri.homeModules.niri
     inputs.nixvim.homeModules.nixvim
     ./wm/niri.nix
-    ./apps/shell/zsh.nix
+    ./apps/shell/nushell.nix
     ./apps/kitty/kitty.nix
     ./apps/games
     ./apps/tools

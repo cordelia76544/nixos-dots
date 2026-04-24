@@ -47,8 +47,15 @@
   };
   xdg.configFile."starship.toml".source = ./starship.toml;
 
-  programs.fzf.enableZshIntegration = true;
-  programs.eza.enableZshIntegration = true;
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   #home.file.".p10k.zsh".source = ./p10k.zsh;
 }
