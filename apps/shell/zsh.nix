@@ -26,7 +26,7 @@
           owner = "Aloxaf";
           repo = "fzf-tab";
           rev = "master"; # 建議之後改成固定 commit
-          hash = lib.fakeHash;
+          hash = "sha256-S07YFyh6jKKQn8tpeTNReKLmpVxXzIF3jXCmst6B3+I=";
         };
         file = "fzf-tab.plugin.zsh";
       }
