@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -29,18 +25,6 @@
           hash = "sha256-S07YFyh6jKKQn8tpeTNReKLmpVxXzIF3jXCmst6B3+I=";
         };
         file = "fzf-tab.plugin.zsh";
-      }
-
-      # skywind3000/z.lua
-      {
-        name = "z.lua";
-        src = pkgs.fetchFromGitHub {
-          owner = "skywind3000";
-          repo = "z.lua";
-          rev = "master"; # 建議之後改成固定 commit
-          hash = "sha256-S07YFyh6jKKQn8tpeTNReKLmpVxXzIF3jXCmst6B3+I=";
-        };
-        file = "z.lua";
       }
     ];
 
