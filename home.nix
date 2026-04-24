@@ -6,7 +6,12 @@
   home.username = "davyjones";
   home.homeDirectory = "/home/davyjones";
   home.shell.enableNushellIntegration = true;
-  home.pointerCursor.size = 32;
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "Adwaita";
+    size = 32;
+  };
 
   imports = [
     inputs.dankMaterialShell.homeModules.dank-material-shell
