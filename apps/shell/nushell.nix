@@ -43,11 +43,6 @@
     '';
   };
 
-  programs.fzf = {
-    enable = true;
-    enableNushellIntegration = true;
-  };
-
   programs.eza = {
     enable = true;
     enableNushellIntegration = true;

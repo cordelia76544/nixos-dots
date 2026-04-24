@@ -5,7 +5,7 @@
     # 开启 Zsh 集成。
     # 开启后，Home Manager 会自动为你生成一个名为 `yy` 的 shell 函数（或者在某些版本中是 `y`）。
     # 使用 `yy` 启动 Yazi，退出时 Zsh 就会自动跳转到你在 Yazi 中最后停留的目录。
-    enableZshIntegration = true;
+    enableNushellIntegration = true;
     settings = {
       manager = {
         ratio = [1 4 3];
