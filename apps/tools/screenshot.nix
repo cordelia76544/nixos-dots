@@ -42,6 +42,9 @@
           }
         }' \
       | ${pkgs.curl}/bin/curl -fsS \
+          --retry 6 \
+          --retry-delay 1 \
+          --retry-connrefused \
           -H 'Content-Type: application/json' \
           -d @- \
           "$UMI_URL" \

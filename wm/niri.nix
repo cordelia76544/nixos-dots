@@ -163,6 +163,7 @@
       ];
 
       environment = {
+        WLR_DRM_DEVICES = "/dev/dri/by-path/pci-0000:00:02.0-card";
         XDG_CURRENT_DESKTOP = "niri";
         QT_QPA_PLATFORM = "wayland";
         GTK_USE_PORTAL = "1";
