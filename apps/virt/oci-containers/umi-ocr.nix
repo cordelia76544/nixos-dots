@@ -3,7 +3,7 @@
     backend = "podman";
     containers.umi-ocr = {
       image = "docker.io/library/umi-ocr-paddle:latest";
-      imagePullPolicy = "never";
+      pull = "never";
 
       autoStart = false;
 
