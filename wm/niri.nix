@@ -8,8 +8,13 @@
     enable = true;
     dgop.package = inputs.dgop.packages.${pkgs.system}.default;
     niri = {
-      enableKeybinds = true;
-      enableSpawn = true;
+      enableKeybinds = false;
+      enableSpawn = false;
+    };
+
+    systemd = {
+      enable = true; # Systemd service for auto-start
+      restartIfChanged = true; # Auto-restart dms.service when dank-material-shell changes
     };
 
     settings = {
@@ -108,6 +113,7 @@
     });
 
     settings = {
+      debug.render-drm-device = "/dev/dri/by-path/pci-0000:00:02.0-card";
       hotkey-overlay.skip-at-startup = true;
       config-notification.disable-failed = true;
       gestures.hot-corners.enable = false;
@@ -250,31 +256,24 @@
       };
 
       window-rules = [
-        # 规则 1: Wezterm (设置默认列宽为空属性集)
+        # 规则 1: WezTerm (设置默认列宽)
         {
-          # KDL: match app-id=r#"^org\.wezfurlong\.wezterm$"#
           matches = [
             {
-              app-id = "^org\\.wezfurlong\\.wezterm$"; # app-id 是一个正则表达式字符串 [2]
+              app-id = "^org\\.wezfurlong\\.wezterm$";
             }
           ];
-
-          # KDL: default-column-width {}
-          # {} 在此表示窗口将决定其初始宽度，而不是继承全局默认值或上一个规则的值 [3]
           default-column-width = {};
         }
 
         # 规则 2: Gnome 应用（应用圆角并禁用边框背景绘制）
         {
-          # KDL: match app-id=r#"^org\.gnome\."#
           matches = [
             {
               app-id = "^org\\.gnome\\.";
             }
           ];
-
-          # KDL: draw-border-with-background false
-          # 禁用背景绘制，适用于透明 CSD 窗口 [4, 5]
+          # 禁用背景绘制，适用于透明 CSD 窗口
           draw-border-with-background = false;
 
           geometry-corner-radius = {
@@ -283,9 +282,7 @@
             bottom-left = 12.0;
             bottom-right = 12.0;
           };
-
-          # KDL: clip-to-geometry true
-          # 将窗口裁剪到其视觉几何形状，使圆角应用于窗口表面本身 [6, 8]
+          # 将窗口裁剪到其视觉几何形状，使圆角应用于窗口表面本身
           clip-to-geometry = true;
         }
 
@@ -322,8 +319,6 @@
 
         # 规则 5: 终端应用 (禁用边框背景绘制)
         {
-          # KDL: match app-id=r#"^org\.wezfurlong\.wezterm$"#
-          # KDL: match app-id="Alacritty" ...
           matches = [
             {app-id = "^org\\.wezfurlong\\.wezterm$";}
             {app-id = "Alacritty";}
@@ -331,30 +326,21 @@
             {app-id = "com.mitchellh.ghostty";}
             {app-id = "kitty";}
           ];
-
-          # KDL: draw-border-with-background false
-          # 禁用边框背景绘制，适用于透明终端 [4, 5]
           draw-border-with-background = false;
         }
 
         # 规则 6: 非活动窗口 (设置透明度)
         {
-          # KDL: match is-active=false
           matches = [
             {
-              is-active = false; # is-active=true 匹配每个显示器上最多一个活动窗口 [12]
+              is-active = false;
             }
           ];
-
-          # KDL: opacity 0.9
-          # 窗口不透明度，范围从 0 到 1 [7, 13]
           opacity = 0.9;
         }
 
-        # 规则 7: Firefox 画中画和 Zoom (强制浮动)
+        # 规则 7: 画中画和 Zoom (强制浮动)
         {
-          # KDL: match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-          # 匹配 app-id 结尾为 'firefox' 且 title 必须精确匹配 '^Picture-in-Picture$' 的窗口 [2, 12]
           matches = [
             {
               app-id = "google-chrome";
@@ -369,8 +355,6 @@
               title = "^Extension:.*";
             }
           ];
-
-          # KDL: open-floating true
           open-floating = true;
         }
 
@@ -463,6 +447,21 @@
         "Mod+B".action = spawn "google-chrome-stable";
         "Mod+Plus".action = set-column-width "+10%";
         "Mod+E".action = spawn "kitty" "-e" "yazi";
+
+        # dms
+        "Mod+M".action = spawn "dms" "ipc" "processlist" "toggle";
+        "Mod+N".action = spawn "dms" "ipc" "ipc" "notifications" "toggle";
+        "Mod+P".action = spawn "dms" "ipc" "notepad" "toggle";
+        "Mod+Space".action = spawn "dms" "ipc" "spotlight" "toggle";
+        "Mod+V".action = spawn "dms" "ipc" "clipboard" "toggle";
+        "Mod+X".action = spawn "dms" "ipc" "powermenu" "toggle";
+        "Mod+Alt+L".action = spawn "dms" "ipc" "lock" "lock";
+        "XF86AudioLowerVolume".action = spawn "dms" "ipc" "audio" "decrement" "3";
+        "XF86AudioRaiseVolume".action = spawn "dms" "ipc" "audio" "increment" "3";
+        "XF86AudioMicMute".action = spawn "dms" "ipc" "audio" "micmute";
+        "XF86AudioMute".action = spawn "dms" "ipc" "audio" "mute";
+        "XF86MonBrightnessDown".action = spawn "dms" "ipc" "brightness" "decrement" "5";
+        "XF86MonBrightnessUp".action = spawn "dms" "ipc" "brightness" "increment" "5";
       };
     };
   };
