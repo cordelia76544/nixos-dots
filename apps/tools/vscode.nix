@@ -14,7 +14,11 @@
       mkhl.direnv
       kamadorueda.alejandra
       ms-ceintl.vscode-language-pack-zh-hans
-      # --- 通用工具 ---
+      ms-vscode.makefile-tools
+      ms-vscode-remote.remote-ssh
+      ms-vscode.remote-explorer
+      ms-vscode.cpptools-extension-pack
+      ms-python.python
       eamodio.gitlens
       editorconfig.editorconfig
       usernamehw.errorlens
