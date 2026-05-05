@@ -444,7 +444,7 @@
         "Mod+Shift+O".action = spawn "screenshot-ocr-area";
 
         "Mod+Return".action = spawn "kitty";
-        "Mod+B".action = spawn "google-chrome-stable";
+        "Mod+B".action = spawn "vivaldi";
         "Mod+Plus".action = set-column-width "+10%";
         "Mod+E".action = spawn "kitty" "-e" "yazi";
 
