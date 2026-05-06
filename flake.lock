@@ -204,6 +204,26 @@
         "type": "github"
       }
     },
+    "helium": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778054261,
+        "narHash": "sha256-BDxTxbJQF5qYasgqtxuZOv+0qGch5DnlOrcHM/IzA6Q=",
+        "owner": "cordelia76544",
+        "repo": "helium-nix",
+        "rev": "e5892d7a6e088028f88e8a434d2907cd8f393f08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cordelia76544",
+        "repo": "helium-nix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -567,6 +587,7 @@
         "dankMaterialShell": "dankMaterialShell",
         "dgop": "dgop",
         "dms-plugin-registry": "dms-plugin-registry",
+        "helium": "helium",
         "home-manager": "home-manager",
         "niri": "niri",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
