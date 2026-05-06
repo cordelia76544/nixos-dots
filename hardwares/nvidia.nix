@@ -10,7 +10,7 @@
   hardware = {
     nvidia-container-toolkit.enable = true;
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.beta_vulkan;
+      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
       prime = {
         offload = {
           enable = true;
