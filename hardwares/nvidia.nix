@@ -20,7 +20,7 @@
         nvidiaBusId = "PCI:1:0:0";
       };
 
-      open = false;
+      open = true;
       nvidiaSettings = true;
 
       modesetting.enable = lib.mkDefault true;
