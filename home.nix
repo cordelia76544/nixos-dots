@@ -31,7 +31,6 @@
 
   home.sessionVariables = {
     EDITOR = "hx";
-    BROWSER = "firefox";
     LANG = "zh_CN.UTF-8";
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
