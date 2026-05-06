@@ -37,6 +37,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helium = {
+      url = "github:cordelia76544/helium-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #firefox-addons = {
     #  url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     #  inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +57,7 @@
     nix-cachyos-kernel,
     prismlauncher,
     nixvim,
+    helium,
     ...
   } @ inputs: {
     nixosConfigurations = {

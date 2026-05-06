@@ -1,8 +1,8 @@
 {...}: {
   imports = [
     #./firefox.nix
-    #./msedge.nix
+    #./vivaldi.nix
     ./chrome.nix
-    ./vivaldi.nix
+    ./helium.nix
   ];
 }
