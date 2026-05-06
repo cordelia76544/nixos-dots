@@ -10,7 +10,7 @@
   hardware = {
     nvidia-container-toolkit.enable = true;
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
       prime = {
         offload = {
           enable = true;
@@ -21,6 +21,7 @@
       };
 
       open = false;
+      nvidiaSettings = true;
 
       modesetting.enable = lib.mkDefault true;
       dynamicBoost.enable = lib.mkDefault true;
