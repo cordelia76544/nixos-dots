@@ -81,7 +81,7 @@
     usbutils # lsusb
     googlesans-code
     obsidian
-    #onlyoffice-desktopeditors
+    remmina
   ];
 
   programs.git = {
