@@ -83,6 +83,7 @@
     googlesans-code
     obsidian
     remmina
+    networkmanagerapplet
   ];
 
   programs.git = {

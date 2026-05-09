@@ -57,6 +57,16 @@
         "fullscreen"
       ];
 
+      rounded-corners-exclude = [
+        "window_type = 'dock'"
+        "window_type = 'desktop'"
+        "class_g = 'dwm'"
+        "class_g = 'slop'"
+        "class_g = 'Dunst'"
+        "_GTK_FRAME_EXTENTS@:c"
+        "fullscreen"
+      ];
+
       detect-client-opacity = true;
       detect-rounded-corners = true;
       detect-transient = true;
