@@ -1,7 +1,7 @@
 {...}: {
   services.picom = {
     enable = true;
-    backend = "glx";
+    backend = "egl";
     vSync = true;
 
     activeOpacity = 1.0;
@@ -13,7 +13,7 @@
     fadeSteps = [0.03 0.03];
 
     shadow = true;
-    shadowOpacity = 0.45;
+    shadowOpacity = 0.25;
     shadowOffsets = [0 5];
 
     opacityRules = [
