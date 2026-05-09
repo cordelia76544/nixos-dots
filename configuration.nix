@@ -14,6 +14,7 @@
     ./apps/games/steam.nix
     ./apps/medias/musics
     ./svc
+    ./wm/dwm
   ];
 
   # Use the systemd-boot EFI boot loader.
