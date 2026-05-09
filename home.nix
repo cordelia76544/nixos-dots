@@ -84,6 +84,7 @@
     obsidian
     remmina
     networkmanagerapplet
+    feh
   ];
 
   programs.git = {
