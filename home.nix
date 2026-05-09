@@ -27,6 +27,7 @@
     ./apps/tools
     ./apps/browsers
     ./apps/medias/videos
+    ./wm/dwm
   ];
 
   home.sessionVariables = {
