@@ -97,6 +97,11 @@
     };
   };
 
+  programs.zoxide = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
+
   gtk = {
     enable = true;
     iconTheme = {

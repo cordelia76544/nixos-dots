@@ -26,15 +26,8 @@
         | upsert history.sync_on_enter true
         | upsert history.file_format "sqlite"
         | upsert edit_mode emacs
+        | upsert rm.always_trash true
       )
-
-      def --wrapped rm [...args] {
-        ^rip ...$args
-      }
-
-      def --wrapped real-rm [...args] {
-        ^rm ...$args
-      }
     '';
 
     envFile.text = ''
@@ -48,8 +41,4 @@
     enable = true;
     enableNushellIntegration = true;
   };
-
-  home.packages = with pkgs; [
-    rm-improved
-  ];
 }
