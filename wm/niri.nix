@@ -177,6 +177,8 @@
         QT_QPA_PLATFORMTHEME = "gtk3";
         QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
         TERMINAL = "kitty";
+        GTK_IM_MODULE = "fcitx";
+        QT_IM_MODULE = "fcitx";
       };
 
       prefer-no-csd = true;

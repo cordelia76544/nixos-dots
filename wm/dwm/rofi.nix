@@ -6,4 +6,8 @@
     ];
     theme = "material";
   };
+
+  home.packages = [
+    pkgs.rofi-power-menu
+  ];
 }
