@@ -25,6 +25,7 @@
       redhat.vscode-yaml
       redhat.vscode-xml
       github.copilot
+      pkief.material-icon-theme
     ];
 
     profiles.default.userSettings = {

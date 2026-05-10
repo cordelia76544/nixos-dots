@@ -25,8 +25,8 @@
 
       #networkPreference = "internet";
 
-      useAutoLocation = true;
-      weatherEnabled = true;
+      useAutoLocation = false;
+      weatherEnabled = false;
 
       currentThemeName = "dynamic";
       currentThemeCategory = "dynamic";
@@ -345,12 +345,12 @@
         {
           matches = [
             {
-              app-id = "google-chrome";
+              app-id = "helium";
               title = "^Picture-in-Picture$";
             }
 
             {
-              app-id = "zoom";
+              app-id = "^chrome-.*";
             }
             {
               app-id = "^google-chrome$";

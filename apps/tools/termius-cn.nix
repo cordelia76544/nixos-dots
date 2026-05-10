@@ -1,8 +1,8 @@
 {pkgs, ...}: let
   # 定义汉化包
   termius-zh-asar = pkgs.fetchurl {
-    url = "https://github.com/ArcSurge/Termius-Pro-zh_CN/releases/download/v9.36.2/app-linux-localize.asar";
-    hash = "sha256-ALezMEzSBP/IQPdV15gqXgyZVJ4sOCaGdm8sVfFBP6E=";
+    url = "https://github.com/ArcSurge/Termius-Pro-zh_CN/releases/download/v9.38.1/app-linux-localize.asar";
+    hash = "sha256-ALezMEzSBP/IQPdV15gqXgyZVJ4sOCaGdm8sVfFBZ6E=";
   };
 
   # 包装原有的 Termius

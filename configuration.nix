@@ -14,7 +14,6 @@
     ./apps/games/steam.nix
     ./apps/medias/musics
     ./svc
-    ./wm/dwm/dwm.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -137,12 +136,6 @@
     dconf.enable = true;
     xwayland.enable = true;
 
-    #clash-verge = {
-    #  enable = true;
-    #  autoStart = true;
-    #  serviceMode = true;
-    #};
-
     gamemode = {
       enable = true;
     };
@@ -159,6 +152,8 @@
       "/var/lib/flatpak/exports/share"
       #"$HOME/.local/share/flatpak/exports/share"
     ];
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

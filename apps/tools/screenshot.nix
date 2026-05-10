@@ -43,7 +43,7 @@
         }' \
       | ${pkgs.curl}/bin/curl -fsS \
           --retry 6 \
-          --retry-delay 3 \
+          --retry-delay 5 \
           --retry-connrefused \
           -H 'Content-Type: application/json' \
           -d @- \

@@ -27,7 +27,6 @@
     ./apps/tools
     ./apps/browsers
     ./apps/medias/videos
-    ./wm/dwm
   ];
 
   home.sessionVariables = {
@@ -81,8 +80,6 @@
     googlesans-code
     obsidian
     remmina
-    networkmanagerapplet
-    feh
   ];
 
   programs.git = {
