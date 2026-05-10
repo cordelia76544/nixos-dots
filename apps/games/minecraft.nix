@@ -1,21 +1,15 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: let
-  prism-pkg = inputs.prismlauncher.packages.${pkgs.system}.prismlauncher;
-in {
-  home.packages = with pkgs; [
-    (prism-pkg.override {
+{pkgs, ...}: {
+  home.packages = [
+    (pkgs.prismlauncher.override {
       jdks = [
-        zulu8
-        graalvmPackages.graalvm-oracle_17
-        zulu21
-        graalvmPackages.graalvm-oracle
+        pkgs.zulu8
+        pkgs.graalvmPackages.graalvm-oracle_17
+        pkgs.zulu21
+        pkgs.graalvmPackages.graalvm-oracle
       ];
     })
-    mangohud
   ];
+
   programs.java = {
     enable = true;
     package = pkgs.graalvmPackages.graalvm-oracle_17;
