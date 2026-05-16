@@ -9,13 +9,13 @@
     dgop.package = inputs.dgop.packages.${pkgs.system}.default;
     niri = {
       enableKeybinds = false;
-      enableSpawn = false;
+      enableSpawn = true;
     };
 
-    systemd = {
-      enable = true; # Systemd service for auto-start
-      restartIfChanged = true; # Auto-restart dms.service when dank-material-shell changes
-    };
+    #systemd = {
+    #  enable = true; # Systemd service for auto-start
+    #  restartIfChanged = true; # Auto-restart dms.service when dank-material-shell changes
+    #};
 
     settings = {
       #theme = "light";
