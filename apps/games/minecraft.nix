@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = [
+    pkgs.mangohud
     (pkgs.prismlauncher.override {
       jdks = [
         pkgs.zulu8
