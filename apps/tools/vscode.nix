@@ -26,6 +26,7 @@
       redhat.vscode-xml
       github.copilot
       pkief.material-icon-theme
+      sumneko.lua
     ];
 
     profiles.default.userSettings = {
