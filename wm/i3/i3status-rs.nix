@@ -26,8 +26,6 @@
           }
           {
             block = "backlight";
-            #  device = "intel_backlight";
-            on_click = "light -A 5";
           }
           {
             block = "time";

@@ -79,7 +79,7 @@ in {
         savePath = "/home/davyjones/Pictures/Screenshots";
         saveLastRegion = true;
         showHelp = false;
-        copyAndExitRegionalGuideline = true;
+        saveAfterCopy = true;
         disabledTrayIcon = true;
       };
     };
