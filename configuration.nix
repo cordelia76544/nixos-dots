@@ -132,6 +132,7 @@
     glib
     gsettings-desktop-schemas
     gtk3
+    xauth
   ];
 
   programs = {
