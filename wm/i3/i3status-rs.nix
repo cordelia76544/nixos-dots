@@ -12,9 +12,6 @@
       bottom = {
         theme = "gruvbox-dark";
         icons = "awesome6";
-        overrides = {
-          separator_width = 4;
-        };
         blocks = [
           {
             block = "cpu";
