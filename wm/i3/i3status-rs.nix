@@ -14,6 +14,10 @@
         icons = "awesome6";
         blocks = [
           {
+            block = "active_window";
+            max_length = 40;
+          }
+          {
             block = "cpu";
             interval = 2;
           }
@@ -26,6 +30,12 @@
           }
           {
             block = "backlight";
+          }
+          {
+            block = "battery";
+            interval = 10;
+            format = " $icon $percentage $time ";
+            device = "BAT0";
           }
           {
             block = "time";
