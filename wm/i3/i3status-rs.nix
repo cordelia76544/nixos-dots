@@ -13,7 +13,7 @@
       bottom = {
         # 选用预设的主题和图标集（"gcal" 图标集很适合高级字体 fallback）
         theme = "gruvbox-dark";
-        icons = "font-awesome-6";
+        #icons = "font-awesome-6";
 
         # 状态栏组件列表（从右往左或从左往右排布，取决于 i3bar 渲染）
         blocks = [
@@ -50,7 +50,7 @@
   xsession.windowManager.i3.config.bars = [
     {
       # 指定状态栏显示在屏幕底部
-      position = "bottom";
+      position = "top";
 
       # 使用 i3bar 协议渲染
       statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.home.homeDirectory}/.config/i3status-rust/config-bottom.toml";

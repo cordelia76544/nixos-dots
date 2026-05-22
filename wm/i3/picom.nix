@@ -10,7 +10,7 @@
     shadowOffsets = [(-15) (-15)];
 
     fade = true;
-    fadeDelta = 10;
+    fadeDelta = 5;
 
     activeOpacity = 1.0;
     inactiveOpacity = 0.93;
