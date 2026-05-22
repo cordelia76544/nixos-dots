@@ -33,8 +33,4 @@ in {
     rofi-power-menu
   ];
 
-  # 3. 绑定到 i3 快捷键 (这里推荐绑定到 Win + p，代表 Profile/Power)
-  xsession.windowManager.i3.config.keybindings = {
-    "Mod4+p" = "exec asus-profile-switcher";
-  };
 }

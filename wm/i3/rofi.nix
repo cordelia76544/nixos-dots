@@ -19,7 +19,4 @@
     ];
   };
 
-  xsession.windowManager.i3.config.keybindings = {
-    "Mod4+Shift+p" = "exec rofi -show power-menu -modi power-menu:rofi-power-menu";
-  };
 }

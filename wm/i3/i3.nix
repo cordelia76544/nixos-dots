@@ -116,6 +116,8 @@
             "${mod}+b" = "exec helium";
             "${mod}+e" = "exec kitty -e yazi";
             "${mod}+space" = "exec rofi -show drun";
+            "${mod}+p" = "exec asus-profile-switcher";
+            "${mod}+shift+p" = "exec rofi -show power-menu -modi power-menu:rofi-power-mwnu";
 
             # screenshot
             "${mod}+Shift+s" = "exec flameshot gui";
