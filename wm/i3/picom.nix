@@ -1,6 +1,7 @@
 {...}: {
   services.picom = {
     enable = true;
+
     backend = "egl";
     vSync = true;
 
@@ -8,11 +9,12 @@
     shadowOpacity = 0.75;
     shadowOffsets = [(-15) (-15)];
 
-    fading = true;
-    fadingDelta = 10;
+    fade = true;
+    fadeDelta = 10;
 
-    inactiveOpacity = 0.93;
     activeOpacity = 1.0;
+    inactiveOpacity = 0.93;
+    menuOpacity = 0.95;
 
     settings = {
       corner-radius = 8;
@@ -20,6 +22,8 @@
         "window_type = 'dock'"
         "window_type = 'desktop'"
       ];
+
+      detect-client-opacity = true;
     };
   };
 }
