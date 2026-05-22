@@ -26,12 +26,6 @@
             format = " $icon $mem_used_percents ";
           }
           {
-            block = "disk_space";
-            path = "/";
-            info_type = "available";
-            interval = 60;
-          }
-          {
             block = "sound";
           }
           {
@@ -59,7 +53,7 @@
       fonts = {
         names = ["Google Sans Code" "Font Awesome 6 Free"];
         style = "Regular";
-        size = 14.0;
+        size = 12.0;
       };
 
       # 状态栏调色盘（保持与你的终端或整体暗色调一致）

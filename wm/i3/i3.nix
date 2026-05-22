@@ -46,7 +46,7 @@
         {command = "asusctl profile -P Quiet";}
         {command = "fcitx5 -d --replace";}
         {
-          command = "feh --bg-fill ../../wallpapers/wall4.png";
+          command = "feh --bg-fill /home/davyjones/nixos/wallpapers/wall4.png";
           always = true;
         }
       ];
@@ -154,4 +154,6 @@
     "Xft.antialias" = 1;
     "Xft.rgba" = "rgb";
   };
+
+  services.network-manager-applet.enable = true;
 }

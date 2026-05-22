@@ -5,7 +5,7 @@
     backend = "egl";
     vSync = true;
 
-    shadow = true;
+    shadow = false;
     shadowOpacity = 0.75;
     shadowOffsets = [(-15) (-15)];
 
