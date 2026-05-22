@@ -14,10 +14,6 @@
         icons = "awesome6";
         blocks = [
           {
-            block = "active_window";
-            max_length = 40;
-          }
-          {
             block = "cpu";
             interval = 2;
           }
