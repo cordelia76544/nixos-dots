@@ -46,7 +46,7 @@
         {command = "asusctl profile -P Quiet";}
         {command = "fcitx5 -d --replace";}
         {
-          command = "feh --bg-fill ../wallpapers/wall4.png";
+          command = "feh --bg-fill ../../wallpapers/wall4.png";
           always = true;
         }
       ];
@@ -143,9 +143,6 @@
 
   programs.feh = {
     enable = true;
-    settings = {
-      bgFill = true;
-    };
   };
 
   xresources.properties = {
