@@ -1,12 +1,10 @@
 {
-  pkgs,
   config,
   lib,
   ...
 }: {
   xsession.windowManager.i3 = {
     enable = true;
-    package = pkgs.i3-gaps;
     config = {
       defaultWorkspace = "workspace number 1";
       modifier = "Mod4";
