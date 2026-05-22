@@ -10,5 +10,7 @@
     upower.enable = true;
     tlp.enable = lib.mkForce false;
     fstrim.enable = lib.mkDefault true;
+
+    xserver.windowManager.i3.enable = true;
   };
 }
