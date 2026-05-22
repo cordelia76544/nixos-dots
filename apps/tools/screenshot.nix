@@ -1,35 +1,32 @@
 {pkgs, ...}: let
-  screenshot-area = pkgs.writeShellScriptBin "screenshot-area" ''
-    #!/usr/bin/env bash
-    set -euo pipefail
-
-    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | \
-      ${pkgs.wl-clipboard}/bin/wl-copy
-  '';
-
   screenshot-ocr-area = pkgs.writeShellScriptBin "screenshot-ocr-area" ''
     #!${pkgs.bash}/bin/bash
     set -euo pipefail
 
+    # 如果你的 Umi-OCR 端口不同，可以在这里修改
     UMI_URL="''${UMI_URL:-http://127.0.0.1:1224/api/ocr}"
 
     notify() {
       ${pkgs.libnotify}/bin/notify-send "$@"
     }
 
-    if ! region="$(${pkgs.slurp}/bin/slurp)"; then
-      notify "Umi OCR" "Selection cancelled."
-      exit 1
+    # 使用 maim 进行 X11 选区，如果不成功（比如按 Esc 取消）则退出
+    if ! img_stream=$(${pkgs.maim}/bin/maim -s -u); then
+      notify "Umi OCR" "选区已取消"
+      exit 0
     fi
 
+    # 将图片流压缩为 jpeg 并转为 base64
     if ! img_b64="$(
-      ${pkgs.grim}/bin/grim -g "$region" -t jpeg -q 70 - \
+      echo "$img_stream" \
+        | ${pkgs.imagemagick}/bin/convert - -format jpeg -quality 70 - \
         | ${pkgs.coreutils}/bin/base64 -w 0
     )"; then
-      notify "Umi OCR" "Failed to capture screenshot."
+      notify "Umi OCR" "截图转换失败"
       exit 1
     fi
 
+    # 请求 Umi-OCR 接口
     if ! result="$(
       ${pkgs.jq}/bin/jq -n \
         --arg base64 "$img_b64" \
@@ -42,37 +39,49 @@
           }
         }' \
       | ${pkgs.curl}/bin/curl -fsS \
-          --retry 6 \
-          --retry-delay 5 \
-          --retry-connrefused \
+          --retry 3 \
+          --retry-delay 2 \
           -H 'Content-Type: application/json' \
           -d @- \
           "$UMI_URL" \
       | ${pkgs.jq}/bin/jq -r '.data'
     )"; then
-      notify "Umi OCR" "OCR request failed."
+      notify "Umi OCR" "OCR 请求失败，请检查服务是否开启"
       exit 1
     fi
 
     if [ -z "$result" ] || [ "$result" = "null" ]; then
-      notify "Umi OCR" "No text recognized."
+      notify "Umi OCR" "未识别到任何文字"
       exit 1
     fi
 
-    printf '%s' "$result" | ${pkgs.wl-clipboard}/bin/wl-copy
-    printf '%s\n' "$result"
+    # 复制到 X11 剪贴板 (CopyQ 会自动捕获)
+    printf '%s' "$result" | ${pkgs.xclip}/bin/xclip -selection clipboard
 
-    notify "Umi OCR" "OCR text copied to clipboard."
+    notify "Umi OCR" "文字已成功复制到剪贴板"
   '';
 in {
+  # 2. 安装所有需要的辅助工具和刚才定义的脚本
   home.packages = with pkgs; [
-    grim
-    slurp
-    wl-clipboard
-    libnotify
-    gnused
-
-    screenshot-area
     screenshot-ocr-area
+    maim
+    imagemagick
+    xclip
+    jq
+    libnotify
   ];
+
+  # 3. 启用并配置 Flameshot 服务
+  services.flameshot = {
+    enable = true;
+    settings = {
+      General = {
+        savePath = "/home/davyjones/Pictures/Screenshots";
+        saveLastRegion = true;
+        showHelp = false;
+        copyAndExitRegionalGuideline = true;
+        disabledTrayIcon = true;
+      };
+    };
+  };
 }

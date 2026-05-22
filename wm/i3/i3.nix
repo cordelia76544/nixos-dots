@@ -15,14 +15,14 @@
       fonts = {
         names = ["Google Sans Code"];
         style = "Regular";
-        size = 15.0;
+        size = 14.0;
       };
 
       gaps = {
-        bottom = 5;
-        horizontal = 5;
-        inner = 5;
-        outer = 5;
+        bottom = 3;
+        horizontal = 3;
+        inner = 3;
+        outer = 3;
         smartGaps = true;
         smartBorders = "no_gaps";
       };
@@ -31,8 +31,8 @@
         border = 2;
         criteria = [
           {title = "Settings|Preferences|配置";}
-          {title = "Picture-in-Picture";}
-          {title = "Extension";}
+          #    {title = "Picture-in-Picture";}
+          {title = "Bitwarden";}
         ];
       };
 
@@ -46,14 +46,14 @@
         {command = "asusctl profile -P Quiet";}
         {command = "fcitx5 -d --replace";}
         {
-          command = "feh --bg-fill /home/davyjones/nixos/wallpapers/wall4.png";
+          command = "feh --bg-fill /home/davyjones/nixos/wallpapers/wall5.jpg";
           always = true;
         }
       ];
 
       window = {
         border = 2;
-        titlebar = true;
+        titlebar = false;
       };
 
       keybindings = let
@@ -118,7 +118,7 @@
             "${mod}+space" = "exec rofi -show drun";
 
             # screenshot
-            "${mod}+Shift+s" = "exec screenshot-area";
+            "${mod}+Shift+s" = "exec flameshot gui";
             "${mod}+Shift+o" = "exec screenshot-ocr-area";
           }
           //
