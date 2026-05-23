@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   stylix.enable = true;
-  stylix.image = ../../wallpapers/wall5.jpg;
+  stylix.image = ../../wallpapers/wall6.jpg;
 
-  #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-light-medium.yaml";
 
-  stylix.polarity = "light";
+  stylix.polarity = "either";
 
   stylix.cursor = {
     package = pkgs.adwaita-icon-theme;
@@ -15,7 +15,7 @@
   stylix.fonts = {
     monospace = {
       package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "JetBrains Mono";
+      name = "JetBrainsMono Nerd Font";
     };
     sansSerif = {
       package = pkgs.googlesans-code;
@@ -31,13 +31,13 @@
       terminal = 14;
 
       # 桌面/应用正文字号：影响 Rofi, polybar/i3status 以及很多 GTK/QT 应用的菜单正文
-      applications = 10;
+      applications = 13;
 
       # 桌面通知字号：影响 Dunst 或 Mako 等通知组件
-      popups = 11;
+      popups = 13;
 
       # 桌面环境标题栏字号：影响 i3 的窗口标题栏（Window Title）
-      desktop = 10;
+      desktop = 12;
     };
   };
 }

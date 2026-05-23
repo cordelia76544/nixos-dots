@@ -12,11 +12,16 @@
     fade = true;
     fadeDelta = 5;
 
-    activeOpacity = 0.8;
+    activeOpacity = 0.85;
     inactiveOpacity = 0.7;
     menuOpacity = 0.95;
 
     settings = {
+      track-wm-history = true;
+      opacity-rule = [
+        "100%:class_g = 'i3-frame'"
+        "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
+      ];
       corner-radius = 8;
       rounded-corners-exclude = [
         "window_type = 'dock'"
@@ -27,7 +32,7 @@
 
       blur = {
         method = "dual-kawase";
-        strength = 6; # 模糊强度，数字越大越糊。你的 2.5K 屏建议 5 ~ 7 视觉效果最好
+        strength = 7; # 模糊强度，数字越大越糊。你的 2.5K 屏建议 5 ~ 7 视觉效果最好
         background = true; # 模糊窗口背景
         background-frame = false;
         background-fixed = false;

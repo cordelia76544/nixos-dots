@@ -175,12 +175,10 @@
     xorg.xset
   ];
 
-  # =========================================================================
-  # 1. 自动化服务：监听空闲并锁屏
-  # =========================================================================
   services.screen-locker = {
     enable = true;
     inactiveInterval = 5;
     lockCmd = "${pkgs.i3lock-color}/bin/i3lock-color --blur 5 --clock --indicator --time-str='%H:%M:%S' --date-str='%Y-%m-%d' --inside-color=00000000 --ring-color=ffffffaa";
+    xssLockerExtraOptions = ["--ignore-sleep"];
   };
 }
