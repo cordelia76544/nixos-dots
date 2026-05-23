@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   stylix.enable = true;
-  stylix.image = /home/davyjones/nixos/wallpapers/wall5.jpg;
+  stylix.image = ../../wallpapers/wall5.jpg;
 
   #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
