@@ -7,8 +7,7 @@
   stylix.polarity = "light";
 
   stylix.cursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
+    name = "Adwaita";
     size = 32;
   };
 
