@@ -5,7 +5,7 @@
 
     # 1. 字体配置
     font = {
-      name = "Google Sans Code";
+      #  name = "Google Sans Code";
       size = 15.0;
     };
 
@@ -51,16 +51,16 @@
     };
 
     # 4. 引用外部文件
-    extraConfig = ''
-      include dank-tabs.conf
-      include dank-theme.conf
-    '';
+    #extraConfig = ''
+    #  include dank-tabs.conf
+    #  include dank-theme.conf
+    #'';
   };
 
   # 5. 确保 dank-*.conf 文件被链接到 ~/.config/kitty/ 下
   # 假设这两个文件就在当前 kitty.nix 的同级目录下
-  xdg.configFile = {
-    "kitty/dank-tabs.conf".source = ./dank-tabs.conf;
-    "kitty/dank-theme.conf".source = ./dank-theme.conf;
-  };
+  #xdg.configFile = {
+  #  "kitty/dank-tabs.conf".source = ./dank-tabs.conf;
+  #  "kitty/dank-theme.conf".source = ./dank-theme.conf;
+  #};
 }

@@ -6,6 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     daeuniverse.url = "github:daeuniverse/flake.nix";
+    stylix.url = "github:nix-community/stylix/release-25.11";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,6 +57,7 @@
     nix-cachyos-kernel,
     nixvim,
     helium,
+    stylix,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -71,6 +73,7 @@
         modules = [
           {nixpkgs.hostPlatform = "x86_64-linux";}
           ./configuration.nix
+          stylix.nixosModules.stylix
           inputs.daeuniverse.nixosModules.dae
           inputs.daeuniverse.nixosModules.daed
           (

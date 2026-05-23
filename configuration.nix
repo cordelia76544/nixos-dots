@@ -14,6 +14,7 @@
     ./apps/games/steam.nix
     ./apps/medias/musics
     ./svc
+    ./wm/i3/stylix.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

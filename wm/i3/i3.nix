@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   xsession.windowManager.i3 = {
@@ -13,8 +14,8 @@
       workspaceAutoBackAndForth = true;
 
       fonts = {
-        names = ["Google Sans Code"];
-        style = "Regular";
+        #  names = ["Google Sans Code"];
+        #  style = "Regular";
         size = 14.0;
       };
 
@@ -50,6 +51,14 @@
           command = "feh --bg-fill /home/davyjones/nixos/wallpapers/wall5.jpg";
           always = true;
         }
+        {
+          command = "${pkgs.xorg.xset}/bin/xset dpms 600 600 600";
+          always = true;
+        }
+        {
+          command = "${pkgs.xorg.xset}/bin/xset +dpms";
+          always = true;
+        }
       ];
 
       window = {
@@ -65,6 +74,7 @@
             # --- exit session ---
             "${mod}+Shift+e" = "exec i3-nagbar -t warning -m 'You exited i3. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'";
             "${mod}+Ctrl+Shift+e" = "exit";
+            "${mod}+l" = "exec loginctl lock-session";
 
             # --- Window Management ---
             "${mod}+q" = "kill";
@@ -159,4 +169,18 @@
   };
 
   services.network-manager-applet.enable = true;
+
+  home.packages = with pkgs; [
+    i3lock-color
+    xorg.xset
+  ];
+
+  # =========================================================================
+  # 1. 自动化服务：监听空闲并锁屏
+  # =========================================================================
+  services.screen-locker = {
+    enable = true;
+    inactiveInterval = 5;
+    lockCmd = "${pkgs.i3lock-color}/bin/i3lock-color --blur 5 --clock --indicator --time-str='%H:%M:%S' --date-str='%Y-%m-%d' --inside-color=00000000 --ring-color=ffffffaa";
+  };
 }
