@@ -40,6 +40,7 @@
         followMouse = true;
         mouseWarping = true;
         newWindow = "smart";
+        wrapping = "no";
       };
 
       startup = [
