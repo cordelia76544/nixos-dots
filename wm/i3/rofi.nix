@@ -13,10 +13,8 @@
         path = lib.getExe pkgs.rofi-power-menu;
       }
     ];
-    font = "Google Sans Code 16";
     plugins = [
       pkgs.rofi-power-menu
     ];
   };
-
 }

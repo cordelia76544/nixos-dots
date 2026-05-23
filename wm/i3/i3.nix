@@ -16,7 +16,7 @@
       fonts = {
         #  names = ["Google Sans Code"];
         #  style = "Regular";
-        size = 14.0;
+        # size = 14.0;
       };
 
       gaps = {

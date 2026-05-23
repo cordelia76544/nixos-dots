@@ -4,10 +4,10 @@
     shellIntegration.enableZshIntegration = true;
 
     # 1. 字体配置
-    font = {
-      #  name = "Google Sans Code";
-      size = 15.0;
-    };
+    #font = {
+    #  name = "Google Sans Code";
+    # size = 15.0;
+    #};
 
     # 2. 一般设置 (对应 conf 中的 key value)
     settings = {
@@ -18,7 +18,7 @@
 
       # Window Configuration
       window_padding_width = 12;
-      background_opacity = "1.0";
+      #background_opacity = "1.0";
       background_blur = 32;
       hide_window_decorations = "yes";
 

@@ -32,8 +32,6 @@
     profiles.default.userSettings = {
       # --- 通用编辑器设置 ---
       "locale" = "zh-cn";
-      "editor.fontSize" = 16;
-      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'Google Sans Code', 'Droid Sans Mono', monospace";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
       "workbench.iconTheme" = "material-icon-theme";
