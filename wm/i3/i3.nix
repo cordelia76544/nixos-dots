@@ -47,10 +47,10 @@
       startup = [
         {command = "asusctl profile -P Quiet";}
         {command = "fcitx5 -d --replace";}
-        {
-          command = "feh --bg-fill /home/davyjones/nixos/wallpapers/wall5.jpg";
-          always = true;
-        }
+        #{
+        #  command = "feh --bg-fill /home/davyjones/nixos/wallpapers/wall5.jpg";
+        #  always = true;
+        #}
         {
           command = "${pkgs.xorg.xset}/bin/xset dpms 600 600 600";
           always = true;
@@ -179,6 +179,8 @@
     enable = true;
     inactiveInterval = 5;
     lockCmd = "${pkgs.i3lock-color}/bin/i3lock-color --blur 5 --clock --indicator --time-str='%H:%M:%S' --date-str='%Y-%m-%d' --inside-color=00000000 --ring-color=ffffffaa";
-    xssLockerExtraOptions = ["--ignore-sleep"];
+    xss-lock = {
+      extraOptions = ["--ignore-sleep"]; # 正确的选项路径
+    };
   };
 }
