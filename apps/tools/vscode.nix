@@ -4,7 +4,7 @@
     enableNushellIntegration = true;
     nix-direnv.enable = true;
   };
-
+  stylix.targets.vscode.colors.enable = false;
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;

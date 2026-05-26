@@ -40,9 +40,9 @@
 
       # 哪些窗口类型应该触发模糊（默认全部触发，但我们可以排除全屏不透明应用）
       blur-background-exclude = [
-        "window_type = 'desktop'"
+        #      "window_type = 'desktop'"
         "_GTK_FRAME_EXTENTS@:c"
-        "class_g = 'Flameshot'" # 避免截图工具被模糊
+        "class_g = 'Flameshot'"
       ];
     };
   };
