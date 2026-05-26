@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   stylix.enable = true;
-  stylix.image = ../../wallpapers/wall6.jpg;
+  stylix.image = ../../wallpapers/wall7.jpg;
 
   #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-light-medium.yaml";
 
-  stylix.polarity = "either";
+  stylix.polarity = "light";
 
   stylix.cursor = {
     package = pkgs.adwaita-icon-theme;

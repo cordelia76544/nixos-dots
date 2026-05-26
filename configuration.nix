@@ -51,6 +51,9 @@
   # Configure network proxy if necessary
   #networking.proxy.default = "http://127.0.0.1:7897/";
   #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain,192.168.0.0/16,172.16.0.0/12,10.0.0.0/8";
+  networking.extraHosts = ''
+    10.76.206.118 claw.cokwd.uk
+  '';
 
   i18n.defaultLocale = "zh_CN.UTF-8";
 
