@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   programs.dank-material-shell = {
@@ -28,7 +29,7 @@
       useAutoLocation = false;
       weatherEnabled = false;
 
-      currentThemeName = "dynamic";
+      currentThemeName = lib.mkForce "dynamic";
       currentThemeCategory = "dynamic";
       customThemeFile = "";
       matugenScheme = "scheme-content";
@@ -467,4 +468,5 @@
       };
     };
   };
+  stylix.targets.dank-material-shell.enable = false;
 }
