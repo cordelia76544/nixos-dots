@@ -52,11 +52,11 @@
         #  always = true;
         #}
         {
-          command = "${pkgs.xorg.xset}/bin/xset dpms 600 600 600";
+          command = "${pkgs.xset}/bin/xset dpms 600 600 600";
           always = true;
         }
         {
-          command = "${pkgs.xorg.xset}/bin/xset +dpms";
+          command = "${pkgs.xset}/bin/xset +dpms";
           always = true;
         }
       ];
@@ -172,7 +172,7 @@
 
   home.packages = with pkgs; [
     i3lock-color
-    xorg.xset
+    xset
   ];
 
   services.screen-locker = {

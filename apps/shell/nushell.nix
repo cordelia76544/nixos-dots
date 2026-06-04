@@ -9,7 +9,7 @@
 
     plugins = [
       pkgs.nushellPlugins.gstat
-      pkgs.nushellPlugins.highlight
+      #pkgs.nushellPlugins.highlight
       pkgs.nushellPlugins.query
     ];
 

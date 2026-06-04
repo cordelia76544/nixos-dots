@@ -106,6 +106,8 @@
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
+    gtk4.theme = null;
+    #gtk4.theme = config.gtk.theme;
   };
 
   home.stateVersion = "25.05";
