@@ -45,7 +45,7 @@
       };
 
       startup = [
-        {command = "asusctl profile -P Quiet";}
+        {command = "asusctl profile set Quiet";}
         {command = "fcitx5 -d --replace";}
         #{
         #  command = "feh --bg-fill /home/davyjones/nixos/wallpapers/wall5.jpg";

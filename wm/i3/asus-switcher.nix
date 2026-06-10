@@ -13,15 +13,15 @@
     # 3. 根据选择执行对应的 asusctl 命令
     case "$CHOICE" in
         *Quiet*)
-            ${pkgs.asusctl}/bin/asusctl profile -P Quiet
+            ${pkgs.asusctl}/bin/asusctl profile set Quiet
             ${pkgs.libnotify}/bin/notify-send "Asusctl" "已切换至 静音模式 (Quiet)" -i speedm4
             ;;
         *Balanced*)
-            ${pkgs.asusctl}/bin/asusctl profile -P Balanced
+            ${pkgs.asusctl}/bin/asusctl profile set Balanced
             ${pkgs.libnotify}/bin/notify-send "Asusctl" "已切换至 平衡模式 (Balanced)" -i speedm4
             ;;
         *Performance*)
-            ${pkgs.asusctl}/bin/asusctl profile -P Performance
+            ${pkgs.asusctl}/bin/asusctl profile set Performance
             ${pkgs.libnotify}/bin/notify-send "Asusctl" "已切换至 增强模式 (Performance)" -i speedm4
             ;;
     esac
@@ -32,5 +32,4 @@ in {
     asus-profile-switcher
     rofi-power-menu
   ];
-
 }
