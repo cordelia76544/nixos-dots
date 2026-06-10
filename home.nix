@@ -106,7 +106,7 @@
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
-    gtk4.theme = null;
+    #gtk4.theme = null;
     #gtk4.theme = config.gtk.theme;
   };
 
