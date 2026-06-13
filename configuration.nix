@@ -15,6 +15,7 @@
     ./apps/medias/musics
     ./svc
     ./wm/i3/stylix.nix
+    ./wm/dwm/dwm.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
