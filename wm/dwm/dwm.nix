@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
-    src = ./sources;
+  services.xserver.windowManager.dwm = {
+    enable = true;
+    package = pkgs.dwm.overrideAttrs {
+      src = ./sources;
+    };
   };
 }
