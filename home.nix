@@ -41,6 +41,7 @@
     xz
     unzip
     p7zip
+    unrar
 
     # utils
     kitty
@@ -78,6 +79,7 @@
     googlesans-code
     obsidian
     remmina
+    wpsoffice-cn
   ];
 
   programs.git = {
