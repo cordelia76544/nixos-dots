@@ -20,6 +20,7 @@
     ./wm/niri.nix
     ./wm/i3
     ./wm/polybar
+    ./wm/dwm/autostart.nix
     ./apps/shell/nushell.nix
     ./apps/kitty/kitty.nix
     ./apps/games
