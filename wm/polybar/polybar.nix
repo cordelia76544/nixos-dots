@@ -5,7 +5,7 @@
   ...
 }: let
   # Adjust these for your machine.
-  networkInterface = "wlo1";
+  networkInterface = "wlan0";
   batteryName = "BAT1";
   adapterName = "ACAD";
 
@@ -18,29 +18,34 @@
     fgAlt = "#EBDBB2";
     accent = "#CC241D";
 
-    red = "#CC241D";
-    green = "#98971A";
-    yellow = "#D79921";
-    blue = "#458588";
-    purple = "#B16286";
-    aqua = "#689D6A";
-    orange = "#D65D0E";
-    gray = "#928374";
+    # Keep the original adi1090x blocks palette.  The --gruvbox switch only
+    # changed bg/bgAlt/fg/fgAlt/accent; these secondary colors stayed as-is.
+    white = "#FFFFFF";
+    black = "#000000";
+    red = "#EC7875";
+    pink = "#EC6798";
+    purple = "#BE78D1";
+    blue = "#75A4CD";
+    cyan = "#00C7DF";
+    teal = "#00B19F";
+    green = "#61C766";
+    lime = "#B9C244";
+    yellow = "#EBD369";
+    amber = "#EDB83F";
+    orange = "#E57C46";
+    brown = "#AC8476";
+    gray = "#9E9E9E";
+    indigo = "#6C77BB";
+    blueGray = "#6D8895";
   };
 
-  iosevkaNerdFont =
-    if lib.hasAttrByPath ["nerd-fonts" "iosevka"] pkgs
-    then pkgs.nerd-fonts.iosevka
-    else pkgs.nerdfonts.override {fonts = ["Iosevka"];};
+  # Force glyphs from the second Polybar font slot, which is feather.
+  # This avoids Nerd Font private-use glyphs being chosen before feather.
+  icon = glyph: "%{T2}" + glyph + "%{T-}";
 
   runtimePath = lib.makeBinPath (with pkgs; [coreutils procps]);
 in {
   fonts.fontconfig.enable = true;
-
-  home.packages = [
-    pkgs.polybar
-    iosevkaNerdFont
-  ];
 
   services.polybar = {
     enable = true;
@@ -74,7 +79,7 @@ in {
         "offset-x" = "0%";
         "offset-y" = "0%";
         "background" = colors.bg;
-        "foreground" = colors.fgAlt;
+        "foreground" = colors.fg;
         "radius-top" = 0;
         "radius-bottom" = 0;
         "line-size" = 5;
@@ -85,7 +90,7 @@ in {
         "module-margin-left" = 0;
         "module-margin-right" = 0;
         "font-0" = "Iosevka Nerd Font:size=10;4";
-        "font-1" = "Iosevka Nerd Font:size=12;4";
+        "font-1" = "feather:size=10;3";
         "modules-left" = "sep launcher sep workspaces sep";
         "modules-center" = "title";
         "modules-right" = "alsa sep battery sep network sep date sep sysmenu sep";
@@ -113,9 +118,8 @@ in {
 
       "module/launcher" = {
         "type" = "custom/text";
-        "content-prefix" = "";
-        "content-prefix-background" = colors.accent;
-        "content-prefix-foreground" = colors.fgAlt;
+        "content-prefix" = icon "";
+        "content-prefix-background" = colors.teal;
         "content-prefix-padding" = 1;
         "content" = " Menu ";
         "content-background" = colors.bgAlt;
@@ -130,23 +134,23 @@ in {
         "pin-workspaces" = true;
         "enable-click" = true;
         "enable-scroll" = true;
-        "icon-0" = "1;一";
-        "icon-1" = "2;二";
-        "icon-2" = "3;三";
-        "icon-3" = "4;四";
-        "icon-4" = "5;五";
-        "icon-default" = "•";
+        "icon-0" = "1;${icon ""}";
+        "icon-1" = "2;${icon ""}";
+        "icon-2" = "3;${icon ""}";
+        "icon-3" = "4;${icon ""}";
+        "icon-4" = "5;${icon ""}";
+        "icon-default" = icon "";
         "format" = "<label-state>";
         "format-overline" = colors.bg;
         "format-underline" = colors.bg;
         "label-active" = "%icon%";
-        "label-active-foreground" = colors.fgAlt;
+        "label-active-foreground" = colors.fg;
         "label-active-background" = colors.accent;
         "label-occupied" = "%icon%";
         "label-occupied-foreground" = colors.fg;
-        "label-occupied-background" = colors.bgAlt;
+        "label-occupied-background" = colors.gray;
         "label-urgent" = "%icon%";
-        "label-urgent-foreground" = colors.fgAlt;
+        "label-urgent-foreground" = colors.fg;
         "label-urgent-background" = colors.red;
         "label-empty" = "%icon%";
         "label-empty-foreground" = colors.fg;
@@ -160,7 +164,7 @@ in {
       "module/title" = {
         "type" = "internal/xwindow";
         "format" = "<label>";
-        "format-prefix" = "󰖯";
+        "format-prefix" = icon "";
         "format-padding" = 1;
         "format-foreground" = colors.fgAlt;
         "label" = " %title%";
@@ -179,9 +183,8 @@ in {
         "format-volume-overline" = colors.bg;
         "format-volume-underline" = colors.bg;
         "format-muted" = "<label-muted>";
-        "format-muted-prefix" = "󰝟";
-        "format-muted-prefix-background" = colors.accent;
-        "format-muted-prefix-foreground" = colors.fgAlt;
+        "format-muted-prefix" = icon "";
+        "format-muted-prefix-background" = colors.red;
         "format-muted-prefix-padding" = 1;
         "format-muted-overline" = colors.bg;
         "format-muted-underline" = colors.bg;
@@ -193,15 +196,13 @@ in {
         "label-muted-background" = colors.bgAlt;
         "label-muted-foreground" = colors.fg;
         "label-muted-padding" = 1;
-        "ramp-volume-0" = "󰕿";
-        "ramp-volume-1" = "󰖀";
-        "ramp-volume-2" = "󰕾";
-        "ramp-volume-background" = colors.accent;
-        "ramp-volume-foreground" = colors.fgAlt;
+        "ramp-volume-0" = icon "";
+        "ramp-volume-1" = icon "";
+        "ramp-volume-2" = icon "";
+        "ramp-volume-background" = colors.blue;
         "ramp-volume-padding" = 1;
-        "ramp-headphones-0" = "󰋋";
-        "ramp-headphones-background" = colors.accent;
-        "ramp-headphones-foreground" = colors.fgAlt;
+        "ramp-headphones-0" = icon "";
+        "ramp-headphones-background" = colors.blue;
         "ramp-headphones-padding" = 1;
       };
 
@@ -213,23 +214,20 @@ in {
         "poll-interval" = 2;
         "time-format" = "%H:%M";
         "format-charging" = "<label-charging>";
-        "format-charging-prefix" = "󰂄";
+        "format-charging-prefix" = icon "";
         "format-charging-prefix-background" = colors.green;
-        "format-charging-prefix-foreground" = colors.fgAlt;
         "format-charging-prefix-padding" = 1;
         "format-charging-overline" = colors.bg;
         "format-charging-underline" = colors.bg;
         "format-discharging" = "<label-discharging>";
-        "format-discharging-prefix" = "󰁹";
-        "format-discharging-prefix-background" = colors.accent;
-        "format-discharging-prefix-foreground" = colors.fgAlt;
+        "format-discharging-prefix" = icon "";
+        "format-discharging-prefix-background" = colors.pink;
         "format-discharging-prefix-padding" = 1;
         "format-discharging-overline" = colors.bg;
         "format-discharging-underline" = colors.bg;
         "format-full" = "<label-full>";
-        "format-full-prefix" = "󰁹";
-        "format-full-prefix-background" = colors.accent;
-        "format-full-prefix-foreground" = colors.fgAlt;
+        "format-full-prefix" = icon "";
+        "format-full-prefix-background" = colors.red;
         "format-full-prefix-padding" = 1;
         "format-full-overline" = colors.bg;
         "format-full-underline" = colors.bg;
@@ -254,16 +252,14 @@ in {
         "accumulate-stats" = true;
         "unknown-as-up" = true;
         "format-connected" = "<label-connected>";
-        "format-connected-prefix" = "󰖩";
-        "format-connected-prefix-background" = colors.accent;
-        "format-connected-prefix-foreground" = colors.fgAlt;
+        "format-connected-prefix" = icon "";
+        "format-connected-prefix-background" = colors.purple;
         "format-connected-prefix-padding" = 1;
         "format-connected-overline" = colors.bg;
         "format-connected-underline" = colors.bg;
         "format-disconnected" = "<label-disconnected>";
-        "format-disconnected-prefix" = "󰖪";
+        "format-disconnected-prefix" = icon "";
         "format-disconnected-prefix-background" = colors.orange;
-        "format-disconnected-prefix-foreground" = colors.fgAlt;
         "format-disconnected-prefix-padding" = 1;
         "format-disconnected-overline" = colors.bg;
         "format-disconnected-underline" = colors.bg;
@@ -283,9 +279,8 @@ in {
         "time" = "%I:%M %p";
         "time-alt" = "%a, %d %b %Y";
         "format" = "<label>";
-        "format-prefix" = "󰥔";
-        "format-prefix-background" = colors.accent;
-        "format-prefix-foreground" = colors.fgAlt;
+        "format-prefix" = icon "";
+        "format-prefix-background" = colors.amber;
         "format-prefix-padding" = 1;
         "format-overline" = colors.bg;
         "format-underline" = colors.bg;
@@ -297,9 +292,8 @@ in {
 
       "module/sysmenu" = {
         "type" = "custom/text";
-        "content-prefix" = "";
-        "content-prefix-background" = colors.accent;
-        "content-prefix-foreground" = colors.fgAlt;
+        "content-prefix" = icon "";
+        "content-prefix-background" = colors.cyan;
         "content-prefix-padding" = 1;
         "content" = " System ";
         "content-background" = colors.bgAlt;

@@ -19,7 +19,7 @@
     inputs.nixvim.homeModules.nixvim
     ./wm/niri.nix
     ./wm/i3
-    ./wm/polybar.nix
+    ./wm/polybar
     ./apps/shell/nushell.nix
     ./apps/kitty/kitty.nix
     ./apps/games

@@ -1,0 +1,6 @@
+{...}: {
+  imports = [
+    ./polybar.nix
+    ./fonts
+  ];
+}
