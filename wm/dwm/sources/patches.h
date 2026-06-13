@@ -283,10 +283,10 @@
  *
  * https://dwm.suckless.org/patches/anybar/
  */
-#define BAR_ANYBAR_PATCH 1
+#define BAR_ANYBAR_PATCH 0
 
 /* Anybar option to place the next bar depending on previous bar's position (top or bottom) */
-#define BAR_ANYBAR_TOP_AND_BOTTOM_BARS_PATCH 1
+#define BAR_ANYBAR_TOP_AND_BOTTOM_BARS_PATCH 0
 
 /* Anybar option to let dwm manage the width of the bar */
 #define BAR_ANYBAR_MANAGE_WIDTH_PATCH 0

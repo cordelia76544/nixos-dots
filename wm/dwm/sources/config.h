@@ -896,7 +896,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 #endif // NODMENU_PATCH
 static const char *dmenucmd[] = {"rofi", "-show", "drun", NULL};
 static const char *termcmd[]  = { "kitty", NULL };
-static const char *browsercmd[] = {"firefox", NULL };
+static const char *browsercmd[] = {"helium", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
