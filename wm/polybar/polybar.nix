@@ -6,7 +6,7 @@
   # Adjust these for your machine.
   networkInterface = "wlo1";
   batteryName = "BAT0";
-  adapterName = "ACAD";
+  adapterName = "ADP0";
 
   # Gruvbox colors, matching the old theme switch style:
   # BG="#282828" BGA="#EBDBB2" FGA="#EBDBB2" FG="#282828" AC="#CC241D"
@@ -74,7 +74,7 @@ in {
         "bottom" = false;
         "fixed-center" = true;
         "width" = "100%";
-        "height" = 34;
+        "height" = 36;
         "offset-x" = "0%";
         "offset-y" = "0%";
         "background" = colors.bg;
@@ -88,9 +88,10 @@ in {
         "padding" = 0;
         "module-margin-left" = 0;
         "module-margin-right" = 0;
-        "font-0" = "Iosevka Nerd Font:size=10;4";
-        "font-1" = "feather:size=10;3";
-        font-2 = "Noto Sans CJK SC:size=10;3";
+        "font-0" = "Iosevka Nerd Font:size=12;5";
+        "font-1" = "feather:size=13;5";
+        "font-2" = "Noto Sans CJK SC:size=12;4";
+        "font-3" = "Noto Color Emoji:size=12;4";
         "modules-left" = "sep launcher sep workspaces sep";
         "modules-center" = "title";
         "modules-right" = "alsa sep battery sep network sep date sep sysmenu sep";
@@ -98,7 +99,7 @@ in {
         "dim-value" = "1.0";
         "wm-name" = "";
         "locale" = "";
-        "tray-position" = "none";
+        "tray-position" = "right";
         "tray-detached" = false;
         "tray-maxsize" = 16;
         "tray-background" = colors.bg;
@@ -111,7 +112,7 @@ in {
 
       "module/sep" = {
         "type" = "custom/text";
-        "format" = "|";
+        "content" = "|";
         "content-background" = colors.bg;
         "content-foreground" = colors.bg;
       };
@@ -121,7 +122,7 @@ in {
         "content-prefix" = icon "";
         "content-prefix-background" = colors.teal;
         "content-prefix-padding" = 1;
-        "format" = " Menu ";
+        "content" = " Menu ";
         "content-background" = colors.bgAlt;
         "content-foreground" = colors.fg;
         "content-overline" = colors.bg;
@@ -295,7 +296,7 @@ in {
         "content-prefix" = icon "";
         "content-prefix-background" = colors.cyan;
         "content-prefix-padding" = 1;
-        "format" = " System ";
+        "content" = " System ";
         "content-background" = colors.bgAlt;
         "content-foreground" = colors.fg;
         "content-overline" = colors.bg;

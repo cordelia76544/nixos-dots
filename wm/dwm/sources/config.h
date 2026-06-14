@@ -897,6 +897,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = {"rofi", "-show", "drun", NULL};
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browsercmd[] = {"helium", NULL };
+static const char *asuscmd[] = {"asus-profile-switcher", NULL };
+static const char *powercmd[] = {"rofi", "-show" "power-menu" "-modi" "power-menu:rofi-power-menu", NULL };
+static const char *screenshotcmd[]  = { "flameshot" "gui", NULL };
+static const char *ocrcmd[]  = { "screenshot-ocr-area", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -1036,6 +1040,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,          spawn,                  {.v = dmenucmd } },
 	{ MODKEY,             XK_Return,     spawn,                  {.v = termcmd } },
     { MODKEY, XK_b, spawn, {.v = browsercmd}},
+	{ MODLEY|ShiftMask, XK_P, {.v = powercmd}},
+	{ MODKEY, XK_p, spawn, {.v = asuscmd}},
+	{ MODKEY|ShiftMask, XK_s, spawn, {.v = screenshotcmd}},
+	{ MODKEY|ShiftMask, XK_o, spawn, {.v = ocrcmd}},
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
