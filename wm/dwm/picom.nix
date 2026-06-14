@@ -49,7 +49,6 @@
         "_GTK_FRAME_EXTENTS"
         "class_g = 'Flameshot'"
         "class_g = 'maim'"
-        "class_g = 'slop"
       ];
 
       unredir-if-possible = false;
