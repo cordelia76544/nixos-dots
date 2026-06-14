@@ -21,9 +21,17 @@
       frame-opacity = 1.0;
       inactive-opacity-override = false;
       track-wm-history = true;
+      opacity-rule = [
+        "100:class_g = 'i3-frame'"
+        "0:_NET_WM_STATE *= '_NET_WM_STATE_HIDDEN'"
+      ];
       corner-radius = 8;
+      rounded-corners-exclude = [
+        "window_type = 'dock'"
+        "window_type = 'desktop'"
+      ];
+
       detect-client-opacity = true;
-      unredir-if-possible = false;
 
       blur = {
         method = "dual_kawase";
@@ -34,50 +42,34 @@
         size = 10;
         deviation = 5.0;
       };
+
+      # 哪些窗口类型应该触发模糊（默认全部触发，但我们可以排除全屏不透明应用）
+      blur-background-exclude = [
+        #      "window_type = 'desktop'"
+        "_GTK_FRAME_EXTENTS"
+        "class_g = 'Flameshot'"
+      ];
+
+      unredir-if-possible = false;
     };
 
     extraConfig = ''
       animations = (
         {
-          triggers = [ "open", "show" ];
-          preset = "slide-in";
-          direction = "up";
+        	triggers = [ "open", "show" ];
+        	preset = "slide-in";
+        	direction = "up";
           duration = 0.2;
         }
-      );
-
-      # v13 统一使用 rules 数组集中管理所有窗口特定的效果与排除项
+      )
       rules = (
-        {
-          match = "class_g = 'slop'";
-          blur-background = false;
-          animations = (); # 顺手禁用动画，保证截图选框瞬间呼出，没有延迟
-        }
-        # 替代原 opacity-rule: 将隐藏状态的窗口透明度设为 0
-        {
-          match = "_NET_WM_STATE *= '_NET_WM_STATE_HIDDEN'";
-          opacity = 0.0;
-        },
-        # 替代原 rounded-corners-exclude: 排除 dock 和 desktop 的圆角
-        {
-          match = "window_type = 'dock' || window_type = 'desktop'";
-          corner-radius = 0;
-        },
-        # 替代原 blur-background-exclude: 排除 GTK 阴影框的背景模糊，避免产生奇怪的黑边或伪影
-        {
-          match = "_GTK_FRAME_EXTENTS@:c";
-          blur-background = false;
-        },
-        # 禁用输入法的过渡动画
         {
           match = "class_g = 'fcitx' || class_g = 'Fcitx' || class_g = 'fcitx5' || class_g = 'Fcitx5'";
           animations = ();
         },
-        # Flameshot 截图工具: 同时禁用背景模糊与过渡动画（合并了此前的两个判断）
         {
           match = "class_g = 'flameshot' || class_g = 'Flameshot'";
           animations = ();
-          blur-background = false;
         }
       );
     '';
