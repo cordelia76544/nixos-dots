@@ -27,8 +27,8 @@
 
       blur = {
         method = "dual_kawase";
-        strength = 7; # 模糊强度，数字越大越糊。你的 2.5K 屏建议 5 ~ 7 视觉效果最好
-        background = true; # 模糊窗口背景
+        strength = 7;
+        background = true;
         background-frame = false;
         background-fixed = false;
         size = 10;
@@ -46,38 +46,36 @@
         }
       );
 
-      # v13 统一使用 rules 数组集中管理所有窗口特定的效果与排除项
       rules = (
         {
-          match = "class_g = 'slop'";
-          blur-background = false;
-          animations = (); # 顺手禁用动画，保证截图选框瞬间呼出，没有延迟
-        }
-        # 替代原 opacity-rule: 将隐藏状态的窗口透明度设为 0
+          match = "class_g = 'i3-frame'";
+          opacity = 1.0;
+        },
         {
           match = "_NET_WM_STATE *= '_NET_WM_STATE_HIDDEN'";
           opacity = 0.0;
         },
-        # 替代原 rounded-corners-exclude: 排除 dock 和 desktop 的圆角
         {
           match = "window_type = 'dock' || window_type = 'desktop'";
           corner-radius = 0;
         },
-        # 替代原 blur-background-exclude: 排除 GTK 阴影框的背景模糊，避免产生奇怪的黑边或伪影
         {
           match = "_GTK_FRAME_EXTENTS@:c";
           blur-background = false;
         },
-        # 禁用输入法的过渡动画
         {
           match = "class_g = 'fcitx' || class_g = 'Fcitx' || class_g = 'fcitx5' || class_g = 'Fcitx5'";
           animations = ();
         },
-        # Flameshot 截图工具: 同时禁用背景模糊与过渡动画（合并了此前的两个判断）
         {
           match = "class_g = 'flameshot' || class_g = 'Flameshot'";
           animations = ();
           blur-background = false;
+        },
+        {
+          match = "class_g = 'slop'";
+          blur-background = false;
+          animations = ();
         }
       );
     '';
