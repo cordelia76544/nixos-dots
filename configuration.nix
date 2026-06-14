@@ -83,7 +83,7 @@
     isNormalUser = true;
     description = "Davy Jones";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "incus-admin" "asus-users"];
-    shell = pkgs.bash;
+    shell = pkgs.nushell;
   };
 
   fonts = {
