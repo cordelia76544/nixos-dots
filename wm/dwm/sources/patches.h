@@ -726,7 +726,7 @@
 /* A simple patch that just puts focus back to the master client.
  * https://dwm.suckless.org/patches/focusmaster/
  */
-#define FOCUSMASTER_PATCH 0
+#define FOCUSMASTER_PATCH 1
 
 /* A variant of the focusmaster patch that additionally allows the focus to be returned to the
  * previously focused client
