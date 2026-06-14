@@ -18,9 +18,8 @@
     inputs.niri.homeModules.niri
     inputs.nixvim.homeModules.nixvim
     ./wm/niri.nix
-    ./wm/i3
     ./wm/polybar
-    ./wm/dwm/autostart.nix
+    ./wm/dwm
     ./apps/shell/nushell.nix
     ./apps/kitty/kitty.nix
     ./apps/games

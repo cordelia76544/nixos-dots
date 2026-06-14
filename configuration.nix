@@ -14,7 +14,7 @@
     ./apps/games/steam.nix
     ./apps/medias/musics
     ./svc
-    ./wm/i3/stylix.nix
+    ./wm/stylix.nix
     ./wm/dwm/dwm.nix
   ];
 
