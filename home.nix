@@ -36,7 +36,6 @@
 
   home.packages = with pkgs; [
     fastfetch
-    pywalfox-native
     papirus-icon-theme
     kdePackages.qt6ct
     zip
@@ -55,6 +54,7 @@
     fzf # A command-line fuzzy finder
     aria2 # A lightweight multi-protocol & multi-source command-line download utility
     lua
+    yajl
 
     # misc
     file
