@@ -157,6 +157,8 @@
   };
 
   security.polkit.enable = true;
+  security.pam.services.i3lock = {};
+  security.pam.services.betterlockscreen = {};
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
