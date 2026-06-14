@@ -6,20 +6,19 @@
     vSync = true;
 
     shadow = false;
-    shadowOpacity = 0.75;
-    shadowOffsets = [(-15) (-15)];
-
     fade = true;
     fadeDelta = 8;
     fadeSteps = [0.04 0.04];
 
-    activeOpacity = 0.75;
-    inactiveOpacity = 0.7;
-    menuOpacity = 0.95;
+    # 注意：这里的全局透明度选项被我注释掉了。
+    # 因为在 v13 中，它们会被 rules 覆盖并产生警告。
+    # 我们已经在下方的 rules 中重新实现了它们。
+    # activeOpacity = 0.75;
+    # inactiveOpacity = 0.7;
+    # menuOpacity = 0.95;
 
     settings = {
       frame-opacity = 1.0;
-      inactive-opacity-override = false;
       track-wm-history = true;
       corner-radius = 8;
       detect-client-opacity = true;
@@ -47,6 +46,21 @@
       );
 
       rules = (
+        # --- 1. 全局透明度规则（必须放在前面） ---
+        {
+          match = "focused";
+          opacity = 0.75;
+        },
+        {
+          match = "!focused"; # 未聚焦的窗口
+          opacity = 0.7;
+        },
+        {
+          match = "window_type = 'menu' || window_type = 'dropdown_menu' || window_type = 'popup_menu' || window_type = 'tooltip'";
+          opacity = 0.95;
+        },
+
+        # --- 2. 窗口特殊覆盖规则（放在后面以覆盖前面的全局设置） ---
         {
           match = "class_g = 'i3-frame'";
           opacity = 1.0;
@@ -60,7 +74,8 @@
           corner-radius = 0;
         },
         {
-          match = "_GTK_FRAME_EXTENTS@:c";
+          # 移除了报错的 :c 类型修饰符，保留 @ 检测属性存在即可
+          match = "_GTK_FRAME_EXTENTS@";
           blur-background = false;
         },
         {
