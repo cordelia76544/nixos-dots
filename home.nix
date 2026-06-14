@@ -81,6 +81,7 @@
     obsidian
     remmina
     wpsoffice-cn
+    zathura
   ];
 
   programs.git = {
@@ -111,6 +112,13 @@
     };
     #gtk4.theme = null;
     #gtk4.theme = config.gtk.theme;
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = ["org.pwmt.zathura.desktop"];
+    };
   };
 
   home.stateVersion = "25.05";

@@ -1039,11 +1039,11 @@ static const Key keys[] = {
 	#endif // KEYMODES_PATCH
 	{ MODKEY,                       XK_space,          spawn,                  {.v = dmenucmd } },
 	{ MODKEY,             XK_Return,     spawn,                  {.v = termcmd } },
-    { MODKEY, XK_b, spawn, {.v = browsercmd}},
-	{ MODKEY|ShiftMask, XK_P, spawn, {.v = powercmd}},
-	{ MODKEY, XK_p, spawn, {.v = asuscmd}},
-	{ MODKEY|ShiftMask, XK_s, spawn, {.v = screenshotcmd}},
-	{ MODKEY|ShiftMask, XK_o, spawn, {.v = ocrcmd}},
+    { MODKEY, XK_b, spawn, {.v = browsercmd} },
+	{ MODKEY|ShiftMask, XK_P, spawn, {.v = powercmd} },
+	{ MODKEY, XK_p, spawn, {.v = asuscmd} },
+	{ MODKEY|ShiftMask, XK_s, spawn, {.v = screenshotcmd} },
+	{ MODKEY|ShiftMask, XK_o, spawn, {.v = ocrcmd} },
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
