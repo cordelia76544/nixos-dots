@@ -17,7 +17,9 @@
       ms-vscode.makefile-tools
       ms-vscode-remote.remote-ssh
       ms-vscode.remote-explorer
+      ms-vscode.cpptools
       ms-vscode.cpptools-extension-pack
+      ms-vscode.cmake-tools
       ms-python.python
       eamodio.gitlens
       editorconfig.editorconfig

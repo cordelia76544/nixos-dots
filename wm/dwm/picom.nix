@@ -62,6 +62,16 @@
           duration = 0.2;
         }
       )
+      rules = (
+        {
+          match = "class_g = 'fcitx' || class_g = 'Fcitx' || class_g = 'fcitx5' || class_g = 'Fcitx5'";
+          animations = ();
+        },
+        {
+          match = "class_g = 'flameshot' || class_g = 'Flameshot'";
+          animations = ();
+        }
+      );
     '';
   };
 }
