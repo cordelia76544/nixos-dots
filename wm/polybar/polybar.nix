@@ -1,12 +1,11 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }: let
   # Adjust these for your machine.
-  networkInterface = "wlan0";
-  batteryName = "BAT1";
+  networkInterface = "wlo1";
+  batteryName = "BAT0";
   adapterName = "ACAD";
 
   # Gruvbox colors, matching the old theme switch style:
@@ -91,6 +90,7 @@ in {
         "module-margin-right" = 0;
         "font-0" = "Iosevka Nerd Font:size=10;4";
         "font-1" = "feather:size=10;3";
+        font-2 = "Noto Sans CJK SC:size=10;3";
         "modules-left" = "sep launcher sep workspaces sep";
         "modules-center" = "title";
         "modules-right" = "alsa sep battery sep network sep date sep sysmenu sep";
@@ -111,7 +111,7 @@ in {
 
       "module/sep" = {
         "type" = "custom/text";
-        "content" = "|";
+        "format" = "|";
         "content-background" = colors.bg;
         "content-foreground" = colors.bg;
       };
@@ -121,7 +121,7 @@ in {
         "content-prefix" = icon "";
         "content-prefix-background" = colors.teal;
         "content-prefix-padding" = 1;
-        "content" = " Menu ";
+        "format" = " Menu ";
         "content-background" = colors.bgAlt;
         "content-foreground" = colors.fg;
         "content-overline" = colors.bg;
@@ -295,7 +295,7 @@ in {
         "content-prefix" = icon "";
         "content-prefix-background" = colors.cyan;
         "content-prefix-padding" = 1;
-        "content" = " System ";
+        "format" = " System ";
         "content-background" = colors.bgAlt;
         "content-foreground" = colors.fg;
         "content-overline" = colors.bg;
