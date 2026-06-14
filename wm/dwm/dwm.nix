@@ -65,5 +65,6 @@ in {
 
   environment.systemPackages = [
     myDwm
+    pkgs.xset
   ];
 }
