@@ -58,9 +58,12 @@
     ];
   });
 in {
-  services.xserver.windowManager.dwm = {
+  services.xserver = {
     enable = true;
-    package = myDwm;
+    windowManager.dwm = {
+      enable = true;
+      package = myDwm;
+    };
   };
 
   environment.systemPackages = [

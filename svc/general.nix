@@ -1,15 +1,15 @@
 {lib, ...}: {
   services = {
     displayManager.ly = {
-      enable = false;
+      enable = true;
       #package = pkgs-stable.ly;
     };
 
     xserver.displayManager.lightdm = {
-      enable = true;
-      greeters.slick = {
-        enable = true;
-      };
+      enable = false;
+      #  greeters.slick = {
+      #    enable = true;
+      #  };
     };
     libinput.enable = true;
     openssh.enable = true;
