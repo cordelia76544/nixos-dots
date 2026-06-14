@@ -48,6 +48,7 @@
         #      "window_type = 'desktop'"
         "_GTK_FRAME_EXTENTS"
         "class_g = 'Flameshot'"
+        "class_g = 'maim'"
       ];
 
       unredir-if-possible = false;

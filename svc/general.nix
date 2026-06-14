@@ -11,7 +11,11 @@
       #    enable = true;
       #  };
     };
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      touchpad.disableWhileTyping = true;
+    };
+
     openssh.enable = true;
     flatpak.enable = true;
     upower.enable = true;
