@@ -38,6 +38,7 @@
     extraConfig = ''
       animations = (
         {
+          match = "window_type = 'normal'";
           triggers = [ "open", "show" ];
           preset = "slide-in";
           direction = "up";
