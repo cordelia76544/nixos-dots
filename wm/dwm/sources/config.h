@@ -910,7 +910,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 #endif						   // NODMENU_PATCH
 static const char *dmenucmd[] = {"rofi", "-show", "drun", NULL};
 static const char *termcmd[] = {"kitty", NULL};
-static const char *browsercmd[] = {"helium", NULL};
+static const char *browsercmd[] = {"google-chrome-stable", NULL};
 static const char *asuscmd[] = {"asus-profile-switcher", NULL};
 static const char *powercmd[] = {"rofi", "-show", "power-menu", "-modi", "power-menu:rofi-power-menu", NULL};
 static const char *screenshotcmd[] = {"flameshot", "gui", NULL};
