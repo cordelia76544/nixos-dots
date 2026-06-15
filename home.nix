@@ -65,6 +65,7 @@
     gnupg
     htop
     pavucontrol
+    autocutsel
 
     # system call monitoring
     strace # system call monitoring
