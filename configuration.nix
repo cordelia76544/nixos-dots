@@ -132,7 +132,7 @@
     git
     gamemode
     adwaita-icon-theme
-    xwayland-satellite
+    #xwayland-satellite
     polkit_gnome
     glib
     gsettings-desktop-schemas
@@ -157,8 +157,12 @@
   };
 
   security.polkit.enable = true;
-  security.pam.services.i3lock-color = {};
-  security.pam.services.betterlockscreen = {};
+  security.pam.services = {
+    i3lock-color = {};
+    betterlockscreen = {};
+    i3lock = {};
+    login.enableGnomeKeyring = true;
+  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";

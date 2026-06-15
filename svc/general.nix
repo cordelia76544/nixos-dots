@@ -2,14 +2,10 @@
   services = {
     displayManager.ly = {
       enable = true;
-      #package = pkgs-stable.ly;
     };
 
     xserver.displayManager.lightdm = {
       enable = false;
-      #  greeters.slick = {
-      #    enable = true;
-      #  };
     };
     libinput = {
       enable = true;
@@ -21,5 +17,6 @@
     upower.enable = true;
     tlp.enable = lib.mkForce false;
     fstrim.enable = lib.mkDefault true;
+    gnome.gnome-keyring.enable = true;
   };
 }
