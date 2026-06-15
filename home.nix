@@ -12,12 +12,12 @@
   };
 
   imports = [
-    inputs.dankMaterialShell.homeModules.dank-material-shell
-    inputs.dankMaterialShell.homeModules.niri
-    inputs.dms-plugin-registry.modules.default
-    inputs.niri.homeModules.niri
+    #inputs.dankMaterialShell.homeModules.dank-material-shell
+    #inputs.dankMaterialShell.homeModules.niri
+    #inputs.dms-plugin-registry.modules.default
+    #inputs.niri.homeModules.niri
     inputs.nixvim.homeModules.nixvim
-    ./wm/niri.nix
+    #./wm/niri.nix
     ./wm/polybar
     ./wm/dwm
     ./apps/shell/nushell.nix

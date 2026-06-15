@@ -144,7 +144,7 @@
     zsh.enable = true;
 
     niri = {
-      enable = true;
+      enable = false;
       package = pkgs.niri;
     };
 
