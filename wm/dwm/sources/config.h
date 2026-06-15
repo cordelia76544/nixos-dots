@@ -541,10 +541,11 @@ static const Rule rules[] = {
 					RULE(.class = "Gimp", .tags = 1 << 4)
 						RULE(.class = "Firefox", .tags = 1 << 7)
 							RULE(.instance = "crx_nngceckbapebfimnlniiiahkandclblb", .isfloating = 1)
+								RULE(.instance = "nmtui-float", .isfloating = 1)
 #if RENAMED_SCRATCHPADS_PATCH
-								RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
+									RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 #elif SCRATCHPADS_PATCH
-								RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
+									RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 #endif // SCRATCHPADS_PATCH
 };
 

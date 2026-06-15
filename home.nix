@@ -64,6 +64,7 @@
     zstd
     gnupg
     htop
+    pavucontrol
 
     # system call monitoring
     strace # system call monitoring

@@ -94,7 +94,7 @@ in {
         "font-3" = "Noto Color Emoji:size=12;4";
         "modules-left" = "sep launcher sep workspaces sep";
         "modules-center" = "title";
-        "modules-right" = "pulseaudio sep battery sep network sep date sep sysmenu sep";
+        "modules-right" = "alsa sep battery sep network sep date sep sysmenu sep";
         "separator" = "";
         "dim-value" = "1.0";
         "wm-name" = "";
@@ -173,43 +173,38 @@ in {
         "label-empty" = " Desktop";
       };
 
-      "module/pulseaudio" = {
-        "type" = "internal/pulseaudio";
-
-        # 推荐开启：防止通过滚轮将音量调高超过 100% 导致破音
-        "use-ui-max" = false;
+      "module/alsa" = {
+        "type" = "internal/alsa";
+        "master-soundcard" = "default";
+        "speaker-soundcard" = "default";
+        "headphone-soundcard" = "default";
+        "master-mixer" = "Master";
         "interval" = 5;
-
         "format-volume" = "<ramp-volume><label-volume>";
         "format-volume-overline" = colors.bg;
         "format-volume-underline" = colors.bg;
-
         "format-muted" = "<label-muted>";
         "format-muted-prefix" = icon "";
         "format-muted-prefix-background" = colors.red;
         "format-muted-prefix-padding" = 1;
         "format-muted-overline" = colors.bg;
         "format-muted-underline" = colors.bg;
-
         "label-volume" = "%percentage%%";
         "label-volume-background" = colors.bgAlt;
         "label-volume-foreground" = colors.fg;
         "label-volume-padding" = 1;
-
         "label-muted" = "Muted";
         "label-muted-background" = colors.bgAlt;
         "label-muted-foreground" = colors.fg;
         "label-muted-padding" = 1;
-
         "ramp-volume-0" = icon "";
         "ramp-volume-1" = icon "";
         "ramp-volume-2" = icon "";
         "ramp-volume-background" = colors.blue;
         "ramp-volume-padding" = 1;
-
-        # 鼠标右键点击音量图标时，可以绑定打开 pavucontrol（音量控制面板）
-        # 前提是你安装了 pavucontrol 包
-        "click-right" = "pavucontrol";
+        "ramp-headphones-0" = icon "";
+        "ramp-headphones-background" = colors.blue;
+        "ramp-headphones-padding" = 1;
       };
 
       "module/battery" = {
@@ -277,7 +272,6 @@ in {
         "label-disconnected-background" = colors.bgAlt;
         "label-disconnected-foreground" = colors.fg;
         "label-disconnected-padding" = 1;
-        "click-left" = "kitty --class nmtui-float -e nmtui &";
       };
 
       "module/date" = {

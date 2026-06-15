@@ -157,7 +157,7 @@
   };
 
   security.polkit.enable = true;
-  security.pam.services.i3lock = {};
+  security.pam.services.i3lock-color = {};
   security.pam.services.betterlockscreen = {};
 
   environment.sessionVariables = {
