@@ -1,7 +1,8 @@
-{...}: {
+{lib, ...}: {
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
+    enableGitIntegration = true;
 
     # 1. 字体配置
     #font = {
@@ -9,8 +10,8 @@
     # size = 15.0;
     #};
 
-    # 2. 一般设置 (对应 conf 中的 key value)
     settings = {
+      background = lib.mkForce "#000000";
       # Font variants
       bold_font = "auto";
       italic_font = "auto";
@@ -49,18 +50,5 @@
       "ctrl+minus" = "change_font_size all -1.0";
       "ctrl+0" = "change_font_size all 0";
     };
-
-    # 4. 引用外部文件
-    #extraConfig = ''
-    #  include dank-tabs.conf
-    #  include dank-theme.conf
-    #'';
   };
-
-  # 5. 确保 dank-*.conf 文件被链接到 ~/.config/kitty/ 下
-  # 假设这两个文件就在当前 kitty.nix 的同级目录下
-  #xdg.configFile = {
-  #  "kitty/dank-tabs.conf".source = ./dank-tabs.conf;
-  #  "kitty/dank-theme.conf".source = ./dank-theme.conf;
-  #};
 }

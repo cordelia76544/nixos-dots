@@ -66,6 +66,7 @@
     htop
     pavucontrol
     autocutsel
+    windterm
 
     # system call monitoring
     strace # system call monitoring
