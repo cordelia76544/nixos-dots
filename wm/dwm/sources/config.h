@@ -179,6 +179,7 @@ static void (*bartabmonfns[])(Monitor *) = {monocle /* , customlayoutfn */};
 static void (*bartabmonfns[])(Monitor *) = {NULL /* , customlayoutfn */};
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
+
 #if BAR_PANGO_PATCH
 static const char font[] = "monospace 10";
 #else
@@ -923,6 +924,32 @@ static const char *brupcmd[] = {"brightnessctl", "set", "5%+", NULL};
 static const char *brdncmd[] = {"brightnessctl", "set", "5%-", NULL};
 static const char *lockcmd[] = {"loginctl", "lock-session", NULL};
 
+static int picom_running = 1;
+static const char *stoppicom[] = {"systemctl", "--user", "stop", "picom.service", NULL};
+static const char *startpicom[] = {"systemctl", "--user", "start", "picom.service", NULL};
+
+static void
+set_monocle_nopicom(const Arg *arg)
+{
+	setlayout(arg);
+	if (picom_running)
+	{
+		spawn(&((Arg){.v = stoppicom}));
+		picom_running = 0;
+	}
+}
+
+static void
+set_tile_picom(const Arg *arg)
+{
+	setlayout(arg);
+	if (!picom_running)
+	{
+		spawn(&((Arg){.v = startpicom}));
+		picom_running = 1;
+	}
+}
+
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
 /* This defines the name of the executable that handles the bar (used for signalling purposes) */
@@ -1251,9 +1278,9 @@ static const Key keys[] = {
 #if XRDB_PATCH || XRESOURCES_PATCH
 	{MODKEY | ShiftMask, XK_F5, xrdb, {.v = NULL}},
 #endif // XRDB_PATCH | XRESOURCES_PATCH
-	{MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
+	{MODKEY, XK_t, set_tile_picom, {.v = &layouts[0]}},
 	{MODKEY, XK_f, setlayout, {.v = &layouts[1]}},
-	{MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
+	{MODKEY, XK_m, set_monocle_nopicom, {.v = &layouts[2]}},
 #if COLUMNS_LAYOUT
 	{MODKEY, XK_c, setlayout, {.v = &layouts[3]}},
 #endif // COLUMNS_LAYOUT

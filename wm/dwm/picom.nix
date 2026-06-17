@@ -49,9 +49,11 @@
         "_GTK_FRAME_EXTENTS"
         "class_g = 'Flameshot'"
         "class_g = 'maim'"
+        "class_g = 'Minecraft*'"
+        "class_g = 'java'"
       ];
 
-      unredir-if-possible = false;
+      unredir-if-possible = true;
     };
   };
 }
