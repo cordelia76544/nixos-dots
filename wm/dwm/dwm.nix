@@ -70,4 +70,9 @@ in {
     myDwm
     pkgs.xset
   ];
+
+  programs.i3lock = {
+    enable = true;
+    package = pkgs.i3lock-color;
+  };
 }
