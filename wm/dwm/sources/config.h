@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-
+#include <X11/XF86keysym.h>
 /* Helper macros for spawning commands */
 #define SHCMD(cmd)                                           \
 	{                                                        \
@@ -916,6 +916,12 @@ static const char *powercmd[] = {"rofi", "-show", "power-menu", "-modi", "power-
 static const char *screenshotcmd[] = {"flameshot", "gui", NULL};
 static const char *ocrcmd[] = {"screenshot-ocr-area", NULL};
 static const char *fmcmd[] = {"kitty", "-e", "yazi", NULL};
+static const char *volupcmd[] = {"wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL};
+static const char *voldncmd[] = {"wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL};
+static const char *volmutecmd[] = {"wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL};
+static const char *brupcmd[] = {"brightnessctl", "set", "5%+", NULL};
+static const char *brdncmd[] = {"brightnessctl", "set", "5%-", NULL};
+static const char *lockcmd[] = {"loginctl", "lock-session", NULL};
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -1060,6 +1066,14 @@ static const Key keys[] = {
 	{MODKEY | ShiftMask, XK_s, spawn, {.v = screenshotcmd}},
 	{MODKEY | ShiftMask, XK_o, spawn, {.v = ocrcmd}},
 	{MODKEY, XK_e, spawn, {.v = fmcmd}},
+	{MODKEY, XK_l, spawn, {.v = lockcmd}},
+	{0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd}},
+	{0, XF86XK_AudioLowerVolume, spawn, {.v = voldncmd}},
+	{0, XF86XK_AudioMute, spawn, {.v = volmutecmd}},
+
+	/* 亮度 */
+	{0, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd}},
+	{0, XF86XK_MonBrightnessDown, spawn, {.v = brdncmd}},
 #if RIODRAW_PATCH
 	{MODKEY | ControlMask, XK_p, riospawnsync, {.v = dmenucmd}},
 	{MODKEY | ControlMask, XK_Return, riospawn, {.v = termcmd}},
@@ -1120,8 +1134,8 @@ static const Key keys[] = {
 	{MODKEY | ControlMask, XK_i, incnstack, {.i = +1}},
 	{MODKEY | ControlMask, XK_u, incnstack, {.i = -1}},
 #endif // FLEXTILE_DELUXE_LAYOUT
-	{MODKEY, XK_h, setmfact, {.f = -0.05}},
-	{MODKEY, XK_l, setmfact, {.f = +0.05}},
+	{MODKEY | ShiftMask, XK_h, setmfact, {.f = -0.05}},
+	{MODKEY | ShiftMask, XK_l, setmfact, {.f = +0.05}},
 #if CFACTS_PATCH
 	{MODKEY | ShiftMask, XK_h, setcfact, {.f = +0.25}},
 	{MODKEY | ShiftMask, XK_l, setcfact, {.f = -0.25}},
