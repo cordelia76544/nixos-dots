@@ -25,7 +25,7 @@
         | upsert history.max_size 10000
         | upsert history.sync_on_enter true
         | upsert history.file_format "sqlite"
-        | upsert hostory.path = "/persist/home/davyjones/.config/nushell/history.sqlite3"
+        | upsert history.path "/persist/home/davyjones/.config/nushell/history.sqlite3"
         | upsert edit_mode emacs
         | upsert rm.always_trash true
       )
