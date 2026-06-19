@@ -113,6 +113,7 @@
     htop
     pavucontrol
     autocutsel
+    brightnessctl
 
     # system call monitoring
     strace # system call monitoring
