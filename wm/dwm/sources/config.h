@@ -543,10 +543,12 @@ static const Rule rules[] = {
 						RULE(.class = "Firefox", .tags = 1 << 7)
 							RULE(.instance = "crx_nngceckbapebfimnlniiiahkandclblb", .isfloating = 1)
 								RULE(.instance = "nmtui-float", .isfloating = 1)
+									RULE(.class = "Xdg-desktop-portal-gtk", .isfloating = 1)
+										RULE(.instance = "xdg-desktop-portal-gtk", .isfloating = 1)
 #if RENAMED_SCRATCHPADS_PATCH
-									RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
+											RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 #elif SCRATCHPADS_PATCH
-									RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
+											RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 #endif // SCRATCHPADS_PATCH
 };
 
