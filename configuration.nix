@@ -30,15 +30,15 @@
       "net.core.default_qdisc" = "fq";
       "net.ipv4.tcp_congestion_control" = "bbr";
     };
-    supportedFilesystems= ["zfs"];    
+    supportedFilesystems = ["zfs"];
     zfs.forceImportRoot = false;
     initrd.systemd = {
       enable = true;
       services.zfs-rollback = {
         description = "Rollback ZFS root to blank snapshot";
-        wantedBy = [ "initrd.target" ];
-        after = [ "zfs-import-rpool.service" ];
-        before = [ "sysroot.mount" ];
+        wantedBy = ["initrd.target"];
+        after = ["zfs-import-rpool.service"];
+        before = ["sysroot.mount"];
         unitConfig.DefaultDependencies = false;
         serviceConfig = {
           Type = "oneshot";
@@ -67,8 +67,8 @@
   time.timeZone = "Asia/Shanghai";
 
   # Configure network proxy if necessary
-  networking.proxy.default = "http://172.20.10.5:7897/";
-  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain,192.168.0.0/16,172.16.0.0/12,10.0.0.0/8";
+  #networking.proxy.default = "http://172.20.10.5:7897/";
+  #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain,192.168.0.0/16,172.16.0.0/12,10.0.0.0/8";
   networking.hostId = "78f5e633";
   i18n.defaultLocale = "zh_CN.UTF-8";
 
@@ -116,7 +116,7 @@
       "/etc/machine-id"
     ];
   };
-  
+
   fonts = {
     fontDir.enable = true;
     enableDefaultPackages = true;
