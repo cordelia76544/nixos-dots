@@ -104,7 +104,7 @@
       "/etc/NetworkManager/system-connections"
       "/var/lib/NetworkManager"
       "/var/lib/bluetooth"
-      "/var/lib/flatpak"
+      #"/var/lib/flatpak"
       "/var/lib/ly"
       "/var/lib/AccountsService"
       "/var/lib/polkit-1"

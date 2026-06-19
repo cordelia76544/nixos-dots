@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   home.username = "davyjones";
@@ -42,6 +43,7 @@
       ".ssh"
       ".gnupg"
       ".local/share/keyrings"
+      ".config/dconf"
 
       # browser
       ".config/google-chrome"
@@ -71,9 +73,8 @@
 
       ".config/obsidian"
 
-      ## flatpaks
-      ".var/app"
-      ".local/share/flatpak"
+      ## wechat
+      ".xwechat"
     ];
   };
 
@@ -125,8 +126,9 @@
     googlesans-code
     obsidian
     remmina
-    # wpsoffice-cn
+    wpsoffice-cn
     zathura
+    wechat
   ];
 
   programs.git = {
@@ -145,6 +147,15 @@
     iconTheme = {
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
+    };
+  };
+
+  dconf.settings = {
+    "org/gtk/settings/file-chooser" = {
+      window-size = lib.hm.gvariant.mkTuple [800 600];
+    };
+    "org/gtk/gtk4/settings/file-chooser" = {
+      window-size = lib.hm.gvariant.mkTuple [800 600];
     };
   };
 

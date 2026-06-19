@@ -7,12 +7,13 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     daeuniverse.url = "github:daeuniverse/flake.nix";
     stylix.url = "github:nix-community/stylix/release-26.05";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-   impermanence.url = "github:nix-community/impermanence";
+    impermanence.url = "github:nix-community/impermanence";
 
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
@@ -40,6 +41,7 @@
     nixvim,
     helium,
     stylix,
+    nix-flatpak,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -59,6 +61,7 @@
           stylix.nixosModules.stylix
           inputs.daeuniverse.nixosModules.dae
           inputs.daeuniverse.nixosModules.daed
+          nix-flatpak.nixosModules.nix-flatpak
           (
             {pkgs, ...}: {
               nixpkgs.overlays = [nix-cachyos-kernel.overlays.pinned];
