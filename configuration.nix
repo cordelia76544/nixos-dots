@@ -24,7 +24,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages;
+    #kernelPackages = pkgs.linuxPackages;
     kernelModules = ["tcp_bbr"];
     kernel.sysctl = {
       "net.core.default_qdisc" = "fq";
@@ -100,7 +100,7 @@
     hideMounts = true;
     directories = [
       "/var/lib/nixos"
-      "/var/lib/systemd/coredump"
+      "/var/lib/systemd"
       "/etc/NetworkManager/system-connections"
       "/var/lib/NetworkManager"
       "/var/lib/bluetooth"

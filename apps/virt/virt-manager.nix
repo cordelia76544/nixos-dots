@@ -27,5 +27,5 @@
     cloud-hypervisor
   ];
 
-  systemd.services.virt-secret-init-encryption.enable = false;
+  #systemd.services.virt-secret-init-encryption.enable = false;
 }
