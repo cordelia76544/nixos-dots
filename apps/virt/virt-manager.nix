@@ -9,7 +9,7 @@
   };
 
   services.cockpit = {
-    enable = true;
+    enable = false;
     plugins = [
       pkgs.cockpit-machines
     ];
@@ -27,5 +27,5 @@
     cloud-hypervisor
   ];
 
-  systemd.services.virt-secret-init-encryption.enable = true;
+  systemd.services.virt-secret-init-encryption.enable = false;
 }
