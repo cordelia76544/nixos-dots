@@ -44,6 +44,7 @@
       ".gnupg"
       ".local/share/keyrings"
       ".config/dconf"
+      ".local/state/wireplumber"
 
       # browser
       ".config/google-chrome"
@@ -75,6 +76,7 @@
 
       ## wechat
       ".xwechat"
+      "xwechat_files"
     ];
   };
 
