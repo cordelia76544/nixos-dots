@@ -69,6 +69,10 @@
       ".config/remmina"
 
       ".config/obsidian"
+
+      ## flatpaks
+      ".var/app"
+      ".local/share/flatpak"
     ];
   };
 

@@ -1,12 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  unstable = import inputs.nixpkgs-unstable {
-    system = "x86_64-linux";
-  };
-in {
+{pkgs, ...}: {
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
@@ -19,7 +11,7 @@ in {
   services.cockpit = {
     enable = true;
     plugins = [
-      unstable.cockpit-machines
+      pkgs.cockpit-machines
     ];
     openFirewall = true;
   };

@@ -8,7 +8,7 @@
 }: {
   imports = [
     ./hardwares
-    #./apps/virt
+    ./apps/virt
     #./apps/tools/fcitx5.nix
     ./apps/tools/asusd.nix
     #./apps/games/steam.nix
