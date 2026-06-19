@@ -63,6 +63,7 @@
       ".local/share/direnv"
       ".local/share/zoxide"
       ".local/share/nushell"
+      ".config/nushell"
 
       # Remmina
       ".local/share/remmina"
