@@ -37,7 +37,6 @@
       "Pictures"
       "Videos"
       "Music"
-      "nixos"
 
       # ssh, gnupg,...
       ".ssh"

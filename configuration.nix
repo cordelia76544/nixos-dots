@@ -211,6 +211,10 @@
     QT_IM_MODULE = "fcitx";
   };
 
+  systemd.tmpfiles.rules = [
+    "L+ /home/davyjones/nixos - - - - /persist/home/davyjones/nixos"
+  ];
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "26.05";
 }
