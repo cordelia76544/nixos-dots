@@ -1,0 +1,37 @@
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.waylandFrontend = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-rime
+      fcitx5-gtk
+      qt6Packages.fcitx5-chinese-addons
+      fcitx5-material-color
+      (fcitx5-rime.override {
+        rimeDataPkgs = [
+          pkgs.rime-ice
+        ];
+      })
+    ];
+  };
+
+  home.sessionVariables = {
+    #NIX_PROFILES = "${pkgs.lib.concatStringsSep " " (lib.reverseList config.environment.profiles)}";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+  };
+
+  xdg.dataFile."fcitx5/rime/default.custom.yaml".text = ''
+    patch:
+      __include: rime_ice_suggestion:/
+      schema_list:
+        - schema: rime_ice
+  '';
+}

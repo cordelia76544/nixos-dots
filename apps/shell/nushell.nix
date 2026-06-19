@@ -1,0 +1,44 @@
+{pkgs, ...}: {
+  programs.nushell = {
+    enable = true;
+
+    shellAliases = {
+      update = "sudo nixos-rebuild switch --flake ~/nixos#nixos";
+      sduo = "sudo";
+    };
+
+    plugins = [
+      pkgs.nushellPlugins.gstat
+      #pkgs.nushellPlugins.highlight
+      pkgs.nushellPlugins.query
+    ];
+
+    configFile.text = ''
+      $env.config = ($env.config? | default {})
+
+      $env.config = ($env.config
+        | upsert show_banner false
+        | upsert completions.case_sensitive false
+        | upsert completions.quick true
+        | upsert completions.partial false
+        | upsert completions.algorithm "fuzzy"
+        | upsert history.max_size 10000
+        | upsert history.sync_on_enter true
+        | upsert history.file_format "sqlite"
+        | upsert edit_mode emacs
+        | upsert rm.always_trash true
+      )
+    '';
+
+    envFile.text = ''
+      # 这里放原来 zsh sessionVariables 对应的环境变量
+      # 例如：
+      # $env.EDITOR = "nvim"
+    '';
+  };
+
+  programs.carapace = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
+}

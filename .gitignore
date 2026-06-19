@@ -1,0 +1,10 @@
+result
+result-*
+.direnv/
+.env
+.env.*
+*.pem
+*.key
+*.secret
+.vscode/
+.idea/
