@@ -28,4 +28,8 @@
   ];
 
   systemd.services.virt-secret-init-encryption.enable = true;
+  systemd.services.libvirtd.serviceConfig = {
+    LoadCredential = [];
+    SetCredentialEncrypted = false;
+  };
 }
