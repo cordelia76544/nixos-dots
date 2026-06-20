@@ -61,6 +61,8 @@
       # VSCode
       ".vscode"
       ".config/Code"
+      ".config/Code/User/workspaceStorage"
+      ".config/Code/User/globalStorage"
 
       # shell
       ".local/share/direnv"
