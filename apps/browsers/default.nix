@@ -3,6 +3,6 @@
     #./firefox.nix
     #./vivaldi.nix
     ./chrome.nix
-    ./helium.nix
+    #./helium.nix
   ];
 }

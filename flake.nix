@@ -18,11 +18,6 @@
       url = "github:nix-community/nixvim/nixos-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    helium = {
-      url = "github:cordelia76544/helium-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -33,7 +28,6 @@
     impermanence,
     nix-cachyos-kernel,
     nixvim,
-    helium,
     stylix,
     ...
   } @ inputs: {

@@ -73,6 +73,7 @@
       ".config/remmina"
 
       ".config/obsidian"
+      ".config/Termius"
 
       ## wechat
       ".xwechat"

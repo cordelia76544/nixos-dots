@@ -3,7 +3,7 @@
     enable = true;
     qemu = {
       package = pkgs.qemu_kvm;
-      runAsRoot = true;
+      runAsRoot = false;
       swtpm.enable = true;
     };
   };
@@ -26,6 +26,10 @@
     virtiofsd
     cloud-hypervisor
   ];
+  networking.firewall.trustedInterfaces = ["virbr0"];
 
+  services.udev.extraRules = ''
+    KERNEL=="zd*", GROUP="libvirtd", MODE="0660"
+  '';
   #systemd.services.virt-secret-init-encryption.enable = false;
 }
