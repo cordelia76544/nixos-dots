@@ -5,6 +5,7 @@
       umi-ocr = {
         image = "ghcr.io/cordelia76544/umi-ocr:2.1.5";
         user = "1000:1000";
+        autoStart = false; 
         volumes = [
           "/home/davyjones/Documents/Umi-OCR_Linux_Paddle_2.1.5:/app:Z"
         ];
@@ -33,6 +34,9 @@
       };
     };
   };
+
+  # 允许来自 Podman 容器内部网络的访问
+  networking.firewall.interfaces."podman0".allowedTCPPorts = [ 1224 ];
 
   systemd.services."podman-umi-ocr" = {
     unitConfig.StopWhenUnneeded = true;
