@@ -18,11 +18,11 @@
       }
       {
         name = "fish-you-should-use";
-        src = pkgs.fishPlugins.fish-you-should-use;
+        src = pkgs.fishPlugins.fish-you-should-use.src;
       }
       {
         name = "plugin-git";
-        src = "pkgs.fishPlugins.plugin-git";
+        src = "pkgs.fishPlugins.plugin-git.src";
       }
     ];
 
