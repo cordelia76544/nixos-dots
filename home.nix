@@ -16,7 +16,7 @@
     inputs.nixvim.homeModules.nixvim
     ./wm/polybar
     ./wm/dwm
-    ./apps/shell/nushell.nix
+    ./apps/shell/fish.nix
     ./apps/kitty/kitty.nix
     ./apps/games
     ./apps/tools
@@ -146,6 +146,9 @@
   programs.zoxide = {
     enable = true;
     enableNushellIntegration = true;
+    options = [
+      "--cmd cd"
+    ];
   };
 
   gtk = {

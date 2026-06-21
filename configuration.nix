@@ -92,7 +92,7 @@
     isNormalUser = true;
     description = "Davy Jones";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "incus-admin" "asus-users"];
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
     hashedPassword = "$y$j9T$Kv4vO7FnmALq9MkdO8KuC.$Y7XJ.x61yPLgYQONkbN7wcfl2OVTIr5i25qG3l.ODc5";
   };
 
