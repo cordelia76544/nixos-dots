@@ -22,7 +22,7 @@
       }
       {
         name = "plugin-git";
-        src = "pkgs.fishPlugins.plugin-git.src";
+        src = pkgs.fishPlugins.plugin-git.src;
       }
     ];
 
