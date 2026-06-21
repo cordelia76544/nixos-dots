@@ -175,7 +175,7 @@
   ];
 
   programs = {
-    zsh.enable = true;
+    fish.enable = true;
 
     niri = {
       enable = false;
