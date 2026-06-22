@@ -51,4 +51,5 @@
       "ctrl+0" = "change_font_size all 0";
     };
   };
+  stylix.targets.kitty.colors.enable = false;
 }
