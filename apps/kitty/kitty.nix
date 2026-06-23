@@ -5,10 +5,10 @@
     enableGitIntegration = true;
 
     # 1. 字体配置
-    #font = {
-    #  name = "Google Sans Code";
-    # size = 15.0;
-    #};
+    font = {
+      name = "Google Sans Code";
+      size = 15.0;
+    };
 
     settings = {
       background = lib.mkForce "#000000";
@@ -51,5 +51,5 @@
       "ctrl+0" = "change_font_size all 0";
     };
   };
-  stylix.targets.kitty.colors.enable = false;
+  stylix.targets.kitty.enable = lib.mkForce false;
 }

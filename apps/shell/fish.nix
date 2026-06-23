@@ -24,7 +24,26 @@
         name = "plugin-git";
         src = pkgs.fishPlugins.plugin-git.src;
       }
+      {
+        name = "done";
+        src = pkgs.fishPlugins.done.src;
+      }
     ];
+
+    functions = {
+      opencode = {
+        description = "Run OpenCode in rootful Podman";
+        body = ''
+          sudo podman run --rm -it \
+            --user (id -u):(id -g) \
+            -e HOME=/home/opencode \
+            -v "$HOME/Documents/opencode/workspace:/workspace:Z" \
+            -v "$HOME/Documents/opencode/home:/home/opencode:Z" \
+            -w /workspace \
+            ghcr.io/anomalyco/opencode:latest $argv
+        '';
+      };
+    };
 
     # 初始化配置
     interactiveShellInit = ''
@@ -59,4 +78,6 @@
   programs.kitty.shellIntegration.enableFishIntegration = true;
   programs.yazi.enableFishIntegration = true;
   programs.zoxide.enableFishIntegration = true;
+
+  stylix.targets.fish.colors.enable = false;
 }
