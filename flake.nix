@@ -49,10 +49,14 @@
           inputs.daeuniverse.nixosModules.dae
           inputs.daeuniverse.nixosModules.daed
           (
-            {pkgs, ...}: {
+            {
+              pkgs,
+              config,
+              ...
+            }: {
               nixpkgs.overlays = [nix-cachyos-kernel.overlays.pinned];
               boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
-
+              boot.zfs.package = config.boot.kernelPackages.zfs_cachyos;
               nix.settings.substituters = ["https://attic.xuyh0120.win/lantian"];
               nix.settings.trusted-public-keys = ["lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="];
             }
