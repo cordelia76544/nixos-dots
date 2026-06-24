@@ -67,7 +67,7 @@
       # shell
       ".local/share/direnv"
       ".local/share/zoxide"
-      ".local/share/nushell"
+      ".local/share/fish"
       ".config/nushell"
 
       # Remmina

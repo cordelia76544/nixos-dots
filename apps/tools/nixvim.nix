@@ -6,13 +6,12 @@
   };
 
   home.packages = with pkgs; [
-    # 替换为最新的官方标准格式化工具
     nixfmt-rfc-style
   ];
 
   programs.nixvim = {
     enable = true;
-    #colorschemes.catppuccin.enable = true;
+    colorschemes.catppuccin.enable = true;
     globals.mapleader = " ";
 
     opts = {
@@ -54,18 +53,11 @@
       };
     };
 
-    # ==========================================
-    # 🔥 1. 语言服务器 (升级为 nixd)
-    # ==========================================
+    # 语言服务器 (LSP)
     plugins.lsp = {
       enable = true;
       servers = {
-        # 停用 nil_ls，启用更强大的 nixd
-        # nil_ls.enable = false;
-        nixd = {
-          enable = true;
-          # nixd 还可以配置根据你的 flake/home-manager 路径提供深度补全
-        };
+        nixd.enable = true;
         clangd.enable = true;
         cmake.enable = true;
         pyright.enable = true;
@@ -75,9 +67,7 @@
       };
     };
 
-    # ==========================================
-    # 🔥 2. 自动格式化 (升级为 nixfmt)
-    # ==========================================
+    # 自动格式化
     plugins.conform-nvim = {
       enable = true;
       settings = {
@@ -86,49 +76,54 @@
           timeout_ms = 1000;
         };
         formatters_by_ft = {
-          # 指定 nix 文件使用 nixfmt 进行格式化
           nix = ["nixfmt"];
         };
       };
     };
 
-    # ==========================================
-    # 🔥 3. 自动补全菜单 (nvim-cmp)
-    # ==========================================
+    # 自动补全菜单 (nvim-cmp)
     plugins.cmp = {
       enable = true;
       autoEnableSources = true;
       settings = {
-        # 补全来源优先级：LSP(智能提示) -> 代码片段 -> 当前文件文本 -> 文件路径
         sources = [
           {name = "nvim_lsp";}
           {name = "luasnip";}
           {name = "buffer";}
           {name = "path";}
         ];
-
-        # 补全菜单快捷键（类似 VSCode 习惯）
         mapping = {
-          "<C-Space>" = "cmp.mapping.complete()"; # Ctrl+空格: 手动触发补全
-          "<C-e>" = "cmp.mapping.close()"; # Ctrl+E: 关闭补全菜单
-          "<Tab>" = "cmp.mapping.select_next_item()"; # Tab: 选下一个
-          "<S-Tab>" = "cmp.mapping.select_prev_item()"; # Shift+Tab: 选上一个
-          "<CR>" = "cmp.mapping.confirm({ select = true })"; # 回车: 确认选中项
+          "<C-Space>" = "cmp.mapping.complete()";
+          "<C-e>" = "cmp.mapping.close()";
+          "<Tab>" = "cmp.mapping.select_next_item()";
+          "<S-Tab>" = "cmp.mapping.select_prev_item()";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
         };
       };
     };
 
-    # cmp 依赖代码片段引擎才能完美工作
     plugins.luasnip.enable = true;
 
-    # 错误提示样式
+    # ==========================================
+    # 🔥 修正的诊断信息(错误提示)部分
+    # ==========================================
     diagnostic = {
-      virtual_text = true; # 在代码行后显示错误文本
-      signs = true; # 在左侧列显示错误图标
-      underline = true; # 在错误代码下画波浪线
+      settings = {
+        virtual_text = true;
+        signs = true;
+        underline = true;
+      };
     };
 
-    # 快捷键映射
+    plugins.copilot-lua = {
+      enable = true;
+      suggestion = {
+        enabled = true;
+        autoTrigger = true;
+        keymap.accept = "<Right>";
+      };
+    };
+
     keymaps = [
       {
         mode = "n";
