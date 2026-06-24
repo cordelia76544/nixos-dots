@@ -6,11 +6,16 @@
   };
 
   home.packages = with pkgs; [
-    nixfmt-rfc-style
+    # 🌟 修复警告：nixfmt-rfc-style 现已直接称为 nixfmt
+    nixfmt
   ];
 
   programs.nixvim = {
     enable = true;
+
+    # 🌟 修复警告：强制 Nixvim 使用当前的 nixpkgs 路径，消除由于 flake follows 带来的版本警告
+    nixpkgs.source = pkgs.path;
+
     colorschemes.catppuccin.enable = true;
     globals.mapleader = " ";
 
@@ -29,21 +34,31 @@
     plugins.direnv.enable = true;
     plugins.web-devicons.enable = true;
 
-    # 侧边栏文件树
+    # ==========================================
+    # 🌟 修复警告：Neo-tree 语法更新 (移入 settings 并改名)
+    # ==========================================
     plugins.neo-tree = {
       enable = true;
-      enableDiagnostics = true;
-      enableGitStatus = true;
-      closeIfLastWindow = true;
+      settings = {
+        enable_diagnostics = true;
+        enable_git_status = true;
+        close_if_last_window = true;
+      };
     };
 
-    # Git 增强
+    # ==========================================
+    # ⚠️ 关于 Gitsigns 报错的注意事项：
+    # ==========================================
+    # 如果更新这个配置后，仍然报 `module 'gitsigns.git' not found` 的错误，
+    # 说明你当前的 nixpkgs commit 存在插件损坏。
+    # 你有两个选择：
+    # 1. (推荐) 在你的配置根目录运行 `nix flake update` 更新一次依赖。
+    # 2. (临时) 把下面的 `enable = true;` 暂时改成 `enable = false;` 关掉它。
     plugins.gitsigns = {
       enable = true;
       settings.current_line_blame = true;
     };
 
-    # 语法高亮
     plugins.treesitter = {
       enable = true;
       nixGrammars = true;
@@ -53,7 +68,6 @@
       };
     };
 
-    # 语言服务器 (LSP)
     plugins.lsp = {
       enable = true;
       servers = {
@@ -67,7 +81,6 @@
       };
     };
 
-    # 自动格式化
     plugins.conform-nvim = {
       enable = true;
       settings = {
@@ -81,7 +94,6 @@
       };
     };
 
-    # 自动补全菜单 (nvim-cmp)
     plugins.cmp = {
       enable = true;
       autoEnableSources = true;
@@ -104,9 +116,6 @@
 
     plugins.luasnip.enable = true;
 
-    # ==========================================
-    # 🔥 修正的诊断信息(错误提示)部分
-    # ==========================================
     diagnostic = {
       settings = {
         virtual_text = true;
