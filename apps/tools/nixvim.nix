@@ -6,17 +6,22 @@
   };
 
   home.packages = with pkgs; [
-    # 🌟 修复警告：nixfmt-rfc-style 现已直接称为 nixfmt
     nixfmt
   ];
 
   programs.nixvim = {
     enable = true;
 
-    # 🌟 修复警告：强制 Nixvim 使用当前的 nixpkgs 路径，消除由于 flake follows 带来的版本警告
-    nixpkgs.source = pkgs.path;
+    # 不要在这里强行指定 nixpkgs.pkgs 或 nixpkgs.source。
+    # 这个问题很像 nixvim / nixpkgs / neovim-unwrapped 版本混用导致。
+
+    extraPackages = with pkgs; [
+      nixfmt
+      git
+    ];
 
     colorschemes.catppuccin.enable = true;
+
     globals.mapleader = " ";
 
     opts = {
@@ -31,12 +36,10 @@
     };
 
     editorconfig.enable = true;
+
     plugins.direnv.enable = true;
     plugins.web-devicons.enable = true;
 
-    # ==========================================
-    # 🌟 修复警告：Neo-tree 语法更新 (移入 settings 并改名)
-    # ==========================================
     plugins.neo-tree = {
       enable = true;
       settings = {
@@ -46,17 +49,10 @@
       };
     };
 
-    # ==========================================
-    # ⚠️ 关于 Gitsigns 报错的注意事项：
-    # ==========================================
-    # 如果更新这个配置后，仍然报 `module 'gitsigns.git' not found` 的错误，
-    # 说明你当前的 nixpkgs commit 存在插件损坏。
-    # 你有两个选择：
-    # 1. (推荐) 在你的配置根目录运行 `nix flake update` 更新一次依赖。
-    # 2. (临时) 把下面的 `enable = true;` 暂时改成 `enable = false;` 关掉它。
+    # 先关掉。你现在的 gitsigns.nvim 包缺 gitsigns.git 模块。
+    # 等 nix flake update 后再改回 enable = true。
     plugins.gitsigns = {
-      enable = true;
-      settings.current_line_blame = true;
+      enable = false;
     };
 
     plugins.treesitter = {
@@ -85,42 +81,64 @@
       enable = true;
       settings = {
         format_on_save = {
-          lsp_fallback = true;
+          lsp_format = "fallback";
           timeout_ms = 1000;
         };
+
         formatters_by_ft = {
           nix = ["nixfmt"];
         };
       };
     };
 
+    plugins.luasnip.enable = true;
+
     plugins.cmp = {
       enable = true;
       autoEnableSources = true;
+
       settings = {
+        snippet.expand = ''
+          function(args)
+            require("luasnip").lsp_expand(args.body)
+          end
+        '';
+
         sources = [
           {name = "nvim_lsp";}
           {name = "luasnip";}
           {name = "buffer";}
           {name = "path";}
         ];
+
         mapping = {
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-e>" = "cmp.mapping.close()";
-          "<Tab>" = "cmp.mapping.select_next_item()";
-          "<S-Tab>" = "cmp.mapping.select_prev_item()";
+          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
           "<CR>" = "cmp.mapping.confirm({ select = true })";
         };
       };
     };
-
-    plugins.luasnip.enable = true;
 
     diagnostic = {
       settings = {
         virtual_text = true;
         signs = true;
         underline = true;
+      };
+    };
+
+    plugins.copilot-lua = {
+      enable = true;
+      settings = {
+        suggestion = {
+          enabled = true;
+          auto_trigger = true;
+          keymap = {
+            accept = "<Right>";
+          };
+        };
       };
     };
 
