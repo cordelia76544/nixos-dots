@@ -33,6 +33,18 @@
 
     extraConfig = ''
       rules = (
+         {
+          # dwm 普通窗口，包括 tile <-> monocle/独占 的几何变化
+          match = "window_type = 'normal' || window_type = 'dialog'";
+
+          animations = (
+            {
+              triggers = [ "geometry" ];
+              preset = "geometry-change";
+              duration = 0.16;
+            },
+          );
+        },
         {
           match = "class_g = 'kitty' || class_g = 'Code' || class_g = 'wechat' || class_g = 'Google-chrome'";
           opacity = 0.85;

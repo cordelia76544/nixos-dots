@@ -41,7 +41,7 @@
       # --- 主题设置 ---
       #"workbench.colorTheme" = "Catppuccin Mocha";
 
-      # --- Nix IDE 设置 (关键) ---
+      # --- Nix IDE 设置 ---
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nil";
 
