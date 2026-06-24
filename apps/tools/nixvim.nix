@@ -1,8 +1,7 @@
-# modules/nixvim.nix
+# modules/home/nixvim.nix
 {
   pkgs,
   lib,
-  config,
   ...
 }: {
   programs.nixvim = {
@@ -16,81 +15,72 @@
     opts = {
       number = true;
       relativenumber = true;
+      signcolumn = "yes";
+      mouse = "a";
+      termguicolors = true;
+
       expandtab = true;
       shiftwidth = 2;
       tabstop = 2;
       smartindent = true;
-      termguicolors = true;
-      mouse = "a";
-      signcolumn = "yes";
+
+      ignorecase = true;
+      smartcase = true;
       updatetime = 250;
       completeopt = ["menu" "menuone" "noselect"];
     };
 
-    # 让 LSP/formatter/linter 的二进制都由 Nix 管理，不用 Mason
+    # 这里只放 formatter / linter / 常用 CLI。
+    # LSP server 本身由 plugins.lsp.servers.* 的 package 默认处理。
     extraPackages = with pkgs; [
       # Nix
-      nixd
       alejandra
       statix
       deadnix
 
       # YAML / XML / JSON / TOML
-      yaml-language-server
+      prettier
       yamllint
-      lemminx
-      libxml2 # xmllint
-      nodePackages.prettier
+      libxml2
       jq
       taplo
 
-      # dwm / C / shell
-      clang-tools # clangd + clang-format
-      bash-language-server
+      # C / dwm / shell
+      clang-tools
       shellcheck
       shfmt
 
-      # Lua / Markdown / common tools
-      lua-language-server
+      # Lua / Markdown / search
       stylua
-      marksman
       ripgrep
       fd
     ];
 
     plugins = {
-      # 语法高亮/缩进/折叠
       treesitter = {
         enable = true;
         highlight.enable = true;
         indent.enable = true;
-        folding.enable = true;
-        # 默认会用 Nix 安装 grammar，想省空间再手动裁剪
+        folding = true;
       };
 
-      # LSP：补全、跳转、诊断、hover
       lsp = {
         enable = true;
         inlayHints = true;
 
         servers = {
-          # Nix：建议 nixd 和 nil_ls 二选一，这里用 nixd
           nixd = {
             enable = true;
             settings = {
-              nixd = {
-                formatting.command = ["alejandra"];
-              };
+              formatting.command = ["alejandra"];
             };
           };
 
-          # 配置文件常见格式
           yamlls.enable = true;
-          lemminx.enable = true;
           jsonls.enable = true;
+          lemminx.enable = true;
           taplo.enable = true;
 
-          # dwm config.h / C / C++
           clangd = {
             enable = true;
             cmd = [
@@ -102,17 +92,18 @@
             ];
           };
 
-          # shell/conf 类
           bashls.enable = true;
-
-          # Markdown / Lua
           marksman.enable = true;
           lua_ls.enable = true;
         };
 
         onAttach = ''
           local map = function(keys, func, desc)
-            vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
+            vim.keymap.set("n", keys, func, {
+              buffer = bufnr,
+              desc = "LSP: " .. desc,
+              silent = true
+            })
           end
 
           map("gd", vim.lsp.buf.definition, "Goto Definition")
@@ -121,13 +112,21 @@
           map("K", vim.lsp.buf.hover, "Hover")
           map("<leader>rn", vim.lsp.buf.rename, "Rename")
           map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-          map("<leader>f", function()
-            require("conform").format({ bufnr = bufnr, lsp_format = "fallback" })
-          end, "Format")
+
+          vim.keymap.set("n", "<leader>f", function()
+            require("conform").format({
+              bufnr = bufnr,
+              lsp_format = "fallback",
+              timeout_ms = 1000,
+            })
+          end, {
+            buffer = bufnr,
+            desc = "Format current buffer",
+            silent = true
+          })
         '';
       };
 
-      # 自动补全
       cmp = {
         enable = true;
         autoEnableSources = true;
@@ -152,7 +151,6 @@
 
       nvim-autopairs.enable = true;
 
-      # 格式化：保存时自动格式化
       conform-nvim = {
         enable = true;
         settings = {
@@ -176,17 +174,16 @@
           };
 
           format_on_save = {
-            timeout_ms = 800;
+            timeout_ms = 1000;
             lsp_format = "fallback";
           };
         };
       };
 
-      # 额外 lint：LSP 之外再跑静态检查
       lint = {
         enable = true;
         lintersByFt = {
-          nix = ["statix"];
+          nix = ["statix" "deadnix"];
           yaml = ["yamllint"];
           sh = ["shellcheck"];
           bash = ["shellcheck"];
@@ -213,23 +210,29 @@
         mode = "n";
         key = "<leader>xx";
         action = "<cmd>Trouble diagnostics toggle<CR>";
-        options.desc = "Diagnostics list";
+        options = {
+          desc = "Diagnostics";
+          silent = true;
+        };
       }
       {
         mode = "n";
         key = "<leader>e";
         action = "<cmd>lua vim.diagnostic.open_float()<CR>";
-        options.desc = "Line diagnostic";
+        options = {
+          desc = "Line diagnostic";
+          silent = true;
+        };
       }
     ];
 
     extraConfigLua = ''
-      -- 一些文件名/路径的 filetype 修正
       vim.filetype.add({
         filename = {
           ["config.h"] = "c",
-          ["dunstrc"] = "dosini",
+          ["config.def.h"] = "c",
           ["picom.conf"] = "conf",
+          ["dunstrc"] = "dosini",
         },
         pattern = {
           [".*/dwm/config%.h"] = "c",
@@ -240,7 +243,6 @@
         },
       })
 
-      -- 普通文本/Markdown/Git commit 开启拼写检查和自动换行
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "text", "markdown", "gitcommit" },
         callback = function()
@@ -250,11 +252,12 @@
         end,
       })
 
-      -- nvim-lint 触发时机
       vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
         callback = function()
           local ok, lint = pcall(require, "lint")
-          if ok then lint.try_lint() end
+          if ok then
+            lint.try_lint()
+          end
         end,
       })
     '';
