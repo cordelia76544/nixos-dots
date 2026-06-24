@@ -115,15 +115,6 @@
       };
     };
 
-    plugins.copilot-lua = {
-      enable = true;
-      suggestion = {
-        enabled = true;
-        autoTrigger = true;
-        keymap.accept = "<Right>";
-      };
-    };
-
     keymaps = [
       {
         mode = "n";
