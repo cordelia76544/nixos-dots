@@ -122,20 +122,10 @@
     plugins.luasnip.enable = true;
 
     # 错误提示样式
-    diagnostics = {
+    diagnostic = {
       virtual_text = true; # 在代码行后显示错误文本
       signs = true; # 在左侧列显示错误图标
       underline = true; # 在错误代码下画波浪线
-    };
-
-    plugins.copilot-lua = {
-      enable = true;
-      suggestion = {
-        enabled = true;
-        autoTrigger = true;
-        # 由于我们把 Tab 给了 cmp 菜单，这里建议把 copilot 接收改为右方向键，防止冲突
-        keymap.accept = "<Right>";
-      };
     };
 
     # 快捷键映射
