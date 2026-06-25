@@ -9,15 +9,9 @@
 (global-set-key (kbd "C-c d p") #'flymake-goto-prev-error)
 (global-set-key (kbd "C-c d l") #'flymake-show-diagnostic)
 
-;; 光标移动到错误处时，在 minibuffer 显示错误信息
-(add-hook 'flymake-mode-hook #'flymake-diagnostic-at-point-mode)
-
-(setq flymake-diagnostic-at-point-display-diagnostic-function
-      'flymake-diagnostic-at-point-display-minibuffer)
-
 ;; Flycheck 作为额外检查器，例如 shellcheck
-(global-flycheck-mode 1)
-
-(global-set-key (kbd "C-c e") #'flycheck-list-errors)
+(when (require 'flycheck nil t)
+  (global-flycheck-mode 1)
+  (global-set-key (kbd "C-c e") #'flycheck-list-errors))
 
 (provide 'init-diagnostics)

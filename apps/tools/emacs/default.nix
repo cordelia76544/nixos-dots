@@ -53,6 +53,7 @@
     lua-language-server
     marksman
     taplo
+    nixfmt-rfc-style
 
     # formatter / linter
     alejandra
