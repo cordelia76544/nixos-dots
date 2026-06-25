@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   stylix.enable = true;
-  stylix.image = ../wallpapers/005.jpg;
+  stylix.image = ../wallpapers/001.jpg;
 
   #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-light-medium.yaml";
 

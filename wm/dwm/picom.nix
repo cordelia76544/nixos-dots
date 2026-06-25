@@ -22,7 +22,7 @@
 
       blur = {
         method = "dual_kawase";
-        strength = 7;
+        strength = 8;
         background = true;
         background-frame = false;
         background-fixed = false;
@@ -46,7 +46,11 @@
           );
         },
         {
-          match = "class_g = 'kitty' || class_g = 'Code' || class_g = 'wechat' || class_g = 'Google-chrome'";
+          match = "class_g = 'kitty'";
+          opacity = 0.75;
+        },
+        {
+          match = "class_g = 'Code' || class_g = 'wechat' || class_g = 'Google-chrome'";
           opacity = 0.85;
         },
         {
