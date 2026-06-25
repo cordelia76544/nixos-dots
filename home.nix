@@ -5,7 +5,6 @@
 }: {
   home.username = "davyjones";
   home.homeDirectory = "/home/davyjones";
-  home.shell.enableNushellIntegration = true;
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -23,7 +22,7 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "hx";
+    #  EDITOR = "hx";
     LANG = "zh_CN.UTF-8";
   };
 
