@@ -2,7 +2,7 @@
   stylix.enable = true;
   stylix.image = ../wallpapers/005.jpg;
 
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-light-medium.yaml";
 
   stylix.polarity = "light";
   stylix.targets.console.enable = false;
