@@ -1,7 +1,7 @@
 {...}: {
   programs.helix = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = false;
     settings = {
       editor = {
         line-number = "relative";
