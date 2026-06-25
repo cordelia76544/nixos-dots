@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   lib,
   ...
 }: {
@@ -13,7 +12,6 @@
   };
 
   imports = [
-    inputs.nixvim.homeModules.nixvim
     ./wm/polybar
     ./wm/dwm
     ./apps/shell/fish.nix
