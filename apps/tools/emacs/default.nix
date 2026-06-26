@@ -39,6 +39,10 @@
 
         # help
         helpful
+
+        treemacs
+        treemacs-projectile
+        treemacs-magit
       ];
   };
 
@@ -53,7 +57,7 @@
     lua-language-server
     marksman
     taplo
-    nixfmt-rfc-style
+    nixfmt
 
     # formatter / linter
     alejandra
@@ -86,6 +90,7 @@
     (require 'init-eglot)
     (require 'init-diagnostics)
     (require 'init-format)
+    (require 'init-sidebar)
 
     (message "Modular Home Manager Emacs config loaded.")
   '';
@@ -99,6 +104,7 @@
   home.file.".emacs.d/lisp/init-eglot.el".source = ./lisp/init-eglot.el;
   home.file.".emacs.d/lisp/init-diagnostics.el".source = ./lisp/init-diagnostics.el;
   home.file.".emacs.d/lisp/init-format.el".source = ./lisp/init-format.el;
+  home.file.".emacs.d/lisp/init-sidebar.el".source = ./lisp/init-sidebar.el;
 
   # 先别开 daemon，跑通后再改 true
   services.emacs = {
