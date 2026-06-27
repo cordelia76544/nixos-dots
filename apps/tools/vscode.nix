@@ -4,7 +4,6 @@
     enableNushellIntegration = true;
     nix-direnv.enable = true;
   };
-  stylix.targets.vscode.colors.enable = false;
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
@@ -31,6 +30,9 @@
       sumneko.lua
     ];
 
+    argvSettings = {
+      locale = "zh-cn";
+    };
     profiles.default.userSettings = {
       # --- 通用编辑器设置 ---
       "locale" = "zh-cn";

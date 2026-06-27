@@ -51,5 +51,4 @@
       "ctrl+0" = "change_font_size all 0";
     };
   };
-  stylix.targets.kitty.enable = lib.mkForce false;
 }
