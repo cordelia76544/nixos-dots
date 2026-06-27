@@ -35,9 +35,10 @@
     };
     profiles.default.userSettings = {
       # --- 通用编辑器设置 ---
-      "locale" = "zh-cn";
+      #"locale" = "zh-cn";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
+      "editor.fontSize" = 14;
       "workbench.iconTheme" = "material-icon-theme";
 
       # --- 主题设置 ---

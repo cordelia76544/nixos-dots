@@ -4,6 +4,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: {
   imports = [
@@ -36,14 +37,21 @@
       enable = true;
       services.zfs-rollback = {
         description = "Rollback ZFS root to blank snapshot";
+
         wantedBy = ["initrd.target"];
+        requires = ["zfs-import-rpool.service"];
         after = ["zfs-import-rpool.service"];
         before = ["sysroot.mount"];
+
         unitConfig.DefaultDependencies = false;
-        serviceConfig = {
-          Type = "oneshot";
-          ExecStart = "${pkgs.zfs}/bin/zfs rollback -r rpool/root@blank";
-        };
+
+        path = [config.boot.zfs.package];
+
+        serviceConfig.Type = "oneshot";
+
+        script = ''
+          zfs rollback -r rpool/root@blank
+        '';
       };
     };
   };
