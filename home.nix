@@ -9,6 +9,8 @@
     gtk.enable = true;
     x11.enable = true;
     size = 32;
+    name = "Adwaita";
+    package = pkgs.adwaita-icon-theme;
   };
 
   imports = [
