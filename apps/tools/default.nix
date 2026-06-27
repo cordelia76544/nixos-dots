@@ -7,6 +7,5 @@
     ./termius-cn.nix
     ./inputs
     ./yazi.nix
-    ./emacs
   ];
 }

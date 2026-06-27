@@ -46,7 +46,7 @@
           );
         },
         {
-          match = "class_g = 'kitty'";
+          match = "class_g = 'kitty' || class_g = 'Rofi'";
           opacity = 0.75;
         },
         {

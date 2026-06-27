@@ -264,14 +264,14 @@ in {
         "format-connected-prefix-padding" = 1;
         "format-connected-overline" = colors.bg;
         "format-connected-underline" = colors.bg;
-        "format-connected-click-left" = "kitty --class nmtui-float -e nmtui";
+        #"format-connected-click-left" = "kitty --class nmtui-float -e nmtui";
         "format-disconnected" = "<label-disconnected>";
         "format-disconnected-prefix" = icon "";
         "format-disconnected-prefix-background" = colors.orange;
         "format-disconnected-prefix-padding" = 1;
         "format-disconnected-overline" = colors.bg;
         "format-disconnected-underline" = colors.bg;
-        "format-disconnected-click-left" = "kitty --class nmtui-float -e nmtui";
+        #"format-disconnected-click-left" = "kitty --class nmtui-float -e nmtui";
         "label-connected" = "%essid%";
         "label-connected-background" = colors.bgAlt;
         "label-connected-foreground" = colors.fg;
@@ -280,6 +280,7 @@ in {
         "label-disconnected-background" = colors.bgAlt;
         "label-disconnected-foreground" = colors.fg;
         "label-disconnected-padding" = 1;
+        "click-left" = "${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu &";
       };
 
       "module/date" = {

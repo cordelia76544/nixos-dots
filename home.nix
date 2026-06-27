@@ -119,6 +119,7 @@
     strace # system call monitoring
     ltrace # library call monitoring
     lsof # list open files
+    libnotify
 
     # system tools
     sysstat

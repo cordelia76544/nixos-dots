@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./polybar.nix
     ./fonts
@@ -11,4 +11,8 @@
       systemctl --user restart polybar.service &
     '';
   };
+
+  home.packages = with pkgs; [
+    networkmanager_dmenu
+  ];
 }
