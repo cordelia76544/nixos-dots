@@ -78,6 +78,4 @@
   programs.kitty.shellIntegration.enableFishIntegration = true;
   programs.yazi.enableFishIntegration = true;
   programs.zoxide.enableFishIntegration = true;
-
-  stylix.targets.fish.colors.enable = false;
 }
