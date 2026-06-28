@@ -40,7 +40,7 @@
             -v "$HOME/Documents/opencode/workspace:/workspace:Z" \
             -v "$HOME/Documents/opencode/home:/home/opencode:Z" \
             -w /workspace \
-            ghcr.io/anomalyco/opencode:latest $argv
+            localhost/opencode-dev:local $argv
         '';
       };
     };

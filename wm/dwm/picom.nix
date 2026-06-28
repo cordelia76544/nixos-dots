@@ -47,11 +47,11 @@
         },
         {
           match = "class_g = 'kitty' || class_g = 'Rofi'";
-          opacity = 0.75;
+          opacity = 0.65;
         },
         {
-          match = "class_g = 'Code' || class_g = 'wechat' || class_g = 'Google-chrome'";
-          opacity = 0.85;
+          match = "class_g = 'Code' || class_g = 'wechat' || class_g = 'Google-chrome' || class_g = 'Dunst'";
+          opacity = 0.75;
         },
         {
           match = "window_type = 'menu' || window_type = 'dropdown_menu' || window_type = 'popup_menu'";
