@@ -19,9 +19,9 @@
     fstrim.enable = lib.mkDefault true;
     gnome.gnome-keyring.enable = true;
 
-    dunst = {
-      enable = true;
-      enableX11 = true;
-    };
+    #dunst = {
+    #  enable = true;
+    #  enableX11 = true;
+    #};
   };
 }

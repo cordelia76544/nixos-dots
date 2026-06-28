@@ -97,7 +97,7 @@
     zoxide # 更智能的 cd 命令替代品
 
     # 剪贴板支持 (默认假定你使用 Wayland，如果是 X11 请替换为 xclip)
-    wl-clipboard
+    xclip
   ];
 
   xdg = {
@@ -114,12 +114,13 @@
       mimeType = ["inode/directory"];
     };
 
+    # below already moved to apps/mimeapps.nix
     # 2. 将系统所有“打开目录”的请求，重定向给上面创建的 yazi-kitty
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "inode/directory" = ["yazi-kitty.desktop"];
-      };
-    };
+    #mimeApps = {
+    #  enable = true;
+    #  defaultApplications = {
+    #    "inode/directory" = ["yazi-kitty.desktop"];
+    #  };
+    #};
   };
 }

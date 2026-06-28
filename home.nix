@@ -22,6 +22,7 @@
     ./apps/tools
     ./apps/browsers
     ./apps/medias/videos
+    ./apps/mimeapp.nix
   ];
 
   home.sessionVariables = {
