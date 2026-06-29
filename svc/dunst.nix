@@ -27,7 +27,7 @@
         gap_size = 8;
 
         # 圆角交给 picom，这里不处理
-        corner_radius = 0;
+        corner_radius = 8;
 
         # 不用 dunst 的全局透明度，直接用 background 的 alpha
         transparency = 0;
@@ -58,26 +58,26 @@
       };
 
       urgency_low = {
-        background = "\"#000000a6\"";
-        foreground = "\"#bdae93\"";
-        frame_color = "\"#00000000\"";
-        highlight = "\"#83a598\"";
+        background = "#000000a6";
+        foreground = "#bdae93";
+        frame_color = "#00000000";
+        highlight = "#83a598";
         timeout = 3;
       };
 
       urgency_normal = {
-        background = "\"#000000a6\"";
-        foreground = "\"#ebdbb2\"";
-        frame_color = "\"#00000000\"";
-        highlight = "\"#d79921\"";
+        background = "#000000a6";
+        foreground = "#ebdbb2";
+        frame_color = "#00000000";
+        highlight = "#d79921";
         timeout = 5;
       };
 
       urgency_critical = {
-        background = "\"#000000cc\"";
-        foreground = "\"#fbf1c7\"";
-        frame_color = "\"#00000000\"";
-        highlight = "\"#fb4934\"";
+        background = "#000000cc";
+        foreground = "#fbf1c7";
+        frame_color = "#00000000";
+        highlight = "#fb4934";
         timeout = 0;
       };
     };

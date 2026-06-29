@@ -77,6 +77,7 @@
 
       ".config/obsidian"
       ".config/Termius"
+      ".cache/betterlockscreen"
 
       ## wechat
       ".xwechat"
