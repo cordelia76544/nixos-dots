@@ -222,6 +222,20 @@
     "L+ /home/davyjones/nixos - - - - /persist/home/davyjones/nixos"
   ];
 
+  environment.etc."lvm/lvm.conf".text = ''
+    config {}
+
+    global/lvresize_fs_helper_executable = "${pkgs.lvm2.bin}/libexec/lvresize_fs_helper"
+
+    devices {
+      global_filter = [
+        "r|/dev/zd.*|",
+        "r|/dev/zvol/.*|",
+        "a|.*|"
+      ]
+    }
+  '';
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "26.05";
 }

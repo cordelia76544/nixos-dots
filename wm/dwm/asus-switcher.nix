@@ -13,7 +13,7 @@
     # 3. 根据选择执行对应的 asusctl 命令
     case "$CHOICE" in
         *Quiet*)
-            ${pkgs.asusctl}/bin/asusctl profile set Quiet
+            ${pkgs.asusctl}/bin/asusctl profile set LowPower
             ${pkgs.libnotify}/bin/notify-send "Asusctl" "已切换至 静音模式 (Quiet)" -i speedm4
             ;;
         *Balanced*)
