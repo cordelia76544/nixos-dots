@@ -174,12 +174,5 @@
     };
   };
 
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-    };
-  };
-
   home.stateVersion = "26.05";
 }

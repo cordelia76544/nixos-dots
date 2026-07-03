@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   services.picom = {
     enable = true;
 
@@ -7,11 +7,11 @@
 
     shadow = false;
     shadowOpacity = 0.75;
-    shadowOffsets = [(-15) (-15)];
+    shadowOffsets = [ (-15) (-15) ];
 
     fade = true;
     fadeDelta = 8;
-    fadeSteps = [0.04 0.04];
+    fadeSteps = [ 0.04 0.04 ];
 
     settings = {
       frame-opacity = 1.0;
@@ -50,7 +50,7 @@
           opacity = 0.65;
         },
         {
-          match = "class_g = 'Code' || class_g = 'wechat' || class_g = 'Google-chrome' || class_g = 'Dunst'";
+          match = "class_g = 'Code' || class_g = 'wechat' ||class_g = 'dev.zed.Zed' || class_g = 'Dunst'";
           opacity = 0.75;
         },
         {

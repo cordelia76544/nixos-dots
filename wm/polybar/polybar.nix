@@ -1,8 +1,8 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
+{ lib
+, pkgs
+, ...
+}:
+let
   # Adjust these for your machine.
   networkInterface = "wlo1";
   batteryName = "BAT0";
@@ -42,8 +42,9 @@
   # This avoids Nerd Font private-use glyphs being chosen before feather.
   icon = glyph: "%{T2}" + glyph + "%{T-}";
 
-  runtimePath = lib.makeBinPath (with pkgs; [coreutils procps]);
-in {
+  runtimePath = lib.makeBinPath (with pkgs; [ coreutils procps ]);
+in
+{
   fonts.fontconfig.enable = true;
 
   services.polybar = {
@@ -95,7 +96,7 @@ in {
         "font-3" = "Noto Color Emoji:size=12;4";
         "modules-left" = "sep launcher sep workspaces sep";
         "modules-center" = "title";
-        "modules-right" = "pulseaudio sep battery sep network sep date sep sysmenu sep";
+        "modules-right" = "pulseaudio sep battery sep network-wireless network-wired sep date sep sysmenu sep";
         "separator" = "";
         "dim-value" = "1.0";
         "wm-name" = "";
@@ -252,7 +253,7 @@ in {
         "label-full-padding" = 1;
       };
 
-      "module/network" = {
+      "module/network-wireless" = {
         "type" = "internal/network";
         "interface" = networkInterface;
         "interval" = "1.0";
@@ -281,6 +282,24 @@ in {
         "label-disconnected-foreground" = colors.fg;
         "label-disconnected-padding" = 1;
         "click-left" = "${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu &";
+      };
+
+      "module/network-wired" = {
+        "type" = "internal/network";
+        "interface" = "enp58s0";
+        "interval" = "1.0";
+        "accumulate-stats" = true;
+        "format-connected" = "<label-connected>";
+        "format-connected-prefix" = icon "";
+        "format-connected-prefix-background" = colors.purple;
+        "format-connected-prefix-padding" = 1;
+        "format-connected-overline" = colors.bg;
+        "format-connected-underline" = colors.bg;
+        "label-connected" = "有线";
+        "label-connected-background" = colors.bgAlt;
+        "label-connected-foreground" = colors.fg;
+        "label-connected-padding" = 1;
+        "format-disconnected" = "";
       };
 
       "module/date" = {
