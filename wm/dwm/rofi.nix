@@ -5,6 +5,7 @@
   programs.rofi = {
     enable = true;
     theme = "~/.config/rofi/themes/black-transparent.rasi";
+    font = "Google Sans Code 16";
     modes = [
       "drun"
       {

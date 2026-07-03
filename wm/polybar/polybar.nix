@@ -41,8 +41,8 @@ let
   icon = glyph: "%{T2}" + glyph + "%{T-}";
 
   # 复用原配置里已经确认可用的 feather 图标
-  wifiConnectedIcon = icon "";
-  wifiOfflineIcon = icon "";
+  wifiConnectedIcon = icon "";
+  wifiOfflineIcon = icon "";
 
   runtimePath = lib.makeBinPath (with pkgs; [ coreutils procps ]);
 
