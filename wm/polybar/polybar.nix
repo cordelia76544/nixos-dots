@@ -149,7 +149,7 @@ in
 
       "module/launcher" = {
         "type" = "custom/text";
-        "content-prefix" = icon "\ue979";
+        "content-prefix" = icon "";
         "content-prefix-background" = colors.teal;
         "content-prefix-padding" = 1;
         "content" = " Menu ";
@@ -165,12 +165,12 @@ in
         "pin-workspaces" = true;
         "enable-click" = true;
         "enable-scroll" = true;
-        "icon-0" = "1;${icon "\ue9e9"}";
-        "icon-1" = "2;${icon "\ue978"}";
-        "icon-2" = "3;${icon "\ue96c"}";
-        "icon-3" = "4;${icon "\ue95b"}";
-        "icon-4" = "5;${icon "\ue981"}";
-        "icon-default" = icon "\ue9a2";
+        "icon-0" = "1;${icon ""}";
+        "icon-1" = "2;${icon ""}";
+        "icon-2" = "3;${icon ""}";
+        "icon-3" = "4;${icon ""}";
+        "icon-4" = "5;${icon ""}";
+        "icon-default" = icon "";
         "format" = "<label-state>";
         "format-overline" = colors.bg;
         "format-underline" = colors.bg;
@@ -195,7 +195,7 @@ in
       "module/title" = {
         "type" = "internal/xwindow";
         "format" = "<label>";
-        "format-prefix" = icon "\ue998";
+        "format-prefix" = icon "";
         "format-padding" = 1;
         "format-foreground" = colors.fgAlt;
         "label" = " %title%";
@@ -213,7 +213,7 @@ in
         "format-volume-underline" = colors.bg;
 
         "format-muted" = "<label-muted>";
-        "format-muted-prefix" = icon "\uea0c";
+        "format-muted-prefix" = icon "";
         "format-muted-prefix-background" = colors.red;
         "format-muted-prefix-padding" = 1;
         "format-muted-overline" = colors.bg;
@@ -229,9 +229,9 @@ in
         "label-muted-foreground" = colors.fg;
         "label-muted-padding" = 1;
 
-        "ramp-volume-0" = icon "\uea09";
-        "ramp-volume-1" = icon "\uea0a";
-        "ramp-volume-2" = icon "\uea0b";
+        "ramp-volume-0" = icon "";
+        "ramp-volume-1" = icon "";
+        "ramp-volume-2" = icon "";
         "ramp-volume-background" = colors.blue;
         "ramp-volume-padding" = 1;
 
@@ -246,19 +246,19 @@ in
         "poll-interval" = 2;
         "time-format" = "%H:%M";
         "format-charging" = "<label-charging>";
-        "format-charging-prefix" = icon "\ue91d";
+        "format-charging-prefix" = icon "";
         "format-charging-prefix-background" = colors.green;
         "format-charging-prefix-padding" = 1;
         "format-charging-overline" = colors.bg;
         "format-charging-underline" = colors.bg;
         "format-discharging" = "<label-discharging>";
-        "format-discharging-prefix" = icon "\ue91c";
+        "format-discharging-prefix" = icon "";
         "format-discharging-prefix-background" = colors.pink;
         "format-discharging-prefix-padding" = 1;
         "format-discharging-overline" = colors.bg;
         "format-discharging-underline" = colors.bg;
         "format-full" = "<label-full>";
-        "format-full-prefix" = icon "\ue91d";
+        "format-full-prefix" = icon "";
         "format-full-prefix-background" = colors.red;
         "format-full-prefix-padding" = 1;
         "format-full-overline" = colors.bg;
@@ -294,7 +294,7 @@ in
         "time" = "%I:%M %p";
         "time-alt" = "%a, %d %b %Y";
         "format" = "<label>";
-        "format-prefix" = icon "\ue939";
+        "format-prefix" = icon "";
         "format-prefix-background" = colors.amber;
         "format-prefix-padding" = 1;
         "format-overline" = colors.bg;
@@ -307,7 +307,7 @@ in
 
       "module/sysmenu" = {
         "type" = "custom/text";
-        "content-prefix" = icon "\ue9c0";
+        "content-prefix" = icon "";
         "content-prefix-background" = colors.cyan;
         "content-prefix-padding" = 1;
         "content" = " System ";
