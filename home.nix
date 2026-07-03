@@ -79,9 +79,13 @@
       ".config/Termius"
       ".cache/betterlockscreen"
 
-      ## wechat
+      # wechat
       ".xwechat"
       "xwechat_files"
+
+      # zedg
+      ".config/zed"
+      ".local/zed"
     ];
   };
 

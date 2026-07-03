@@ -10,7 +10,7 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    zedg.url = "github:cordelia76544/zedg-nix";
     impermanence.url = "github:nix-community/impermanence";
   };
 
@@ -21,6 +21,7 @@
     home-manager,
     impermanence,
     nix-cachyos-kernel,
+    zedg,
     ...
   } @ inputs: {
     nixosConfigurations = {
