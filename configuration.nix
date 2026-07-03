@@ -12,7 +12,7 @@
     ./apps/virt
     #./apps/tools/fcitx5.nix
     ./apps/tools/asusd.nix
-    #./apps/games/steam.nix
+    ./apps/games/steam.nix
     ./apps/medias/musics
     ./svc
     #./wm/stylix.nix

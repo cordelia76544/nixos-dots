@@ -297,6 +297,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1782847225,
+        "narHash": "sha256-JC9PjqKYG9ve5U8aDOLQipp3+KLANBHUvGdLZlxzdKI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "95ca1e203c0750115fd4a6f17d5a245dfe6b1edd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "daeuniverse": "daeuniverse",
@@ -304,7 +320,26 @@
         "impermanence": "impermanence",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_4",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "zedg": "zedg"
+      }
+    },
+    "zedg": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1783067319,
+        "narHash": "sha256-NkBZ0KyRn6ucEBO0ro07EVJba7VDkkWKos4OWc21jXw=",
+        "owner": "cordelia76544",
+        "repo": "zedg-nix",
+        "rev": "9009bffec9e38e5e47d9cdce0fe8b6a98bc181a3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cordelia76544",
+        "repo": "zedg-nix",
+        "type": "github"
       }
     }
   },

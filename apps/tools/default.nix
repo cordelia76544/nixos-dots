@@ -7,5 +7,6 @@
     ./termius-cn.nix
     ./inputs
     ./yazi.nix
+    ./zedg.nix
   ];
 }
