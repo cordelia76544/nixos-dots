@@ -46,11 +46,7 @@
           );
         },
         {
-          match = "class_g = 'kitty' || class_g = 'Rofi'";
-          opacity = 0.65;
-        },
-        {
-          match = "class_g = 'Code' || class_g = 'wechat' ||class_g = 'dev.zed.Zed' || class_g = 'Dunst'";
+          match = "class_g = 'Code' || class_g = 'wechat'";
           opacity = 0.75;
         },
         {

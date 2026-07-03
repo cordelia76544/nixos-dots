@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
@@ -19,7 +19,7 @@
 
       # Window Configuration
       window_padding_width = 12;
-      #background_opacity = "1.0";
+      background_opacity = "0.7";
       background_blur = 32;
       hide_window_decorations = "yes";
 

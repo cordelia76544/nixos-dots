@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   services.dunst = {
     enable = true;
     enableX11 = true;
@@ -9,9 +9,9 @@
         follow = "mouse";
 
         width = 460;
-        height = 140;
+        height = "(0, 140)";
         origin = "top-right";
-        offset = "24x48";
+        offset = "(24, 48)";
         notification_limit = 5;
 
         font = "JetBrainsMono Nerd Font 11";
