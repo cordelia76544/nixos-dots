@@ -1,7 +1,6 @@
-{
-  pkgs,
-  lib,
-  ...
+{ pkgs
+, lib
+, ...
 }: {
   home.username = "davyjones";
   home.homeDirectory = "/home/davyjones";
@@ -85,7 +84,7 @@
 
       # zedg
       ".config/zed"
-      ".local/zed"
+      ".local/share/zed"
     ];
   };
 
@@ -168,17 +167,17 @@
 
   dconf.settings = {
     "org/gtk/settings/file-chooser" = {
-      window-size = lib.hm.gvariant.mkTuple [800 600];
+      window-size = lib.hm.gvariant.mkTuple [ 800 600 ];
     };
     "org/gtk/gtk4/settings/file-chooser" = {
-      window-size = lib.hm.gvariant.mkTuple [800 600];
+      window-size = lib.hm.gvariant.mkTuple [ 800 600 ];
     };
   };
 
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "application/pdf" = ["org.pwmt.zathura.desktop"];
+      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
     };
   };
 

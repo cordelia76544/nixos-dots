@@ -19,6 +19,8 @@
       buffer_font_features = { calt = true; };
       format_on_save = "on";
       load_direnv = "direct";
+      auto_update = false;
+      use_system_window_tabs = true;
 
       telemetry = {
         metrics = false;
