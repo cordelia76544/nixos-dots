@@ -1,8 +1,19 @@
-{ lib, ... }: {
+{ lib, pkgs, ... }: {
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
     enableGitIntegration = true;
+
+    package = pkgs.symlinkJoin {
+      name = "kitty-wrapped";
+      paths = [ pkgs.kitty ];
+      buildInputs = [ pkgs.makeWrapper ];
+
+      postBuild = ''
+        wrapProgram $out/bin/kitty \
+          --set GLFW_IM_MODULE ibus
+      '';
+    };
 
     # 1. 字体配置
     font = {
