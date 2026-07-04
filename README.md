@@ -1,6 +1,6 @@
 # NixOS Config
 
-My personal NixOS configuration with the help of AI tools.
+My personal NixOS configuration with dwm.
 
 ## Rebuild
 
