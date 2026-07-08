@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -35,6 +35,7 @@
         description = "Run OpenCode in rootful Podman";
         body = ''
           sudo podman run --rm -it \
+            --runtime=runsc \
             --user (id -u):(id -g) \
             -e HOME=/home/opencode \
             -v "$HOME/Documents/opencode/workspace:/workspace:Z" \
