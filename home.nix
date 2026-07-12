@@ -39,9 +39,13 @@
       "Videos"
       "Music"
 
-      # ssh, gnupg,...
+      # ssh, gnupg, k8s...
       ".ssh"
       ".gnupg"
+      ".kube"
+      ".config/helm"
+      ".local/share/helm"
+      ".cache/helm"
       ".local/share/keyrings"
       ".config/dconf"
       ".local/state/wireplumber"
@@ -54,9 +58,10 @@
       ".local/share/fcitx5"
       ".local/share/fcitx5/rime"
 
-      # PrismLauncher / Minecraft
+      # games
       ".local/share/PrismLauncher"
       ".config/PrismLauncher"
+      ".steam"
 
       # VSCode
       ".vscode"
@@ -141,7 +146,7 @@
     zathura
     wechat
     kubectl
-    helm
+    kubernetes-helm
     imagemagick
   ];
 
