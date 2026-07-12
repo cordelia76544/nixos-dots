@@ -140,6 +140,9 @@
     wpsoffice-cn
     zathura
     wechat
+    kubectl
+    helm
+    imagemagick
   ];
 
   programs.git = {
