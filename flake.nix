@@ -12,7 +12,7 @@
     };
     zedg.url = "github:cordelia76544/zedg-nix";
     impermanence.url = "github:nix-community/impermanence";
-    nixvim.url = "github:nix-community/nixvim-26.05";
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
   };
 
   outputs =
