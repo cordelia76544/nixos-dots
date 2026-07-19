@@ -8,7 +8,7 @@
     enable = true;
     package = pkgs.vscode;
     profiles.default.extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
+      #bbenoist.nix
       jnoortheen.nix-ide
       mkhl.direnv
       kamadorueda.alejandra
@@ -27,6 +27,7 @@
       redhat.vscode-xml
       github.copilot
       pkief.material-icon-theme
+      teabyii.ayu
       sumneko.lua
     ];
 
@@ -38,21 +39,20 @@
       #"locale" = "zh-cn";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
-      "editor.fontSize" = 15;
+      "editor.fontSize" = 16;
       "workbench.iconTheme" = "material-icon-theme";
-
-      # --- 主题设置 ---
-      #"workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.colorTheme" = "Ayu Light";
+      "security.workspace.trust.enabled" = false;
 
       # --- Nix IDE 设置 ---
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nil";
+      "nix.serverPath" = "nixd";
 
       # 格式化程序设置
       "nix.serverSettings" = {
-        "nil" = {
+        "nixd" = {
           "formatting" = {
-            "command" = ["nixpkgs-fmt"]; # 或者 "alejandra"
+            "command" = ["alejandra"]; # 或者 "alejandra"
           };
         };
       };
@@ -76,7 +76,7 @@
   };
 
   home.packages = with pkgs; [
-    nil # Nix LSP (智能提示)
-    nixpkgs-fmt # Nix 格式化工具
+    nid # Nix LSP (智能提示)
+    alejandra # Nix 格式化工具
   ];
 }
