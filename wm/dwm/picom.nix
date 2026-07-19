@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   services.picom = {
     enable = true;
 
@@ -7,11 +7,11 @@
 
     shadow = false;
     shadowOpacity = 0.75;
-    shadowOffsets = [ (-15) (-15) ];
+    shadowOffsets = [(-15) (-15)];
 
     fade = true;
     fadeDelta = 8;
-    fadeSteps = [ 0.04 0.04 ];
+    fadeSteps = [0.04 0.04];
 
     settings = {
       frame-opacity = 1.0;
@@ -46,7 +46,7 @@
           );
         },
         {
-          match = "class_g = 'Code' || class_g = 'wechat'";
+          match = "class_g = 'wechat'";
           opacity = 0.75;
         },
         {
