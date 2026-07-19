@@ -51,6 +51,7 @@
       ".local/share/keyrings"
       ".config/dconf"
       ".local/state/wireplumber"
+      ".local/share/nvim"
 
       # browser
       ".config/google-chrome"
@@ -84,6 +85,7 @@
       ".config/obsidian"
       ".config/Termius"
       ".cache/betterlockscreen"
+      ".config/networkmanager-dmenu"
 
       # wechat
       ".xwechat"
@@ -128,6 +130,7 @@
     pavucontrol
     autocutsel
     brightnessctl
+    networkmanagerapplet
 
     # system call monitoring
     strace # system call monitoring

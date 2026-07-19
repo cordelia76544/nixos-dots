@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./autostart.nix
     ./picom.nix
@@ -7,7 +7,7 @@
     ./betterlockscreen.nix
   ];
 
-  services.network-manager-applet.enable = true;
+  #services.network-manager-applet.enable = true;
 
   xresources.properties = {
     "Xft.dpi" = 144;

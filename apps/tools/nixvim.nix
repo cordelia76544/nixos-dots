@@ -7,7 +7,7 @@
     taplo       # toml lsp + formatter
     shfmt       # shell formatter
     shellcheck  # shell linter (bashls 会用到)
-    nodePackages.prettier # 用于 markdown/json 等
+    prettier # 用于 markdown/json 等
     jq
     clang-tools # 提供 clangd (LSP) 和 clang-format，用于编辑 dwm 这类 C 源码
   ];
@@ -113,12 +113,12 @@
           marksman.enable = true;    # markdown
           clangd = {
             enable = true;           # C/C++ (dwm 源码用)
-            extraOptions = [
-              "--background-index"
-              "--clang-tidy"
-              "--completion-style=detailed"
-              "--header-insertion=iwyu"
-            ];
+            extraOptions = {
+              background-index = true;
+              clang-tidy = true;
+              completion-style = "detailed";
+              header-insertion = "iwyu";
+            };
           };
         };
         keymaps = {
