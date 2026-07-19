@@ -12,6 +12,7 @@
     };
     zedg.url = "github:cordelia76544/zedg-nix";
     impermanence.url = "github:nix-community/impermanence";
+    inputs.nixvim.url = "github:nix-community/nixvim-26.05";
   };
 
   outputs =
@@ -22,6 +23,7 @@
     , impermanence
     , nix-cachyos-kernel
     , zedg
+    , nixvim
     , ...
     } @ inputs: {
       nixosConfigurations = {

@@ -1,5 +1,6 @@
 { pkgs
 , lib
+, inputs
 , ...
 }: {
   home.username = "davyjones";
@@ -13,6 +14,7 @@
   };
 
   imports = [
+    inputs.nixvim.nixosModules.nixvim
     ./wm/polybar
     ./wm/dwm
     ./apps/shell/fish.nix

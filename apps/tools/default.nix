@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./vscode.nix
     ./helix.nix
@@ -8,5 +8,6 @@
     ./inputs
     ./yazi.nix
     ./zedg.nix
+    ./nixvim.nix
   ];
 }
