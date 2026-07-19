@@ -55,20 +55,22 @@
       # ---------- 侧边文件树（类似 VSCode）----------
       neo-tree = {
         enable = true;
-        closeIfLastWindow = true;
-        filesystem = {
-          followCurrentFile.enabled = true;
-          hijackNetrwBehavior = "open_default";
-          filteredItems = {
-            visible = true; # 显示隐藏文件/被过滤项，按 H 切换
-            hideDotfiles = false;
-            hideGitignored = false;
+        settings = {
+          close_if_last_window = true;
+          filesystem = {
+            follow_current_file.enabled = true;
+            hijack_netrw_behavior = "open_default";
+            filtered_items = {
+              visible = true; # 显示隐藏文件/被过滤项，按 H 切换
+              hide_dotfiles = false;
+              hide_gitignored = false;
+            };
           };
-        };
-        window = {
-          width = 30;
-          mappings = {
-            "<space>" = "none"; # 避免和 leader 冲突
+          window = {
+            width = 30;
+            mappings = {
+              "<space>" = "none"; # 避免和 leader 冲突
+            };
           };
         };
       };
