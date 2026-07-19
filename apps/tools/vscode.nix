@@ -76,7 +76,7 @@
   };
 
   home.packages = with pkgs; [
-    nid # Nix LSP (智能提示)
+    nixd # Nix LSP (智能提示)
     alejandra # Nix 格式化工具
   ];
 }
