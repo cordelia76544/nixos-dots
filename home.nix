@@ -14,7 +14,7 @@
   };
 
   imports = [
-    inputs.nixvim.nixosModules.nixvim
+    inputs.nixvim.homeModules.nixvim
     ./wm/polybar
     ./wm/dwm
     ./apps/shell/fish.nix
