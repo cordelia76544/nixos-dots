@@ -1,5 +1,5 @@
 {...}: let
-  browser = "google-chrome.desktop";
+  browser = "brave-browser.desktop";
 
   wpsWriter = "wps-office-wps.desktop";
   wpsSheet = "wps-office-et.desktop";

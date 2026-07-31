@@ -1,7 +1,8 @@
-{ pkgs
-, lib
-, inputs
-, ...
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
 }: {
   home.username = "davyjones";
   home.homeDirectory = "/home/davyjones";
@@ -55,11 +56,14 @@
 
       # browser
       ".config/google-chrome"
+      ".config/BraveSoftware"
 
       # input methods
       ".config/fcitx5"
       ".local/share/fcitx5"
       ".local/share/fcitx5/rime"
+      ".config/copyq"
+      ".local/share/copyq"
 
       # games
       ".local/share/PrismLauncher"
@@ -179,10 +183,10 @@
 
   dconf.settings = {
     "org/gtk/settings/file-chooser" = {
-      window-size = lib.hm.gvariant.mkTuple [ 800 600 ];
+      window-size = lib.hm.gvariant.mkTuple [800 600];
     };
     "org/gtk/gtk4/settings/file-chooser" = {
-      window-size = lib.hm.gvariant.mkTuple [ 800 600 ];
+      window-size = lib.hm.gvariant.mkTuple [800 600];
     };
   };
 
