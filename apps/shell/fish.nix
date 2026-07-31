@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -8,6 +8,7 @@
 
     shellAbbrs = {
       update = "sudo nixos-rebuild switch --flake ~/nixos#nixos";
+      upgrade = "sudo nixos-rebuild boot --flake ~/nixos#nixos";
       sduo = "sudo";
     };
 
