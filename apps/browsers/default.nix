@@ -2,7 +2,7 @@
   imports = [
     #./firefox.nix
     ./brave.nix
-    ./chrome.nix
+    #./chrome.nix
     #./helium.nix
   ];
 }

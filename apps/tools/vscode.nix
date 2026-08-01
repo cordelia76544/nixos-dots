@@ -31,9 +31,9 @@
       sumneko.lua
     ];
 
-    argvSettings = {
-      locale = "zh-cn";
-    };
+    #argvSettings = {
+    #  locale = "zh-cn";
+    #};
     profiles.default.userSettings = {
       # --- 通用编辑器设置 ---
       #"locale" = "zh-cn";

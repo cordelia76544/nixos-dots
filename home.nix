@@ -52,16 +52,15 @@
       ".local/share/keyrings"
       ".config/dconf"
       ".local/state/wireplumber"
-      ".local/share/nvim"
+      #".local/share/nvim"
 
       # browser
-      ".config/google-chrome"
+      #".config/google-chrome"
       ".config/BraveSoftware"
 
       # input methods
       ".config/fcitx5"
       ".local/share/fcitx5"
-      ".local/share/fcitx5/rime"
       ".config/copyq"
       ".local/share/copyq"
 
@@ -73,8 +72,6 @@
       # VSCode
       ".vscode"
       ".config/Code"
-      ".config/Code/User/workspaceStorage"
-      ".config/Code/User/globalStorage"
 
       # shell
       ".local/share/direnv"
@@ -96,8 +93,8 @@
       "xwechat_files"
 
       # zedg
-      ".config/zed"
-      ".local/share/zed"
+      #".config/zed"
+      #".local/share/zed"
     ];
   };
 

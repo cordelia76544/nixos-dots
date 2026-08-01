@@ -63,7 +63,7 @@
         {
           match = "_GTK_FRAME_EXTENTS@ || class_g = 'Flameshot' || class_g = 'maim'";
           blur-background = false;
-        }
+        },
         {
           match = "fullscreen && focused";
           unredir = "forced";

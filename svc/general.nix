@@ -13,11 +13,10 @@
     };
 
     openssh.enable = true;
-    flatpak.enable = true;
+    flatpak.enable = false;
     upower.enable = true;
     tlp.enable = lib.mkForce false;
     fstrim.enable = lib.mkDefault true;
     gnome.gnome-keyring.enable = true;
-
   };
 }
