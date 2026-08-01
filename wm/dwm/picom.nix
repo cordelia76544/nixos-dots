@@ -18,7 +18,7 @@
       track-wm-history = true;
       corner-radius = 8;
       detect-client-opacity = true;
-      unredir-if-possible = false;
+      unredir-if-possible = true;
 
       blur = {
         method = "dual_kawase";
@@ -34,8 +34,7 @@
     extraConfig = ''
       rules = (
          {
-          # dwm 普通窗口，包括 tile <-> monocle/独占 的几何变化
-          match = "window_type = 'normal' || window_type = 'dialog'";
+          match = "(window_type = 'normal' || window_type = 'dialog') && !fullscreen";
 
           animations = (
             {
@@ -64,6 +63,22 @@
         {
           match = "_GTK_FRAME_EXTENTS@ || class_g = 'Flameshot' || class_g = 'maim'";
           blur-background = false;
+        }
+        {
+          match = "fullscreen && focused";
+          unredir = "forced";
+          shadow = false;
+          blur-background = false;
+          corner-radius = 0;
+          opacity = 1.0;
+        },
+        {
+          match = "class_g %= '*amescope*' || class_g %= '.gamescope*'";
+          unredir = "forced";
+          shadow = false;
+          blur-background = false;
+          corner-radius = 0;
+          opacity = 1.0;
         }
       );
     '';
