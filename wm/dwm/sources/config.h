@@ -572,7 +572,8 @@ static char *tagicons[][NUMTAGS] =
         "B",
         "C",
         "D",
-        "E," F "},
+        "E",
+        "F"},
             [ALT_TAGS_DECORATION] = {"<1>", "<2>", "<3>", "<4>", "<5>", "<6>"},
     };
 

@@ -71,6 +71,12 @@
         "--completion-style=detailed"
       ];
       "C_Cpp.intelliSenseEngine" = "disabled";
+      "[c]" = {
+        "editor.formatOnSave" = false;
+      };
+      "[cpp]" = {
+        "editor.formatOnSave" = false;
+      };
     };
 
     profiles.default.keybindings = [
