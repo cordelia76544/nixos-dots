@@ -16,8 +16,7 @@
       ms-vscode.makefile-tools
       ms-vscode-remote.remote-ssh
       ms-vscode.remote-explorer
-      ms-vscode.cpptools
-      ms-vscode.cpptools-extension-pack
+      llvm-vs-code-extensions.vscode-clangd
       ms-vscode.cmake-tools
       ms-python.python
       eamodio.gitlens
@@ -52,7 +51,7 @@
       "nix.serverSettings" = {
         "nixd" = {
           "formatting" = {
-            "command" = ["alejandra"]; # 或者 "alejandra"
+            "command" = ["alejandra"];
           };
         };
       };
@@ -64,6 +63,14 @@
       # --- Git 设置 ---
       "git.confirmSync" = false;
       "git.autofetch" = true;
+      "clangd.path" = "${pkgs.clang-tools}/bin/clangd";
+      "clangd.arguments" = [
+        "--background-index"
+        "--clang-tidy"
+        "--header-insertion=never"
+        "--completion-style=detailed"
+      ];
+      "C_Cpp.intelliSenseEngine" = "disabled";
     };
 
     profiles.default.keybindings = [
@@ -79,4 +86,18 @@
     nixd # Nix LSP (智能提示)
     alejandra # Nix 格式化工具
   ];
+
+  home.file.".local/dev-includes".source = pkgs.symlinkJoin {
+    name = "dwm-dev-includes";
+    paths = with pkgs; [
+      xorg.xorgproto
+      xorg.libX11.dev
+      xorg.libXinerama.dev
+      xorg.libXft.dev
+      xorg.libXrender.dev
+      freetype.dev
+      fontconfig.dev
+      yajl.dev
+    ];
+  };
 }

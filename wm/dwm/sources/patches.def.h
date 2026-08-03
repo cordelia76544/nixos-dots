@@ -247,13 +247,13 @@
  * Set the tagindicatortype variable in config.h to INDICATOR_TOP_BAR to enable this.
  * https://dwm.suckless.org/patches/activetagindicatorbar/
  */
-#define BAR_ACTIVETAGINDICATORBAR_PATCH N/A
+#define BAR_ACTIVETAGINDICATORBAR_PATCH N / A
 
 /* Alternative patch to the activetagindicatorbar patch, adds the bar below the tag
  * icon rather than above.
  * Set the tagindicatortype variable in config.h to INDICATOR_BOTTOM_BAR to enable this.
  */
-#define BAR_ACTIVETAGINDICATORBAR_ALT1_PATCH N/A
+#define BAR_ACTIVETAGINDICATORBAR_ALT1_PATCH N / A
 
 /* The alpha patch adds transparency for the status bar.
  * You need to uncomment the corresponding line in config.mk to use the -lXrender library
@@ -314,7 +314,7 @@
  * Set the tagindicatortype variable in config.h to INDICATOR_CLIENT_DOTS to enable this.
  * https://dwm.suckless.org/patches/clientindicators/
  */
-#define BAR_CLIENTINDICATOR_PATCH N/A
+#define BAR_CLIENTINDICATOR_PATCH N / A
 
 /* Updates the position of dmenu to match that of the bar. I.e. if topbar is 0 then dmenu
  * will appear at the bottom and if 1 then dmenu will appear at the top.
@@ -683,7 +683,7 @@
  * This patch takes precedence over the fakefullscreen client patch below.
  * https://dwm.suckless.org/patches/fakefullscreen/
  */
-#define FAKEFULLSCREEN_PATCH 1
+#define FAKEFULLSCREEN_PATCH 0
 
 /* Similarly to the fakefullscreen patch this patch only allows clients to "fullscreen" into
  * the space currently given to them.
@@ -692,7 +692,7 @@
  * Also see the selectivefakefullscreen option that adds a rule option to enabled this on client
  * startup.
  */
-#define FAKEFULLSCREEN_CLIENT_PATCH 0
+#define FAKEFULLSCREEN_CLIENT_PATCH 1
 
 /* This patch adds a float rule allowing the size and position of floating windows to be specified
  * It also allows the size and position of floating windows to be controlled similar to the
@@ -1369,7 +1369,7 @@
 /* This patch allows you to toggle fullscreen on and off using a single shortcut key.
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-togglefullscreen-6.2.diff
  */
-#define TOGGLEFULLSCREEN_PATCH 0
+#define TOGGLEFULLSCREEN_PATCH 1
 
 /* This patch allows for the bar position (top or bottom) to be toggled during runtime.
  * https://dwm.suckless.org/patches/toggletopbar/

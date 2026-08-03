@@ -1,0 +1,4 @@
+-std=c99
+-I/home/davyjones/.local/dev-includes/include
+-I/home/davyjones/.local/dev-includes/include/freetype2
+-I.
