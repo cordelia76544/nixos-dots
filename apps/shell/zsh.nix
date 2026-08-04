@@ -14,8 +14,6 @@
     shellAliases = {
       ll = "eza -alh --icons=always";
       ls = "eza --icons=always";
-      # fish 的 shellAbbrs 在 zsh 里没有原生等价物，降级为别名
-      # 想要真正的缩写展开，见文件末尾关于 zsh-abbr 的说明
       update = "sudo nixos-rebuild switch --flake ~/nixos#nixos";
       upgrade = "sudo nixos-rebuild boot --flake ~/nixos#nixos";
       sduo = "sudo";
@@ -57,10 +55,7 @@
     ];
 
     initContent = lib.mkMerge [
-      # ---- 早期：TTY 下强制英文 ----
       (lib.mkOrder 500 ''
-        # Linux 虚拟控制台只有 256 个字形，渲染不了 CJK，
-        # 所以在 tty 里把 locale 切成英文，避免满屏方块。
         if [[ "$TERM" == "linux" ]]; then
           export LANG=en_US.UTF-8
           export LC_ALL=en_US.UTF-8
@@ -80,21 +75,6 @@
         # fzf-tab：用 eza 预览目录内容
         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons=always $realpath'
         zstyle ':fzf-tab:*' switch-group ',' '.'
-
-        # fish 的 done 插件替代：命令跑超过 30 秒就发通知
-        _cmd_start_time=0
-        _notify_preexec() { _cmd_start_time=$SECONDS }
-        _notify_precmd() {
-          local elapsed=$(( SECONDS - _cmd_start_time ))
-          if (( _cmd_start_time > 0 && elapsed > 30 )); then
-            ${pkgs.libnotify}/bin/notify-send "命令完成" "耗时 ''${elapsed}s: $_last_cmd"
-          fi
-          _cmd_start_time=0
-        }
-        autoload -Uz add-zsh-hook
-        add-zsh-hook preexec _notify_preexec
-        add-zsh-hook preexec '_last_cmd=$1'
-        add-zsh-hook precmd _notify_precmd
       '')
 
       # ---- 函数：从 fish 翻译过来 ----
