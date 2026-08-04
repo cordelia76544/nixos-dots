@@ -107,7 +107,7 @@
     isNormalUser = true;
     description = "Davy Jones";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "incus-admin" "asus-users"];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     hashedPassword = "$y$j9T$Kv4vO7FnmALq9MkdO8KuC.$Y7XJ.x61yPLgYQONkbN7wcfl2OVTIr5i25qG3l.ODc5";
   };
 
@@ -218,7 +218,7 @@
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
       "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
       "$XDG_DATA_DIRS"
-      "/var/lib/flatpak/exports/share"
+      #"/var/lib/flatpak/exports/share"
       #"$HOME/.local/share/flatpak/exports/share"
     ];
     GTK_IM_MODULE = "fcitx";

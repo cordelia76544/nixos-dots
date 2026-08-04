@@ -56,7 +56,6 @@
       #".local/share/nvim"
 
       # browser
-      #".config/google-chrome"
       ".config/BraveSoftware"
 
       # input methods
@@ -78,7 +77,7 @@
       ".local/share/direnv"
       ".local/share/zoxide"
       ".local/share/fish"
-      ".config/nushell"
+      ".local/share/zsh"
 
       # Remmina
       ".local/share/remmina"
