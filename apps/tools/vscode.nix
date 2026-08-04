@@ -96,11 +96,11 @@
   home.file.".local/dev-includes".source = pkgs.symlinkJoin {
     name = "dwm-dev-includes";
     paths = with pkgs; [
-      xorg.xorgproto
-      xorg.libX11.dev
-      xorg.libXinerama.dev
-      xorg.libXft.dev
-      xorg.libXrender.dev
+      xorgproto
+      libX11.dev
+      libXinerama.dev
+      libXft.dev
+      libXrender.dev
       freetype.dev
       fontconfig.dev
       yajl.dev

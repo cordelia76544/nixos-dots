@@ -19,6 +19,7 @@
     ./wm/polybar
     ./wm/dwm
     ./apps/shell/fish.nix
+    ./apps/shell/zsh.nix
     ./apps/kitty/kitty.nix
     ./apps/games
     ./apps/tools

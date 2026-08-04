@@ -78,7 +78,14 @@
   #networking.proxy.default = "http://172.20.10.5:7897/";
   #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain,192.168.0.0/16,172.16.0.0/12,10.0.0.0/8";
   networking.hostId = "78f5e633";
-  i18n.defaultLocale = "zh_CN.UTF-8";
+  i18n = {
+    defaultLocale = "zh_CN.UTF-8";
+    supportedLocales = [
+      "zh_CN.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+      "C.UTF-8/UTF-8"
+    ];
+  };
 
   nixpkgs.config.allowUnfree = true;
   environment.pathsToLink = ["/share/applications" "/share/xdg-desktop-portal" "/share/glib-2.0/schemas"];
