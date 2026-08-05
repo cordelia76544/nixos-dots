@@ -62,12 +62,10 @@
 
   nix.settings.substituters = [
     "https://attic.xuyh0120.win/lantian"
-    "https://cache.garnix.io"
     "https://prismlauncher.cachix.org"
   ];
   nix.settings.trusted-public-keys = [
     "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-    "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
   ];
 
