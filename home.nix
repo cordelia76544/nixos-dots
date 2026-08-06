@@ -18,7 +18,6 @@
     inputs.nixvim.homeModules.nixvim
     ./wm/polybar
     ./wm/dwm
-    ./apps/shell/fish.nix
     ./apps/shell/zsh.nix
     ./apps/kitty/kitty.nix
     ./apps/games
@@ -76,7 +75,6 @@
       # shell
       ".local/share/direnv"
       ".local/share/zoxide"
-      ".local/share/fish"
       ".local/share/zsh"
 
       # Remmina
@@ -87,14 +85,15 @@
       ".config/Termius"
       ".cache/betterlockscreen"
       ".config/networkmanager-dmenu"
+      ".local/share/Trash"
 
       # wechat
       ".xwechat"
       "xwechat_files"
 
-      # zedg
-      #".config/zed"
-      #".local/share/zed"
+      # wps
+      "config/Kingsoft"
+      ".local/share/Kingsoft"
     ];
   };
 

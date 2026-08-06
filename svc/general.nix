@@ -3,13 +3,13 @@
     displayManager.ly = {
       enable = true;
     };
-
-    xserver.displayManager.lightdm = {
-      enable = false;
-    };
     libinput = {
       enable = true;
       touchpad.disableWhileTyping = true;
+    };
+    zfs = {
+      autoScrub.enable = true;
+      trim.enable = true;
     };
 
     openssh.enable = true;

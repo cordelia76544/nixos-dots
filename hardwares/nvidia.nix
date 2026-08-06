@@ -14,7 +14,7 @@
       prime = {
         offload = {
           enable = true;
-          enableOffloadCmd = lib.mkIf config.hardware.nvidia.prime.offload.enable true;
+          enableOffloadCmd = true;
         };
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
@@ -37,6 +37,6 @@
   boot.kernelParams = [
     "i915.enable_dpcd_backlight=1"
     "nvidia.NVreg_EnableBacklightHandler=0"
-    "nvidia.NVReg_RegistryDwords=EnableBrightnessControl=0"
+    "nvidia.NVreg_RegistryDwords=EnableBrightnessControl=0"
   ];
 }

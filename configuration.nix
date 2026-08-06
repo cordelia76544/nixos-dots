@@ -24,6 +24,7 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
     };
     #kernelPackages = pkgs.linuxPackages;
     kernelModules = ["tcp_bbr"];
@@ -32,6 +33,10 @@
       "net.ipv4.tcp_congestion_control" = "bbr";
     };
     supportedFilesystems = ["zfs"];
+    extraModprobeConfig = ''
+      options zfs zfs_arc_max=8589934592
+      options zfs zfs_arc_min=1073741824
+    '';
     zfs.forceImportRoot = false;
     initrd.systemd = {
       enable = true;
@@ -56,6 +61,13 @@
     };
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+  nix.optimise.automatic = true;
+
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   networking.nftables.enable = true;
@@ -69,7 +81,6 @@
     "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
   ];
 
-  # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
   # Configure network proxy if necessary
@@ -177,7 +188,6 @@
     git
     gamemode
     adwaita-icon-theme
-    #xwayland-satellite
     polkit_gnome
     glib
     gsettings-desktop-schemas
@@ -238,6 +248,12 @@
       ]
     }
   '';
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+    algorithm = "zstd";
+  };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "26.05";
