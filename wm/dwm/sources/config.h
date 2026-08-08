@@ -632,6 +632,7 @@ static const Rule rules[] = {
                                     RULE(.title = "Console window", .isfloating = 1)
                                         RULE(.class = "steam", .isfloating = 1)
                                             RULE(.class = "steam", .title = "Steam", .isfloating = 0, .tags = 1 << 5)
+                                            RULE(.class = "Blueman-manager", .isfloating = 1)
 
 #if RENAMED_SCRATCHPADS_PATCH
                                                 RULE(.instance = "spterm", .scratchkey = 's',
