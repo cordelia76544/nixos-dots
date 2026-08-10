@@ -92,7 +92,7 @@
       "xwechat_files"
 
       # wps
-      "config/Kingsoft"
+      ".config/Kingsoft"
       ".local/share/Kingsoft"
     ];
   };
@@ -154,12 +154,6 @@
     kubernetes-helm
     imagemagick
   ];
-
-  programs.git = {
-    enable = true;
-    settings.user.name = "davyjones";
-    settings.user.email = "cordeliahoward@outlook.com";
-  };
 
   programs.zoxide = {
     enable = true;
