@@ -8,5 +8,6 @@
     ./inputs
     ./yazi.nix
     ./git.nix
+    ./backup.nix
   ];
 }
