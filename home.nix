@@ -119,6 +119,7 @@
     fzf # A command-line fuzzy finder
     aria2 # A lightweight multi-protocol & multi-source command-line download utility
     lua
+    openssl
 
     # misc
     file
