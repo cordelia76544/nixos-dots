@@ -28,7 +28,7 @@
   ];
 
   home.sessionVariables = {
-    #  EDITOR = "hx";
+    EDITOR = "hx";
     LANG = "zh_CN.UTF-8";
   };
 
@@ -94,6 +94,9 @@
       # wps
       ".config/Kingsoft"
       ".local/share/Kingsoft"
+
+      # backup
+      ".cache/restic"
     ];
   };
 
@@ -153,6 +156,10 @@
     kubectl
     kubernetes-helm
     imagemagick
+
+    # systembackup
+    rclone
+    restic
   ];
 
   programs.zoxide = {
