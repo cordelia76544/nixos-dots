@@ -157,10 +157,6 @@
     kubectl
     kubernetes-helm
     imagemagick
-
-    # systembackup
-    rclone
-    restic
   ];
 
   programs.zoxide = {

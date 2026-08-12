@@ -5,7 +5,7 @@
       jdks = [
         pkgs.zulu8
         pkgs.graalvmPackages.graalvm-oracle_17
-        pkgs.temurin-bin-17
+        pkgs.corretto17
         pkgs.zulu21
         pkgs.graalvmPackages.graalvm-oracle
       ];

@@ -4,10 +4,10 @@
   programs.rclone = {
     enable = true;
     remotes.OneDrive = {
-      # ← 大写
       config = {
-        type = "onedrive"; # ← 这个是类型名，小写
+        type = "onedrive";
         drive_type = "personal";
+        drive_id = "45DE9F86D646D8B1";
       };
       secrets.token = "/persist/secrets/rclone-onedrive-token";
     };
