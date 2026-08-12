@@ -109,6 +109,8 @@
     unzip
     p7zip
     unrar
+    nix-prefetch-github
+    nix-prefetch
 
     # utils
     qimgv

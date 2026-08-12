@@ -34,6 +34,7 @@
         "**/target"
         "**/result"
         "**/.git/objects"
+        "**/cache"
       ];
 
       rcloneOptions = {
