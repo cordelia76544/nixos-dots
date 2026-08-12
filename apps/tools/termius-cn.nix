@@ -2,7 +2,7 @@
   # 定义汉化包
   termius-zh-asar = pkgs.fetchurl {
     url = "https://github.com/ArcSurge/Termius-Pro-zh_CN/releases/download/v9.43.0/app-linux-localize.asar";
-    hash = "sha256-W+poHpea24lXsoZ9NxEd4ycnX0rpqRAiZ7+8K1Ck5Yg=";
+    hash = "sha256-dMY1WvMmPbQftVoYHDB/OpqVdEL7+iTuSv2UCoyEbUw=";
   };
 
   # 包装原有的 Termius
