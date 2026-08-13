@@ -58,7 +58,7 @@
       ".config/BraveSoftware"
 
       # input methods
-      ".config/fcitx5"
+      #".config/fcitx5"
       ".local/share/fcitx5"
       ".config/copyq"
       ".local/share/copyq"
@@ -97,6 +97,9 @@
 
       # backup
       ".cache/restic"
+    ];
+    files = [
+      ".fehbg"
     ];
   };
 
