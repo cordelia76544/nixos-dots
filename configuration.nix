@@ -166,22 +166,6 @@
     };
   };
 
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.waylandFrontend = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-gtk
-      qt6Packages.fcitx5-chinese-addons
-      fcitx5-material-color
-      (fcitx5-rime.override {
-        rimeDataPkgs = [
-          pkgs.rime-data
-        ];
-      })
-    ];
-  };
-
   environment.systemPackages = with pkgs; [
     wget
     git
@@ -204,7 +188,7 @@
     };
 
     dconf.enable = true;
-    xwayland.enable = true;
+    #xwayland.enable = true;
 
     gamemode = {
       enable = true;

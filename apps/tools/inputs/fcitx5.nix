@@ -30,41 +30,56 @@
       "menu/page_size": 10
   '';
 
-  i18n.inputMethod.fcitx5.settings.globalOptions = {
-    Behavior = {
-      ActiveByDefault = false;
-      ShareInputState = "No";
-      resetStateWhenFocusIn = "No";
-      PreeditEnabledByDefault = true;
-      ShowInputMethodInformation = true;
-      CompactInputMethodInformation = true;
-      DefaultPageSize = 5;
-      AllowInputMethodForPassword = false;
-      PreloadInputMethod = true;
-      AutoSavePeriod = 30;
-    };
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.waylandFrontend = false;
+    fcitx5.addons = with pkgs; [
+      fcitx5-gtk
+      qt6Packages.fcitx5-chinese-addons
+      fcitx5-material-color
+      (fcitx5-rime.override {
+        rimeDataPkgs = [
+          pkgs.rime-data
+        ];
+      })
+    ];
+    fcitx5.settings.globalOptions = {
+      Behavior = {
+        ActiveByDefault = false;
+        ShareInputState = "No";
+        resetStateWhenFocusIn = "No";
+        PreeditEnabledByDefault = true;
+        ShowInputMethodInformation = true;
+        CompactInputMethodInformation = true;
+        DefaultPageSize = 5;
+        AllowInputMethodForPassword = false;
+        PreloadInputMethod = true;
+        AutoSavePeriod = 30;
+      };
 
-    Hotkey = {
-      EnumerateWithTriggerKeys = true;
-      EnumerateSkipFirst = false;
-      ModifierOnlyKeyTimeout = 250;
-    };
+      Hotkey = {
+        EnumerateWithTriggerKeys = true;
+        EnumerateSkipFirst = false;
+        ModifierOnlyKeyTimeout = 250;
+      };
 
-    "Hotkey/TriggerKeys" = {
-      "0" = "Control+space";
-    };
+      "Hotkey/TriggerKeys" = {
+        "0" = "Control+space";
+      };
 
-    "Hotkey/AltTriggerKeys" = {
-      "0" = "Shift_L";
-    };
+      "Hotkey/AltTriggerKeys" = {
+        "0" = "Shift_L";
+      };
 
-    "Hotkey/EnumerateGroupForwardKeys" = {
-      "0" = "Super+space";
-    };
+      "Hotkey/EnumerateGroupForwardKeys" = {
+        "0" = "Super+space";
+      };
 
-    "Hotkey/PrevPage" = {"0" = "Up";};
-    "Hotkey/NextPage" = {"0" = "Down";};
-    "Hotkey/PrevCandidate" = {"0" = "Shift+Tab";};
-    "Hotkey/NextCandidate" = {"0" = "Tab";};
+      "Hotkey/PrevPage" = {"0" = "Up";};
+      "Hotkey/NextPage" = {"0" = "Down";};
+      "Hotkey/PrevCandidate" = {"0" = "Shift+Tab";};
+      "Hotkey/NextCandidate" = {"0" = "Tab";};
+    };
   };
 }
