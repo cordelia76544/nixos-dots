@@ -29,6 +29,7 @@
     kernelModules = ["tcp_bbr"];
     kernelParams = [
       "mem_sleep_default=deep"
+      "no_console_suspend"
     ];
     kernel.sysctl = {
       "net.core.default_qdisc" = "fq";

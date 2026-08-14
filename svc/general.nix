@@ -15,6 +15,7 @@
     openssh = {
       enable = true;
       openFirewall = true;
+      ports = [18964];
     };
     flatpak.enable = false;
     upower.enable = true;

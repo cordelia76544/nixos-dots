@@ -46,7 +46,7 @@
             "--features"
             "rog-control-center/x11"
           ];
-        buildInputs = oldAttrs.buildInputs ++ [final.xorg.libX11];
+        buildInputs = oldAttrs.buildInputs ++ [final.libX11];
       });
     })
   ];

@@ -60,4 +60,9 @@
       };
     };
   };
+
+  systemd.user.services.restic-backups-persist = {
+    Unit.Conflicts = ["sleep.target"];
+    Unit.Before = ["sleep.target"];
+  };
 }
