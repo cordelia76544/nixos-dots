@@ -27,6 +27,9 @@
     };
     #kernelPackages = pkgs.linuxPackages;
     kernelModules = ["tcp_bbr"];
+    kernelParams = [
+      "mem_sleep_default=deep"
+    ];
     kernel.sysctl = {
       "net.core.default_qdisc" = "fq";
       "net.ipv4.tcp_congestion_control" = "bbr";

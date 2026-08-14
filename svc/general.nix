@@ -12,7 +12,10 @@
       trim.enable = true;
     };
 
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      openFirewall = true;
+    };
     flatpak.enable = false;
     upower.enable = true;
     tlp.enable = lib.mkForce false;
