@@ -616,23 +616,23 @@ static const Rule rules[] = {
      *	WM_WINDOW_ROLE(STRING) = role
      *	_NET_WM_WINDOW_TYPE(ATOM) = wintype
      */
-    RULE(.wintype = WTYPE "DIALOG",
-         .isfloating = 1) RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
-        RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
-            RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-                RULE(.class = "Gimp", .tags = 1 << 4) RULE(.class = "brave-browser",
-                                                           .tags = 1 << 1)
-                    RULE(.instance = "crx_nngceckbapebfimnlniiiahkandclblb",
-                         .isfloating = 1) RULE(.instance = "nmtui-float",
-                                               .isfloating = 1)
-                        RULE(.class = "Xdg-desktop-portal-gtk", .isfloating = 1)
-                            RULE(.instance = "xdg-desktop-portal-gtk",
-                                 .isfloating = 1)
-                                RULE(.title = "控制台窗口", .isfloating = 1)
-                                    RULE(.title = "Console window", .isfloating = 1)
-                                        RULE(.class = "steam", .isfloating = 1)
-                                            RULE(.class = "steam", .title = "Steam", .isfloating = 0, .tags = 1 << 5)
-                                            RULE(.class = "blueman", .isfloating = 1)
+    RULE(.wintype = WTYPE "DIALOG", .isfloating = 1) 
+    RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
+    RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
+    RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
+    RULE(.class = "Gimp", .tags = 1 << 4) 
+    RULE(.class = "brave-browser", .tags = 1 << 1)
+    RULE(.instance = "crx_nngceckbapebfimnlniiiahkandclblb", .isfloating = 1) 
+    RULE(.instance = "nmtui-float", .isfloating = 1)
+    RULE(.class = "Xdg-desktop-portal-gtk", .isfloating = 1)
+    RULE(.instance = "xdg-desktop-portal-gtk", .isfloating = 1)
+    RULE(.title = "控制台窗口", .isfloating = 1)
+    RULE(.title = "Console window", .isfloating = 1)
+    RULE(.class = "steam", .isfloating = 1)
+    RULE(.class = "steam", .title = "Steam", .isfloating = 0, .tags = 1 << 5)
+    RULE(.class = "blueman", .isfloating = 1)
+    RULE(.class = "wechat", .isfloating = 1)
+    RULE(.class = "wechat", .title = "微信", .isfloating = 0)
 
 #if RENAMED_SCRATCHPADS_PATCH
                                                 RULE(.instance = "spterm", .scratchkey = 's',

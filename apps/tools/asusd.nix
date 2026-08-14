@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   services.asusd = {
     enable = true;
     #enableUserService = true;
@@ -40,17 +40,14 @@
   nixpkgs.overlays = [
     (final: prev: {
       asusctl = prev.asusctl.overrideAttrs (oldAttrs: {
-        # 添加所需的 cargo features 参数
-        cargoBuildFlags = (oldAttrs.cargoBuildFlags or [ ]) ++ [
-          "--features"
-          "rog-control-center/x11"
-        ];
-
-        # 因为启用了 X11 特性，如果编译或运行时报错找不到 X11 相关的库，
-        # 你可能还需要在这里追加构建依赖：
-        # buildInputs = oldAttrs.buildInputs ++ [ final.xorg.libX11 ];
+        cargoBuildFlags =
+          (oldAttrs.cargoBuildFlags or [])
+          ++ [
+            "--features"
+            "rog-control-center/x11"
+          ];
+        buildInputs = oldAttrs.buildInputs ++ [final.xorg.libX11];
       });
     })
   ];
-
 }
