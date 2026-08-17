@@ -1,0 +1,30 @@
+{...}: {
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+    installBatSyntax = true;
+    background = "#000000";
+
+    settings = {
+      font-family = "JetBrainsMono Nerd Font";
+      font-family-fallback = "Sarasa Mono SC";
+      font-size = 11;
+
+      theme = "GruvboxDark"; # ghostty +list-themes 看可选
+      background-opacity = 0.82;
+      background-blur-radius = 20;
+
+      window-padding-x = 8;
+      window-padding-y = 8;
+      window-decoration = false; # dwm 下不需要装饰
+
+      cursor-style = "block";
+      shell-integration = "zsh";
+      confirm-close-surface = false;
+
+      # 关掉内置标签页，交给 dwm 管窗口
+      gtk-tabs-location = "hidden";
+      gtk-single-instance = false;
+    };
+  };
+}

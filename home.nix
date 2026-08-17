@@ -22,6 +22,7 @@
     ./apps/kitty/kitty.nix
     ./apps/games
     ./apps/tools
+    ./apps/term
     ./apps/browsers
     ./apps/medias/videos
     ./apps/mimeapp.nix
