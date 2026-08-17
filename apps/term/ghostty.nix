@@ -3,9 +3,9 @@
     enable = true;
     enableZshIntegration = true;
     installBatSyntax = true;
-    background = "#000000";
 
     settings = {
+      background = "#000000";
       font-family = "JetBrainsMono Nerd Font";
       font-family-fallback = "Sarasa Mono SC";
       font-size = 11;
