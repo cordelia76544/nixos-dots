@@ -1,4 +1,4 @@
-{ ... }: {
+{pkgs, ...}: {
   imports = [
     ./autostart.nix
     ./picom.nix
@@ -22,4 +22,11 @@
   programs.feh = {
     enable = true;
   };
+
+  home.packages = with pkgs; [
+    xdotool
+    xwininfo
+    xprop
+    wmctrl
+  ];
 }

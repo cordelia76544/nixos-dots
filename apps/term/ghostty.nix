@@ -7,10 +7,9 @@
     settings = {
       background = "#000000";
       font-family = "JetBrainsMono Nerd Font";
-      font-family-fallback = "Sarasa Mono SC";
-      font-size = 11;
+      font-size = 14;
 
-      theme = "GruvboxDark"; # ghostty +list-themes 看可选
+      theme = "Material Design Colors"; # ghostty +list-themes 看可选
       background-opacity = 0.82;
       background-blur-radius = 20;
 
