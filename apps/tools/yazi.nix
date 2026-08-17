@@ -98,13 +98,9 @@
 
   xdg = {
     enable = true;
-
-    # 1. 创建一个自定义的桌面快捷方式，专门用来在 Kitty 中启动 Yazi
-    desktopEntries.yazi-kitty = {
-      name = "Yazi (Kitty)";
-      # %U 代表要打开的目录路径
-      exec = "kitty -e yazi %U";
-      # 这里设为 false，因为我们已经在 exec 里显式调用了 kitty
+    desktopEntries.yazi-ghostty = {
+      name = "Yazi (Ghostty)";
+      exec = "ghostty -e yazi %U";
       terminal = false;
       categories = ["System" "FileTools" "FileManager"];
       mimeType = ["inode/directory"];

@@ -1145,14 +1145,14 @@ static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 #endif   // NODMENU_PATCH
 static const char *dmenucmd[] = {"rofi", "-show", "drun", NULL};
-static const char *termcmd[] = {"kitty", NULL};
+static const char *termcmd[] = {"ghostty", NULL};
 static const char *browsercmd[] = {"brave", NULL};
 static const char *asuscmd[] = {"asus-profile-switcher", NULL};
 static const char *powercmd[] = {
     "rofi", "-show", "power-menu", "-modi", "power-menu:rofi-power-menu", NULL};
 static const char *screenshotcmd[] = {"flameshot", "gui", NULL};
 static const char *ocrcmd[] = {"screenshot-ocr-area", NULL};
-static const char *fmcmd[] = {"kitty", "-e", "yazi", NULL};
+static const char *fmcmd[] = {"ghostty", "-e", "yazi", NULL};
 static const char *volupcmd[] = {"wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@",
                                  "5%+", NULL};
 static const char *voldncmd[] = {"wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@",
