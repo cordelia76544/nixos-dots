@@ -10,12 +10,12 @@
       font-size = 14;
 
       theme = "Material Design Colors"; # ghostty +list-themes 看可选
-      background-opacity = 0.82;
+      background-opacity = 0.76;
       background-blur-radius = 20;
 
       window-padding-x = 8;
       window-padding-y = 8;
-      window-decoration = false; # dwm 下不需要装饰
+      window-decoration = false;
 
       cursor-style = "block";
       shell-integration = "zsh";

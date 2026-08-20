@@ -1,8 +1,5 @@
 {lib, ...}: {
   services = {
-    displayManager.ly = {
-      enable = true;
-    };
     libinput = {
       enable = true;
       touchpad.disableWhileTyping = true;

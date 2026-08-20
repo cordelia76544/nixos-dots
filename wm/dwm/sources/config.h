@@ -627,6 +627,7 @@ static const Rule rules[] = {
     RULE(.class = "Xdg-desktop-portal-gtk", .isfloating = 1)
     RULE(.instance = "xdg-desktop-portal-gtk", .isfloating = 1)
     RULE(.title = "控制台窗口", .isfloating = 1)
+    RULE(.title = "wpsoffice", .isfloating = 1)
     RULE(.title = "Console window", .isfloating = 1)
     RULE(.class = "steam", .isfloating = 1)
     RULE(.class = "steam", .title = "Steam", .isfloating = 0, .tags = 1 << 5)

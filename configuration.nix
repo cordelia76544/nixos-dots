@@ -132,7 +132,7 @@
       "/var/lib/NetworkManager"
       "/var/lib/bluetooth"
       #"/var/lib/flatpak"
-      "/var/lib/ly"
+      "/var/cache/tuigreet"
       "/var/lib/AccountsService"
       "/var/lib/polkit-1"
       "/var/lib/asusd"

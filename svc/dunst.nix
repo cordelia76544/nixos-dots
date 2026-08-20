@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   services.dunst = {
     enable = true;
     enableX11 = true;
@@ -8,7 +8,7 @@
         monitor = 0;
         follow = "mouse";
 
-        width = 460;
+        width = 320;
         height = "(0, 140)";
         origin = "top-right";
         offset = "(24, 48)";
@@ -21,12 +21,9 @@
         horizontal_padding = 16;
         text_icon_padding = 12;
 
-        # 无边框
         frame_width = 0;
         separator_height = 0;
         gap_size = 8;
-
-        # 圆角交给 picom，这里不处理
         corner_radius = 8;
 
         # 不用 dunst 的全局透明度，直接用 background 的 alpha

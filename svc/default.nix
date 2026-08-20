@@ -2,7 +2,7 @@
   imports = [
     ./general.nix
     #./smartdns.nix
-    #./dns.nix
+    ./greetd.nix
     ./daed.nix
     ./dunst.nix
   ];
