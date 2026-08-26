@@ -52,6 +52,7 @@ in {
       '';
 
       # 5. 在该模式下强制关闭独显相关的设置，避免配置冲突
+      hardware.nvidia-container-toolkit.enable = lib.mkForce false;
       hardware.nvidia = {
         prime.offload.enable = lib.mkForce false;
         prime.offload.enableOffloadCmd = lib.mkForce false;
