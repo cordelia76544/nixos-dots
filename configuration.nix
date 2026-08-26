@@ -30,6 +30,7 @@
     kernelParams = [
       "mem_sleep_default=deep"
       "no_console_suspend"
+      ''acpi_osi="!Windows 2020"''
     ];
     kernel.sysctl = {
       "net.core.default_qdisc" = "fq";
@@ -132,7 +133,7 @@
       "/var/lib/NetworkManager"
       "/var/lib/bluetooth"
       #"/var/lib/flatpak"
-      "/var/cache/tuigreet"
+      "/var/lib/ly"
       "/var/lib/AccountsService"
       "/var/lib/polkit-1"
       "/var/lib/asusd"

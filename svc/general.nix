@@ -4,6 +4,7 @@
       enable = true;
       touchpad.disableWhileTyping = true;
     };
+    displayManager.ly.enable = true;
     zfs = {
       autoScrub.enable = true;
       trim.enable = true;
