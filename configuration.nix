@@ -28,7 +28,7 @@
     #kernelPackages = pkgs.linuxPackages;
     kernelModules = ["tcp_bbr"];
     kernelParams = [
-      "mem_sleep_default=deep"
+      "mem_sleep_default=s2idle"
       "no_console_suspend"
       ''acpi_osi="!Windows 2020"''
     ];

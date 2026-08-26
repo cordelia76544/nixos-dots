@@ -31,6 +31,8 @@ in {
         "nvidia_uvm"
       ];
 
+      services.xserver.videoDrivers = lib.mkForce ["modesetting"];
+
       # 3. 屏蔽内核参数
       boot.extraModprobeConfig = ''
         blacklist nouveau

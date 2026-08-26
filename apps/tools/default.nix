@@ -9,5 +9,6 @@
     ./yazi.nix
     ./git.nix
     ./backup.nix
+    ./ai.nix
   ];
 }
