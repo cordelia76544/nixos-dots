@@ -1,7 +1,7 @@
-{...}: {
+{inputs, ...}: {
+  nixpkgs.overlays = [inputs.asusctl-x11.overlays.default];
   services.asusd = {
     enable = true;
-    #enableUserService = true;
 
     asusdConfig.text = ''
        (
@@ -36,18 +36,4 @@
       KEYBOARD_KEY_ff3100b2=home   # Set fn+LeftArrow as Home
       KEYBOARD_KEY_ff3100b3=end    # Set fn+RightArrow as End
   '';
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      asusctl = prev.asusctl.overrideAttrs (oldAttrs: {
-        cargoBuildFlags =
-          (oldAttrs.cargoBuildFlags or [])
-          ++ [
-            "--features"
-            "rog-control-center/x11"
-          ];
-        buildInputs = oldAttrs.buildInputs ++ [final.libX11];
-      });
-    })
-  ];
 }

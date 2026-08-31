@@ -79,10 +79,12 @@
   nix.settings.substituters = [
     "https://attic.xuyh0120.win/lantian"
     "https://prismlauncher.cachix.org"
+    "https://cordelia-nix.cachix.org"
   ];
   nix.settings.trusted-public-keys = [
     "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
+    "cordelia-nix.cachix.org-1:wzCGlaWVFKpKH4JPVbkj7658BVJZgtjA9KrTd8a2cM0="
   ];
 
   time.timeZone = "Asia/Shanghai";
@@ -121,7 +123,7 @@
     description = "Davy Jones";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "incus-admin" "asus-users"];
     shell = pkgs.zsh;
-    hashedPassword = "$y$j9T$Kv4vO7FnmALq9MkdO8KuC.$Y7XJ.x61yPLgYQONkbN7wcfl2OVTIr5i25qG3l.ODc5";
+    hashedPasswordFile = "/persist/secrets/davyjones";
   };
 
   environment.persistence."/persist" = {

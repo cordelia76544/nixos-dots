@@ -9,9 +9,12 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zedg.url = "github:cordelia76544/zedg-nix";
+    asusctl-x11 = {
+      url = "github:cordelia76544/asusctl-x11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     impermanence.url = "github:nix-community/impermanence";
-    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
+    #nixvim.url = "github:nix-community/nixvim/nixos-26.05";
   };
 
   outputs = {
@@ -20,8 +23,7 @@
     home-manager,
     impermanence,
     nix-cachyos-kernel,
-    zedg,
-    nixvim,
+    asusctl-x11,
     ...
   } @ inputs: {
     nixosConfigurations = {
