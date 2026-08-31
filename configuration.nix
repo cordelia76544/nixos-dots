@@ -5,6 +5,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -26,6 +27,8 @@
       systemd-boot.configurationLimit = 10;
     };
     #kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
+    zfs.package = config.boot.kernelPackages.zfs_cachyos;
     kernelModules = ["tcp_bbr"];
     kernelParams = [
       "mem_sleep_default=s2idle"
@@ -85,6 +88,11 @@
     "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
     "cordelia-nix.cachix.org-1:wzCGlaWVFKpKH4JPVbkj7658BVJZgtjA9KrTd8a2cM0="
+  ];
+
+  nixpkgs.overlays = [
+    inputs.nix-cachyos-kernel.overlays.pinned
+    inputs.asusctl-x11.overlays.default
   ];
 
   time.timeZone = "Asia/Shanghai";
