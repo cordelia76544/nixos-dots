@@ -94,8 +94,12 @@
       ".config/Kingsoft"
       ".local/share/Kingsoft"
 
-      # backup
+      # cache
       ".cache/restic"
+      ".cache/rofi"
+      ".cache/nix"
+      ".cache/mesa_shader_cache"
+      ".cache/protonfixes"
     ];
     files = [
       ".fehbg"

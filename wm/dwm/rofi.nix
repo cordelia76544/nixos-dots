@@ -1,6 +1,8 @@
-{ lib
-, pkgs
-, ...
+{
+  lib,
+  pkgs,
+  config,
+  ...
 }: {
   programs.rofi = {
     enable = true;
@@ -16,6 +18,9 @@
     plugins = [
       pkgs.rofi-power-menu
     ];
+    extraConfig = {
+      cache-dir = "${config.xdg.cacheHome}/rofi";
+    };
   };
 
   xdg.configFile."rofi/themes/black-transparent.rasi".text = ''
