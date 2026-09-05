@@ -28,10 +28,4 @@
   ];
 
   programs.slock.enable = true;
-  services.screen-locker = {
-    enable = true;
-    inactiveInterval = 10;
-    lockCmd = "/run/wrappers/bin/slock";
-    xautolock.enable = true;
-  };
 }

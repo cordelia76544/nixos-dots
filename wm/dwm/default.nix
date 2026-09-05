@@ -5,7 +5,6 @@
     ./rofi.nix
     ./asus-switcher.nix
     #./betterlockscreen.nix
-    ./slock/slock.nix
   ];
 
   #services.network-manager-applet.enable = true;
@@ -30,4 +29,11 @@
     xprop
     wmctrl
   ];
+
+  services.screen-locker = {
+    enable = true;
+    inactiveInterval = 10;
+    lockCmd = "/run/wrappers/bin/slock";
+    xautolock.enable = true;
+  };
 }
