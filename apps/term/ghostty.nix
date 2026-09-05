@@ -3,6 +3,7 @@
     enable = true;
     enableZshIntegration = true;
     installBatSyntax = true;
+    systemd.enable = true;
 
     settings = {
       background = "#000000";

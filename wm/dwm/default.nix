@@ -4,7 +4,8 @@
     ./picom.nix
     ./rofi.nix
     ./asus-switcher.nix
-    ./betterlockscreen.nix
+    #./betterlockscreen.nix
+    ./slock/slock.nix
   ];
 
   #services.network-manager-applet.enable = true;

@@ -1,4 +1,8 @@
-{...}: {
+{pkgs, ...}: {
+  programs.i3lock = {
+    enable = true;
+    package = pkgs.i3lock-color;
+  };
   services.betterlockscreen = {
     enable = true;
     inactiveInterval = 10;
