@@ -11,7 +11,7 @@
           (old.buildInputs or [])
           ++ [
             final.imlib2
-            final.ibXext
+            final.libXext
           ];
 
         prePatch = ''
