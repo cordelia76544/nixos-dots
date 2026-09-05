@@ -17,7 +17,8 @@
         prePatch = ''
           substituteInPlace config.mk \
             --replace-fail "PREFIX = /usr/local" "PREFIX = $out" \
-            --replace-fail "MANPREFIX = \''${PREFIX}/share/man" "MANPREFIX = $out/share/man"
+            --replace-fail "MANPREFIX = \''${PREFIX}/share/man" "MANPREFIX = $out/share/man" \
+            --replace-fail "-lXrandr" "-lXrandr -lImlib2"
         '';
 
         preBuild = "make clean || true";
