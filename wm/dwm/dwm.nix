@@ -70,4 +70,8 @@ in {
     myDwm
     pkgs.xset
   ];
+
+  imports = [
+    ./slock/slock.nix
+  ];
 }
