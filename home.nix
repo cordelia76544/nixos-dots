@@ -15,7 +15,7 @@
   };
 
   imports = [
-    ./wm/hyprland
+    ./wm/hyprland.nix
     ./wm/dwm
     ./apps/shell/zsh.nix
     ./apps/games
