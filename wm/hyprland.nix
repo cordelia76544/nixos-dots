@@ -14,7 +14,7 @@ in {
 
   programs.dank-material-shell = {
     enable = hypr;
-    dgop.package = inputs.dgop.packages.${pkgs.system}.default;
+    #dgop.package = inputs.dgop.packages.${pkgs.system}.default;
     systemd = {
       enable = true;
       restartIfChanged = true;

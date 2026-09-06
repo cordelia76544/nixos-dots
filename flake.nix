@@ -39,6 +39,7 @@
     impermanence,
     nix-cachyos-kernel,
     asusctl-x11,
+    dgop,
     ...
   } @ inputs: {
     nixosConfigurations = {

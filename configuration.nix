@@ -17,6 +17,7 @@
     ./apps/medias/musics
     ./svc
     ./modules/wm/wm.nix
+    ./modules/wm/hyprland.nix
     ./wm/dm.nix
     ./wm/dwm/dwm.nix
   ];
@@ -223,7 +224,6 @@
   };
 
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
     XDG_DATA_DIRS = [
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
       "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
