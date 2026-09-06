@@ -20,6 +20,7 @@
     ./modules/wm/hyprland.nix
     ./wm/dm.nix
     ./wm/dwm/dwm.nix
+    ./wm/hyprland/pkgs/hyprglass.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -96,6 +97,9 @@
   nixpkgs.overlays = [
     inputs.nix-cachyos-kernel.overlays.pinned
     inputs.asusctl-x11.overlays.default
+    (final: prev: {
+      hyprglass = final.callPackage ./wm/hyprland/pkgs/hyprglass.nix {};
+    })
   ];
 
   time.timeZone = "Asia/Shanghai";
@@ -145,6 +149,7 @@
       "/etc/NetworkManager/system-connections"
       "/var/lib/NetworkManager"
       "/var/lib/bluetooth"
+      "/var/lib/dms-greeter"
       #"/var/lib/flatpak"
       "/var/lib/ly"
       "/var/lib/AccountsService"

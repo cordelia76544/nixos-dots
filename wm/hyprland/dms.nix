@@ -26,9 +26,12 @@ in {
     enableDynamicTheming = true; # Wallpaper-based theming (matugen)
     enableAudioWavelength = true; # Audio visualizer (cava)
     enableCalendarEvents = true;
-
+    managePluginSettings = true;
     plugins = {
-      dankAsusControlCenter.enable = true;
+      dankAsusControlCenter = {
+        enable = true;
+        settings = {};
+      };
     };
 
     settings = {
@@ -59,6 +62,7 @@ in {
       batterySuspendTimeout = 1200;
       batterySuspendBehavior = 0;
       dankIslandBarId = "default";
+      dankIslandCompactHeight = 31;
 
       barConfigs = [
         {

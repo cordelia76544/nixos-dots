@@ -15,8 +15,7 @@
   };
 
   imports = [
-    ./wm/hyprland.nix
-    ./wm/dms.nix
+    ./wm/hyprland
     ./wm/dwm
     ./apps/shell/zsh.nix
     ./apps/games
@@ -102,7 +101,7 @@
       ".cache/protonfixes"
 
       # hyprland and dms
-      ".config/hypr"
+      ".config/hypr/dms"
       ".local/state/DankMaterialShell"
       ".cache/DankMaterialShell"
       ".cache/quickshell"
@@ -148,7 +147,6 @@
     pavucontrol
     autocutsel
     brightnessctl
-    networkmanagerapplet
 
     # system call monitoring
     strace # system call monitoring
