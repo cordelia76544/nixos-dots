@@ -31,4 +31,11 @@
     };
     control = "sufficient";
   };
+
+  security.pam.services.dankshell-u2f = {
+    text = ''
+      auth required ${pkgs.pam_u2f}/lib/security/pam_u2f.so authfile=/etc/u2f_mappings cue
+      account required pam_permit.so
+    '';
+  };
 }

@@ -57,6 +57,8 @@ in {
       acSuspendBehavior = 0;
       lockBeforeSuspend = true;
       enableU2f = true;
+      lockPamPath = "/etc/pam.d/login";
+      lockPamInlineU2f = true;
 
       batteryMonitorTimeout = 600;
       batteryLockTimeout = 600;
@@ -107,4 +109,7 @@ in {
       ];
     };
   };
+  home.file.".config/Yubico/u2f_keys".text = ''
+    davyjones:9pzoK4nAuXUdhd3z7A7Xm+iu8R7WOy6FedsrcWb5C4IAAVrJdocJ0t+dV2Xj2MZglqaU7w9pOMGsw9P5yJbL/3Rb////+Q==,5JPAaUFnLkJr6tEqyv1n8OoHZBR3o22jyw2dkDt1jLE1WTWWZ9o4aEosf4c6hELiDrKgVH542/cAxDDOlgeGag==,es256,+presence:hfGxUJ+adh/h0UcqfD1KpbkuxWVLRsqTR1QKU2n5ihIAAVrJdocJ0t+dV2Xj2MZglqaU7w9pOMGsw9P5yJbL/3Rb////+Q==,AFxOPVeYX2Hc7XdWmxueR6OPAo79SQ4OUhExOw402Yn9IfCk2FRXaYV/gMKgP9+L2j20529YHKmI7uUVMr99Eg==,es256,+presence
+  '';
 }
