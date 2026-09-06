@@ -16,6 +16,7 @@
 
   imports = [
     ./wm/hyprland.nix
+    ./wm/dms.nix
     ./wm/dwm
     ./apps/shell/zsh.nix
     ./apps/games
@@ -82,7 +83,6 @@
 
       ".config/obsidian"
       ".config/Termius"
-      ".cache/betterlockscreen"
       ".config/networkmanager-dmenu"
       ".local/share/Trash"
 
@@ -104,6 +104,8 @@
       # hyprland and dms
       ".config/hypr"
       ".local/state/DankMaterialShell"
+      ".cache/DankMaterialShell"
+      ".cache/quickshell"
     ];
     files = [
       ".fehbg"

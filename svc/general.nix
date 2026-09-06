@@ -22,6 +22,6 @@
     upower.enable = true;
     tlp.enable = lib.mkForce false;
     fstrim.enable = lib.mkDefault true;
-    gnome.gnome-keyring.enable = config.local.wm == "dwm";
+    gnome.gnome-keyring.enable = true;
   };
 }

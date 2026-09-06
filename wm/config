@@ -26,7 +26,11 @@
             "leftWidgets": [
                 "launcherButton",
                 "workspaceSwitcher",
-                "focusedWindow"
+                "focusedWindow",
+                {
+                    "id": "dankAsusControlCenter",
+                    "enabled": true
+                }
             ],
             "centerWidgets": [
                 "music",
@@ -43,7 +47,7 @@
                 "controlCenterButton"
             ],
             "spacing": 4,
-            "innerPadding": 4,
+            "innerPadding": 0,
             "bottomGap": 0,
             "transparency": 1,
             "widgetTransparency": 1,
@@ -62,7 +66,12 @@
             "openOnOverview": false,
             "visible": true,
             "popupGapsAuto": true,
-            "popupGapsManual": 4
+            "popupGapsManual": 4,
+            "widgetPadding": 11,
+            "maximizeWidgetIcons": false,
+            "maximizeWidgetText": false,
+            "removeWidgetPadding": false,
+            "widgetOutlineEnabled": false
         }
     ],
     "desktopClockCustomColor": {
@@ -91,5 +100,20 @@
         "hslLightness": 1,
         "valid": true
     },
+    "builtInPluginSettings": {
+        "dms_settings_search": {
+            "trigger": "?"
+        },
+        "dms_clipboard_search": {
+            "trigger": "cb"
+        },
+        "dms_power": {
+            "trigger": "pw"
+        },
+        "dms_qr_generator": {
+            "trigger": "qrg"
+        }
+    },
+    "barInsetPaddingSyncAll": true,
     "configVersion": 17
 }
