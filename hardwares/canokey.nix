@@ -27,7 +27,7 @@
     settings = {
       authfile = "/etc/u2f_mappings";
       cue = true;
-      debug = true;
+      #debug = true;
     };
     control = "sufficient";
   };
