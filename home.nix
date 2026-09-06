@@ -100,6 +100,10 @@
       ".cache/nix"
       ".cache/mesa_shader_cache"
       ".cache/protonfixes"
+
+      # hyprland and dms
+      ".config/hypr"
+      ".local/state/DankMaterialShell"
     ];
     files = [
       ".fehbg"
