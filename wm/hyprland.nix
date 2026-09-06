@@ -35,8 +35,6 @@ in {
       showWorkspaceIndex = true;
       launcherLogoMode = "os";
 
-      #networkPreference = "internet";
-
       useAutoLocation = false;
       weatherEnabled = false;
 
@@ -60,6 +58,48 @@ in {
       batteryLockTimeout = 600;
       batterySuspendTimeout = 1200;
       batterySuspendBehavior = 0;
+      dankIslandBarId = "default";
+
+      barConfigs = [
+        {
+          id = "default";
+          name = "Main Bar";
+          enabled = true;
+          position = 0;
+          screenPreferences = [
+            "all"
+          ];
+          showOnLastDisplay = true;
+
+          leftWidgets = [
+            "launcherButton"
+            "workspaceSwitcher"
+            "focusedWindow"
+            {
+              id = "dankAsusControlCenter";
+              enabled = true;
+            }
+          ];
+
+          centerWidgets = [
+            "music"
+            "clock"
+            "weather"
+          ];
+
+          rightWidgets = [
+            "systemTray"
+            "clipboard"
+            "cpuUsage"
+            "memUsage"
+            "notificationButton"
+            "battery"
+            "controlCenterButton"
+          ];
+
+          transparency = 0;
+        }
+      ];
     };
   };
 
