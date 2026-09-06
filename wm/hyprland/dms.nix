@@ -56,6 +56,7 @@ in {
       acSuspendTimeout = 0;
       acSuspendBehavior = 0;
       lockBeforeSuspend = true;
+      enableU2f = true;
 
       batteryMonitorTimeout = 600;
       batteryLockTimeout = 600;

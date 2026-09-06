@@ -221,9 +221,9 @@
 
   security.polkit.enable = true;
   security.pam.services = {
-    i3lock-color = {};
-    betterlockscreen = {};
-    i3lock = {};
+    slock = {};
+    sudo.u2fAuth = true;
+    greetd.u2fAuth = true;
     login.enableGnomeKeyring = true;
   };
 

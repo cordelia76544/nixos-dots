@@ -4,5 +4,6 @@
     ./graphic.nix
     ./powersaver.nix
     ./bluetooth.nix
+    ./canokey.nix
   ];
 }
