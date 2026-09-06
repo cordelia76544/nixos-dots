@@ -20,7 +20,6 @@
     ./modules/wm/hyprland.nix
     ./wm/dm.nix
     ./wm/dwm/dwm.nix
-    ./wm/hyprland/pkgs/hyprglass.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

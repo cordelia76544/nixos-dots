@@ -1,24 +1,26 @@
 {
   lib,
+  stdenv,
   fetchFromGitHub,
   hyprland,
-  hyprlandPlugins,
   pkg-config,
 }:
-hyprlandPlugins.mkHyprlandPlugin hyprland {
-  pluginName = "hyprglass";
+stdenv.mkDerivation (finalAttrs: {
+  pname = "hyprglass";
   version = "unstable-2026-08-06";
 
   src = fetchFromGitHub {
     owner = "hyprnux";
     repo = "hyprglass";
-    rev = "725383e86a2a79457a81cdbc2ceb33c07363bd8d"; # 改成具体 commit
-    hash = lib.fakeHash; # 首次 build 会告诉你真值
+    rev = "725383e86a2a79457a81cdbc2ceb33c07363bd8d";
+    hash = "sha256-yUU0gKu1CXqpUQBtyb3IWNBYZ1bCAm99mfTUV7ceJyg=";
   };
 
   nativeBuildInputs = [pkg-config];
 
-  # 上游 Makefile 只产出 hyprglass.so，不带 install target
+  buildInputs = [hyprland] ++ hyprland.buildInputs;
+
+  # 上游 Makefile 只产出 hyprglass.so，没有 install target
   installPhase = ''
     runHook preInstall
     mkdir -p $out/lib
@@ -30,5 +32,6 @@ hyprlandPlugins.mkHyprlandPlugin hyprland {
     description = "Liquid Glass inspired plugin for Hyprland";
     homepage = "https://github.com/hyprnux/hyprglass";
     license = lib.licenses.bsd3;
+    platforms = lib.platforms.linux;
   };
-}
+})
