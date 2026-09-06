@@ -7,13 +7,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "hyprglass";
-  version = "unstable-2026-08-06";
+  version = "0.6.4";
 
   src = fetchFromGitHub {
     owner = "hyprnux";
     repo = "hyprglass";
-    rev = "725383e86a2a79457a81cdbc2ceb33c07363bd8d";
-    hash = "sha256-yUU0gKu1CXqpUQBtyb3IWNBYZ1bCAm99mfTUV7ceJyg=";
+    rev = "v0.6.4";
+    hash = "sha256-coVoTJyRhn6eKZ8oJXus93p/G1gblgqcQNhNXBhx+G4=";
   };
 
   nativeBuildInputs = [pkg-config];
