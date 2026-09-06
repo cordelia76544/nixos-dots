@@ -18,7 +18,7 @@
     ./svc
     ./modules/wm/wm.nix
     ./wm/dm.nix
-    ./wm/dwm/dwm/nix
+    ./wm/dwm/dwm.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
