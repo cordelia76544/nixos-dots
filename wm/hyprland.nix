@@ -67,35 +67,35 @@ in {
   #  enable = hypr;
   #  xwayland.enable = hypr;
 
-    #settings = {
-    #  "$mod" = "SUPER";
-    #  monitor = ",preferred,auto,1.5";
+  #settings = {
+  #  "$mod" = "SUPER";
+  #  monitor = ",preferred,auto,1.5";
 
-    #exec-once = [
-    #  "dms run"
-    #];
+  #exec-once = [
+  #  "dms run"
+  #];
 
-    #input = {
-    #  kb_layout = "us";
-    #  follow_mouse = 1;
-    #  touchpad = {
-    #    natural_scroll = true;
-    #    tap-to-click = true;
-    #    disable_while_typing = true;
-    #  };
-    #};
+  #input = {
+  #  kb_layout = "us";
+  #  follow_mouse = 1;
+  #  touchpad = {
+  #    natural_scroll = true;
+  #    tap-to-click = true;
+  #    disable_while_typing = true;
+  #  };
+  #};
 
-    #general = {
-    #  gaps_in = 4;
-    #  gaps_out = 8;
-    #  border_size = 2;
-    #};
+  #general = {
+  #  gaps_in = 4;
+  #  gaps_out = 8;
+  #  border_size = 2;
+  #};
 
-    #bind = [
-    #  "$mod, Return, exec, ghostty"
-    #  "$mod, Q, killactive"
-    #  "$mod, E, exec, dms ipc call spotlight toggle"
-    #];
-    #};
-  };
+  #bind = [
+  #  "$mod, Return, exec, ghostty"
+  #  "$mod, Q, killactive"
+  #  "$mod, E, exec, dms ipc call spotlight toggle"
+  #];
+  #};
+  #};
 }
