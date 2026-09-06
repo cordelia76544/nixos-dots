@@ -1,6 +1,13 @@
-{pkgs, ...}: {
-  home.sessionVariables = {
-    GTK_IM_MODULE = "fcitx";
+{
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}: let
+  hypr = osConfig.local.wm == "hyprland";
+in {
+  home.sessionVariables = lib.mkIf hypr {
+    GTK_IM_MODULE = "";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
   };
@@ -34,7 +41,7 @@
     enable = true;
     type = "fcitx5";
     fcitx5 = {
-      waylandFrontend = false;
+      waylandFrontend = hypr;
       addons = with pkgs; [
         fcitx5-gtk
         qt6Packages.fcitx5-chinese-addons

@@ -15,7 +15,7 @@
   };
 
   imports = [
-    ./wm/polybar
+    ./wm/hyprland
     ./wm/dwm
     ./apps/shell/zsh.nix
     ./apps/games

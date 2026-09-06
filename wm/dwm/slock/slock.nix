@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   nixpkgs.overlays = [
     (final: prev: {
       slock = prev.slock.overrideAttrs (old: {
@@ -28,5 +28,5 @@
     })
   ];
 
-  programs.slock.enable = true;
+  programs.slock.enable = config.local.wm == "dwm";
 }

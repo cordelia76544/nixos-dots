@@ -1,6 +1,6 @@
-{...}: {
+{osConfig, ...}: {
   services.picom = {
-    enable = true;
+    enable = osConfig.local.wm == "dwm";
 
     backend = "egl";
     vSync = true;

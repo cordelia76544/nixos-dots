@@ -25,7 +25,10 @@
 
       modesetting.enable = lib.mkDefault true;
       dynamicBoost.enable = lib.mkDefault true;
-      powerManagement.enable = true;
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
     };
 
     cpu.intel.updateMicrocode = true;

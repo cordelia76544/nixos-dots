@@ -1,10 +1,13 @@
-{lib, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   services = {
     libinput = {
-      enable = true;
+      enable = config.local.wm == "dwm";
       touchpad.disableWhileTyping = true;
     };
-    displayManager.ly.enable = true;
     zfs = {
       autoScrub.enable = true;
       trim.enable = true;
@@ -19,6 +22,6 @@
     upower.enable = true;
     tlp.enable = lib.mkForce false;
     fstrim.enable = lib.mkDefault true;
-    gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = config.local.wm == "dwm";
   };
 }

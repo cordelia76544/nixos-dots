@@ -1,6 +1,13 @@
-{...}: {
+{
+  osConfig,
+  lib,
+  pkgs,
+  ...
+}: let
+  dwm = osConfig.local.wm == "dwm";
+in {
   services.flameshot = {
-    enable = true;
+    enable = dwm;
     settings = {
       General = {
         savePath = "/home/davyjones/Pictures/Screenshots";
@@ -11,4 +18,11 @@
       };
     };
   };
+
+  home.packages = lib.mkIf (!dwm) (with pkgs; [
+    grim
+    slurp
+    wl-clipboard
+    swappy
+  ]);
 }

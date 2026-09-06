@@ -16,7 +16,9 @@
     ./apps/games/steam.nix
     ./apps/medias/musics
     ./svc
-    ./wm/dwm/dwm.nix
+    ./modules/wm/wm.nix
+    ./wm/dm.nix
+    ./wm/dwm/dwm/nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -129,7 +131,7 @@
   users.users.davyjones = {
     isNormalUser = true;
     description = "Davy Jones";
-    extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "incus-admin" "asus-users"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "asus-users"];
     shell = pkgs.zsh;
     hashedPasswordFile = "/persist/secrets/davyjones";
   };
@@ -210,6 +212,8 @@
     };
   };
 
+  local.wm = "hyprland";
+
   security.polkit.enable = true;
   security.pam.services = {
     i3lock-color = {};
@@ -227,8 +231,6 @@
       #"/var/lib/flatpak/exports/share"
       #"$HOME/.local/share/flatpak/exports/share"
     ];
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
   };
 
   systemd.tmpfiles.rules = [

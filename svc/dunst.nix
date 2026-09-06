@@ -1,7 +1,7 @@
-{...}: {
+{config, ...}: {
   services.dunst = {
-    enable = true;
-    enableX11 = true;
+    enable = config.local.wm == "dwm";
+    enableX11 = config.local.wm == "dwm";
 
     settings = {
       global = {

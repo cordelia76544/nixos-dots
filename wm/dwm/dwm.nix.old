@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   dwmOptimizeFlags = [
     "-O3"
     "-march=x86-64-v3"
@@ -15,7 +10,7 @@
     pname = "dwm-flexipatch";
     version = "local";
 
-    src = ../wm/dwm/sources;
+    src = ./sources;
 
     nativeBuildInputs =
       (old.nativeBuildInputs or [])
@@ -62,19 +57,21 @@
       "-lyajl"
     ];
   });
-in
-  lib.mkIf (config.local.wm == "dwm") {
-    services.xserver = {
+in {
+  services.xserver = {
+    enable = true;
+    windowManager.dwm = {
       enable = true;
-      windowManager.dwm = {
-        enable = true;
-        package = myDwm;
-      };
+      package = myDwm;
     };
+  };
 
-    environment.systemPackages = [
-      myDwm
-      pkgs.xset
-      pkgs.xauth
-    ];
-  }
+  environment.systemPackages = [
+    myDwm
+    pkgs.xset
+  ];
+
+  imports = [
+    ./slock/slock.nix
+  ];
+}
