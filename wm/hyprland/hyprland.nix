@@ -94,7 +94,7 @@ in {
         output = "eDP-1";
         mode = "2560x1600@240.000";
         position = "0x0";
-        scale = 1.5;
+        scale = 1.6015625;
         vrr = 0;
         bitdepth = 10;
       };
@@ -102,7 +102,7 @@ in {
         general = {
           gaps_in = 4;
           gaps_out = 8;
-          border_size = 2;
+          border_size = 0;
           resize_on_border = false;
           allow_tearing = false;
           layout = "dwindle";
