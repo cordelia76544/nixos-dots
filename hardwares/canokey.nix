@@ -25,7 +25,7 @@
   security.pam.u2f = {
     enable = true;
     settings = {
-      authFile = "/etc/u2f_mappings";
+      authfile = "/etc/u2f_mappings";
       cue = true;
       debug = true;
     };
