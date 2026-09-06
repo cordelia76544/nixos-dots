@@ -63,9 +63,9 @@ in {
     };
   };
 
-  wayland.windowManager.hyprland = {
-    enable = hypr;
-    xwayland.enable = hypr;
+  #wayland.windowManager.hyprland = {
+  #  enable = hypr;
+  #  xwayland.enable = hypr;
 
     #settings = {
     #  "$mod" = "SUPER";
