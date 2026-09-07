@@ -114,8 +114,8 @@ in {
         decoration = {
           rounding = 12;
           rounding_power = 2;
-          active_opacity = 1.0;
-          inactive_opacity = 1.0;
+          active_opacity = 0.85;
+          inactive_opacity = 0.75;
 
           shadow = {
             enabled = true;
@@ -409,9 +409,9 @@ in {
         {
           match.class = "^(wps)$";
           float = true;
-          no_border = true;
           no_shadow = true;
-          no_rounding = true;
+          rounding = 0; # 不是 no_rounding
+          border_size = 0;
           no_anim = true;
         }
       ];
@@ -523,7 +523,7 @@ in {
 
           hg.config({
               default_theme  = "dark",
-              default_preset = "clear",
+              default_preset = "glass",
               layers = { enabled = true },
           })
 
