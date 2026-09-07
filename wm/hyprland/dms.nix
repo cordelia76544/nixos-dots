@@ -57,8 +57,9 @@ in {
       acSuspendBehavior = 0;
       lockBeforeSuspend = true;
       enableU2f = true;
-      lockPamPath = "/etc/pam.d/login";
-      lockPamInlineU2f = true;
+      lockScreenSecurityKeyShortcutEnabled = true;
+      #lockPamPath = "/etc/pam.d/login";
+      #lockPamInlineU2f = true;
 
       batteryMonitorTimeout = 600;
       batteryLockTimeout = 600;

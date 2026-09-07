@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  inputs,
+  osConfig,
   ...
 }: {
   home.username = "davyjones";
@@ -185,6 +185,20 @@
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
+  };
+
+  # 提到共用模块里
+  xresources.properties = let
+    dpi =
+      if osConfig.local.wm == "dwm"
+      then 144
+      else 154;
+  in {
+    "Xft.dpi" = dpi;
+    "Xft.antialias" = 1;
+    "Xft.hinting" = 1;
+    "Xft.hintstyle" = "hintslight";
+    "Xft.rgba" = "rgb";
   };
 
   dconf.settings = {

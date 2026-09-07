@@ -87,6 +87,8 @@ in {
       env = [
         {_args = ["XCURSOR_SIZE" "22"];}
         {_args = ["HYPRCURSOR_SIZE" "22"];}
+        {_args = ["GDK_SCALE" "1.6"];}
+        {_args = ["QT_AUTO_SCREEN_SCALE_FACTOR" "1"];}
       ];
 
       # LOOK AND FEEL / INPUT
@@ -99,6 +101,7 @@ in {
         bitdepth = 10;
       };
       config = {
+        xwayland.force_zero_scaling = true;
         general = {
           gaps_in = 4;
           gaps_out = 8;
@@ -394,6 +397,22 @@ in {
         {
           match.class = "^com.danklinux.dms$";
           float = true;
+        }
+        {
+          match = {
+            class = "^brave-.*";
+            initial_title = "^_crx_.*";
+          };
+          float = true;
+          size = "400 600";
+        }
+        {
+          match.class = "^(wps)$";
+          float = true;
+          no_border = true;
+          no_shadow = true;
+          no_rounding = true;
+          no_anim = true;
         }
       ];
 
