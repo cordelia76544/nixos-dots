@@ -12,7 +12,7 @@ in {
   xdg.desktopEntries.wechat = lib.mkIf hypr {
     name = "wechat";
     comment = "Wechat Desktop";
-    exec = "wechat --enable-wayland-ime %U";
+    exec = "env XMODIFIERS=@im=fcitx GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx wechat --enable-wayland-ime";
     icon = "wechat";
     categories = ["Utility"];
     terminal = false;
