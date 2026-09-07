@@ -11,7 +11,7 @@ in {
   ];
   xdg.desktopEntries.wechat = lib.mkIf hypr {
     name = "wechat";
-    genericName = "Wechat Desktop";
+    comment = "Wechat Desktop";
     exec = "wechat --enable-wayland-ime %U";
     icon = "wechat";
     categories = ["Utility"];
