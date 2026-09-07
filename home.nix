@@ -105,6 +105,7 @@
       ".local/state/DankMaterialShell"
       ".cache/DankMaterialShell"
       ".cache/quickshell"
+      ".config/qt6ct"
     ];
     files = [
       ".fehbg"
@@ -165,7 +166,6 @@
     remmina
     wpsoffice-cn
     zathura
-    wechat
     kubectl
     kubernetes-helm
     imagemagick

@@ -10,5 +10,6 @@
     ./git.nix
     ./backup.nix
     ./ai.nix
+    ./wechat.nix
   ];
 }
