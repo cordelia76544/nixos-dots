@@ -1,5 +1,4 @@
-{inputs, ...}: {
-  nixpkgs.overlays = [inputs.asusctl-x11.overlays.default];
+{...}: {
   services.asusd = {
     enable = true;
 
