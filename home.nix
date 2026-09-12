@@ -106,6 +106,8 @@
       ".cache/DankMaterialShell"
       ".cache/quickshell"
       ".config/qt6ct"
+      ".cache/nvidia"
+      ".cache/qtshadercache-x86_64-little_endian-lp64"
     ];
     files = [
       ".fehbg"

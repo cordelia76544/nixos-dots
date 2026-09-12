@@ -29,7 +29,7 @@
       cue = true;
       #debug = true;
     };
-    control = "sufficient";
+    control = "required";
   };
 
   security.pam.services.dankshell-u2f = {
