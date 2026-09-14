@@ -149,7 +149,6 @@
       "/var/lib/NetworkManager"
       "/var/lib/bluetooth"
       "/var/lib/dms-greeter"
-      #"/var/lib/flatpak"
       "/var/lib/ly"
       "/var/lib/AccountsService"
       "/var/lib/polkit-1"
@@ -222,7 +221,10 @@
   security.polkit.enable = true;
   security.pam.services = {
     slock = {};
-    sudo.u2fAuth = true;
+    sudo = {
+      u2fAuth = true;
+      rules.auth.u2f.control = "sufficient";
+    };
     greetd.u2fAuth = true;
     login = {
       u2fAuth = true;

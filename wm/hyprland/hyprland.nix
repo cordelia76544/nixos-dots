@@ -78,7 +78,7 @@ in {
               function()
                 hl.exec_cmd("dbus-update-activation-environment --systemd --all")
                 hl.exec_cmd("systemctl --user start hyprland-session.target")
-                hl.exec_cmd("sh -c 'for i in $(seq 10); do ${pkgs.xorg.xrdb}/bin/xrdb -merge ~/.Xresources 2>/dev/null && break; sleep 1; done'")
+                hl.exec_cmd("sh -c 'for i in $(seq 10); do ${pkgs.xrdb}/bin/xrdb -merge ~/.Xresources 2>/dev/null && break; sleep 1; done'")
               end'')
           ];
         }
@@ -144,7 +144,6 @@ in {
         };
 
         input = {
-          # 留空则继承 XKB_DEFAULT_LAYOUT
           kb_layout = "";
           numlock_by_default = true;
           follow_mouse = 1;
@@ -313,23 +312,23 @@ in {
         {
           leaf = "workspaces";
           enabled = true;
-          speed = 1.94;
+          speed = 8;
           bezier = "almostLinear";
-          style = "fade";
+          style = "slide";
         }
         {
           leaf = "workspacesIn";
           enabled = true;
-          speed = 1.21;
+          speed = 8;
           bezier = "almostLinear";
-          style = "fade";
+          style = "slide";
         }
         {
           leaf = "workspacesOut";
           enabled = true;
-          speed = 1.94;
+          speed = 8;
           bezier = "almostLinear";
-          style = "fade";
+          style = "slide";
         }
         {
           leaf = "zoomFactor";
@@ -415,6 +414,16 @@ in {
           border_size = 0;
           no_anim = true;
         }
+        {
+          name = "brave-notification";
+          match = {
+            class = "^$";
+            title = "^$";
+            xwayland = false;
+          };
+          float = true;
+          no_focus = true;
+        }
       ];
 
       layer_rule = [
@@ -472,8 +481,8 @@ in {
           (bindOpt "${mod} + CTRL + J" "hl.dsp.window.resize({ x = 0, y = 40, relative = true })" {repeating = true;})
 
           # 暂存工作区
-          (bind "${mod} + S" "hl.dsp.workspace.toggle_special(\"magic\")")
-          (bind "${mod} + SHIFT + S" "hl.dsp.window.move({ workspace = \"special:magic\" })")
+          (bind "${mod} + grave" "hl.dsp.workspace.toggle_special(\"magic\")")
+          (bind "${mod} + SHIFT + grave" "hl.dsp.window.move({ workspace = \"special:magic\" })")
 
           # 滚轮切换工作区
           (bind "${mod} + mouse_down" "hl.dsp.focus({ workspace = \"e+1\" })")
@@ -484,10 +493,8 @@ in {
           (bindOpt "${mod} + mouse:273" "hl.dsp.window.resize()" {mouse = true;})
 
           # 截图
-          (bind "Print"
+          (bind "${mod} + SHIFT + S"
             "hl.dsp.exec_cmd(\"${pkgs.grim}/bin/grim -g \\\"$(${pkgs.slurp}/bin/slurp)\\\" - | ${pkgs.wl-clipboard}/bin/wl-copy\")")
-          (bind "SHIFT + Print"
-            "hl.dsp.exec_cmd(\"${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy\")")
 
           # 多媒体
           (bindOpt "XF86AudioRaiseVolume" "hl.dsp.exec_cmd(\"wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+\")" {
