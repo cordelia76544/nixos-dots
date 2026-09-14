@@ -223,7 +223,7 @@
     slock = {};
     sudo = {
       u2fAuth = true;
-      rules.auth.u2f.control = "sufficient";
+      rules.auth.u2f.control = lib.mkForce "sufficient";
     };
     greetd.u2fAuth = true;
     login = {

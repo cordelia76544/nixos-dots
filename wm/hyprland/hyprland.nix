@@ -312,22 +312,22 @@ in {
         {
           leaf = "workspaces";
           enabled = true;
-          speed = 8;
-          bezier = "almostLinear";
+          speed = 12;
+          bezier = "easeOutQuint";
           style = "slide";
         }
         {
           leaf = "workspacesIn";
           enabled = true;
-          speed = 8;
-          bezier = "almostLinear";
+          speed = 12;
+          bezier = "easeOutQuint";
           style = "slide";
         }
         {
           leaf = "workspacesOut";
           enabled = true;
-          speed = 8;
-          bezier = "almostLinear";
+          speed = 12;
+          bezier = "easeOutQuint";
           style = "slide";
         }
         {
@@ -404,7 +404,7 @@ in {
             initial_title = "^_crx_.*";
           };
           float = true;
-          size = "400 600";
+          center = true;
         }
         {
           match.class = "^(wps)$";
@@ -413,16 +413,6 @@ in {
           rounding = 0; # 不是 no_rounding
           border_size = 0;
           no_anim = true;
-        }
-        {
-          name = "brave-notification";
-          match = {
-            class = "^$";
-            title = "^$";
-            xwayland = false;
-          };
-          float = true;
-          no_focus = true;
         }
       ];
 

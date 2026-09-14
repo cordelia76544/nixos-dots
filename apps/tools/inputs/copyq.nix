@@ -1,3 +1,3 @@
-{...}: {
-  services.copyq.enable = true;
+{osConfig, ...}: {
+  services.copyq.enable = osConfig.local.wm == "dwm";
 }
