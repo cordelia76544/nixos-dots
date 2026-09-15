@@ -65,6 +65,7 @@ in {
       batteryLockTimeout = 600;
       batterySuspendTimeout = 1200;
       batterySuspendBehavior = 0;
+      lowerDisplayRefreshRateOnBattery = true;
       dankIslandBarId = "default";
       dankIslandCompactHeight = 31;
 

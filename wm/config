@@ -11,32 +11,46 @@
     "batteryMonitorTimeout": 600,
     "batteryLockTimeout": 600,
     "batterySuspendTimeout": 1200,
+    "lowerDisplayRefreshRateOnBattery": true,
     "lockBeforeSuspend": true,
-    "dankIslandBarId": "default",
+    "enableU2f": true,
+    "lockScreenSecurityKeyShortcutEnabled": true,
+    "displayPreviousRefreshModes": {
+        "hyprland": {
+            "eDP-1": {
+                "mode": "2560x1600@240.000"
+            },
+            "Thermotrex Corporation TL160ADMP03-0 Unknown": {
+                "mode": "2560x1600@240.000"
+            },
+            "Thermotrex Corporation TL160ADMP03-0": {
+                "mode": "2560x1600@240.000"
+            },
+            "desc:Thermotrex Corporation TL160ADMP03-0": {
+                "mode": "2560x1600@240.000"
+            }
+        }
+    },
     "barConfigs": [
         {
-            "id": "default",
-            "name": "Main Bar",
-            "enabled": true,
-            "position": 0,
-            "screenPreferences": [
-                "all"
-            ],
-            "showOnLastDisplay": true,
-            "leftWidgets": [
-                "launcherButton",
-                "workspaceSwitcher",
-                "focusedWindow",
-                {
-                    "id": "dankAsusControlCenter",
-                    "enabled": true
-                }
-            ],
             "centerWidgets": [
                 "music",
                 "clock",
                 "weather"
             ],
+            "enabled": true,
+            "id": "default",
+            "leftWidgets": [
+                "launcherButton",
+                "workspaceSwitcher",
+                "focusedWindow",
+                {
+                    "enabled": true,
+                    "id": "dankAsusControlCenter"
+                }
+            ],
+            "name": "Main Bar",
+            "position": 0,
             "rightWidgets": [
                 "systemTray",
                 "clipboard",
@@ -46,32 +60,13 @@
                 "battery",
                 "controlCenterButton"
             ],
-            "spacing": 4,
-            "innerPadding": 0,
-            "bottomGap": 0,
-            "transparency": 1,
-            "widgetTransparency": 1,
-            "squareCorners": false,
-            "noBackground": false,
-            "gothCornersEnabled": false,
-            "gothCornerRadiusOverride": false,
-            "gothCornerRadiusValue": 12,
-            "borderEnabled": false,
-            "borderColor": "surfaceText",
-            "borderOpacity": 1,
-            "borderThickness": 1,
-            "fontScale": 1,
-            "autoHide": false,
-            "autoHideDelay": 250,
-            "openOnOverview": false,
-            "visible": true,
-            "popupGapsAuto": true,
-            "popupGapsManual": 4,
-            "widgetPadding": 11,
-            "maximizeWidgetIcons": false,
-            "maximizeWidgetText": false,
-            "removeWidgetPadding": false,
-            "widgetOutlineEnabled": false
+            "screenPreferences": [
+                "all"
+            ],
+            "showOnLastDisplay": true,
+            "transparency": 0,
+            "island": true,
+            "islandCompactThickness": 31
         }
     ],
     "desktopClockCustomColor": {
@@ -100,20 +95,5 @@
         "hslLightness": 1,
         "valid": true
     },
-    "builtInPluginSettings": {
-        "dms_settings_search": {
-            "trigger": "?"
-        },
-        "dms_clipboard_search": {
-            "trigger": "cb"
-        },
-        "dms_power": {
-            "trigger": "pw"
-        },
-        "dms_qr_generator": {
-            "trigger": "qrg"
-        }
-    },
-    "barInsetPaddingSyncAll": true,
-    "configVersion": 17
+    "configVersion": 18
 }
