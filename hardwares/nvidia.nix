@@ -8,7 +8,7 @@
   ];
 
   hardware = {
-    nvidia-container-toolkit.enable = true;
+    nvidia-container-toolkit.enable = false;
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.new_feature;
       prime = {
