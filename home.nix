@@ -40,11 +40,13 @@
       "Pictures"
       "Videos"
       "Music"
+      "Workspace"
 
       # ssh, gnupg, k8s...
       ".ssh"
       ".gnupg"
       ".kube"
+      ".claude"
       ".config/helm"
       ".local/share/helm"
       ".cache/helm"
@@ -111,6 +113,7 @@
     ];
     files = [
       ".fehbg"
+      ".claude.json"
     ];
   };
 
@@ -170,6 +173,7 @@
     zathura
     kubectl
     kubernetes-helm
+    fluxcd
     imagemagick
   ];
 
