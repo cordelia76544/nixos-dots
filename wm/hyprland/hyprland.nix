@@ -421,12 +421,10 @@ in {
             initial_title = "^(图片和视频|.*的聊天记录)$";
           };
           float = true;
-          opacity = 1.0;
-          tag = "+hyprglass_disabled";
         }
         {
           match.class = "^(brave-browser)$";
-          opacity = 1.0;
+          opacity = "1.0 override 1.0 override 1.0 override";
           tag = "+hyprglass_disabled";
         }
       ];
@@ -547,6 +545,11 @@ in {
 
       hl.window_rule({ match = { class = "mpv" },      tag = "+hyprglass_disabled" })
       hl.window_rule({ match = { fullscreen = true },  tag = "+hyprglass_disabled" })
+      hl.window_rule({
+        match = { class = "^([Bb]rave-browser)$" },
+        opacity = "1.0 override 1.0 override 1.0 override",
+        tag = "+hyprglass_disabled",
+      })
     '';
   };
 }
