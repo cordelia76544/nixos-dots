@@ -405,6 +405,7 @@ in {
           };
           float = true;
           center = true;
+          size = "640 960";
         }
         {
           match.class = "^(wps)$";
@@ -413,6 +414,20 @@ in {
           rounding = 0; # 不是 no_rounding
           border_size = 0;
           no_anim = true;
+        }
+        {
+          match = {
+            class = "^(wechat)$";
+            initial_title = "^(图片和视频|.*的聊天记录)$";
+          };
+          float = true;
+          opacity = 1.0;
+          tag = "+hyprglass_disabled";
+        }
+        {
+          match.class = "^(brave-browser)$";
+          opacity = 1.0;
+          tag = "+hyprglass_disabled";
         }
       ];
 
