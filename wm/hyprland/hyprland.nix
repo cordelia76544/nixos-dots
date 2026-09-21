@@ -405,7 +405,7 @@ in {
           };
           float = true;
           center = true;
-          size = "640 960";
+          size = "420 640";
         }
         {
           match.class = "^(wps)$";
@@ -421,6 +421,15 @@ in {
             initial_title = "^(图片和视频|.*的聊天记录)$";
           };
           float = true;
+        }
+        {
+          match = {
+            class = "^(wechat)$";
+            initial_title = "^(朋友圈)$";
+          };
+          float = true;
+          size = "480 860";
+          center = true;
         }
         {
           match.class = "^(brave-browser)$";
