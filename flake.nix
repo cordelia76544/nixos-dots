@@ -5,6 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     daeuniverse.url = "github:daeuniverse/flake.nix";
+    inputs.nixvim = {
+      url = "github:nix-community/nixvim/nixos-26.05";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,10 +25,6 @@
       url = "github:AvengeMedia/dank-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dgop = {
-      url = "github:AvengeMedia/dgop";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     dms-plugin-registry = {
       url = "github:AvengeMedia/dms-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,9 +36,8 @@
     nixpkgs,
     home-manager,
     impermanence,
+    nixvim,
     nix-cachyos-kernel,
-    asusctl-x11,
-    dgop,
     ...
   } @ inputs: {
     nixosConfigurations = {

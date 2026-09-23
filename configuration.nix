@@ -33,11 +33,10 @@
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
     zfs.package = config.boot.kernelPackages.zfs_cachyos;
     kernelModules = ["tcp_bbr"];
-    kernelParams = [
-      "mem_sleep_default=s2idle"
-      "no_console_suspend"
-      ''acpi_osi="!Windows 2020"''
-    ];
+    #kernelParams = [
+    #  "mem_sleep_default=s2idle"
+    #  ''acpi_osi="!Windows 2020"''
+    #];
     kernel.sysctl = {
       "net.core.default_qdisc" = "fq";
       "net.ipv4.tcp_congestion_control" = "bbr";

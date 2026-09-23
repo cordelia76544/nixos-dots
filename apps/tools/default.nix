@@ -11,5 +11,6 @@
     ./backup.nix
     ./ai.nix
     ./wechat.nix
+    ./nixvim.nix
   ];
 }

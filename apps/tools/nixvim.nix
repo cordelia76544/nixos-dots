@@ -1,208 +1,163 @@
-{ pkgs, ... }:
-{
-  # 这些是外部格式化/工具二进制，conform.nvim 需要它们在 PATH 中
-  home.packages = with pkgs; [
-    alejandra   # nix formatter
-    yamlfmt     # yaml formatter
-    taplo       # toml lsp + formatter
-    shfmt       # shell formatter
-    shellcheck  # shell linter (bashls 会用到)
-    prettier # 用于 markdown/json 等
-    jq
-    clang-tools # 提供 clangd (LSP) 和 clang-format，用于编辑 dwm 这类 C 源码
-  ];
-
+{pkgs, ...}: {
   programs.nixvim = {
     enable = true;
+    defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    defaultEditor = true;
 
+    # --- 通用编辑器设置（对应 vscode userSettings）---
     globals.mapleader = " ";
-
     opts = {
       number = true;
       relativenumber = true;
       shiftwidth = 2;
       tabstop = 2;
       expandtab = true;
-      smartindent = true;
-      termguicolors = true;
-      wrap = false;
-      ignorecase = true;
-      smartcase = true;
-      updatetime = 300;
       signcolumn = "yes";
-      scrolloff = 8;
-      splitright = true;
-      splitbelow = true;
+      termguicolors = true;
+      background = "light"; # 对应 "Ayu Light"
+      clipboard = "unnamedplus";
     };
 
-    colorschemes.catppuccin = {
+    # 对应 teabyii.ayu
+    colorschemes.ayu = {
       enable = true;
-      settings.flavour = "mocha";
+      settings.mirage = false;
     };
 
-    # ---------- 基础体验插件 ----------
+    # 对应 usernamehw.errorlens：行尾直接显示诊断
+    diagnostic.settings = {
+      virtual_text = true;
+      severity_sort = true;
+    };
+
     plugins = {
-      lualine.enable = true;
+      # 对应 pkief.material-icon-theme
       web-devicons.enable = true;
-      gitsigns.enable = true;
-      comment.enable = true;
-      indent-blankline.enable = true;
+      lualine.enable = true;
+      # 对应 eamodio.gitlens（行内 blame / hunk）
+      gitsigns = {
+        enable = true;
+        settings.current_line_blame = true;
+      };
+      # 对应 mkhl.direnv：进入目录自动加载 .envrc（复用你已开的 nix-direnv）
+      direnv.enable = true;
       which-key.enable = true;
+      telescope.enable = true;
 
-      # ---------- 侧边文件树（类似 VSCode）----------
-      neo-tree = {
-        enable = true;
-        settings = {
-          close_if_last_window = true;
-          filesystem = {
-            follow_current_file.enabled = true;
-            hijack_netrw_behavior = "open_default";
-            filtered_items = {
-              visible = true; # 显示隐藏文件/被过滤项，按 H 切换
-              hide_dotfiles = false;
-              hide_gitignored = false;
-            };
-          };
-          window = {
-            width = 30;
-            mappings = {
-              "<space>" = "none"; # 避免和 leader 冲突
-            };
-          };
-        };
-      };
-
-      telescope = {
-        enable = true;
-        keymaps = {
-          "<leader>ff" = "find_files";
-          "<leader>fg" = "live_grep";
-          "<leader>fb" = "buffers";
-          "<leader>fh" = "help_tags";
-        };
-      };
-
-      # ---------- Treesitter：语法高亮/缩进（对纠错也有辅助作用） ----------
+      # 语法高亮：只装需要的 grammar
       treesitter = {
         enable = true;
-        settings = {
-          highlight.enable = true;
-          indent.enable = true;
-        };
-        # 默认会按需安装所有可用语法，若你固定了 grammar 列表，记得把 c 也加进去
-        # grammarPackages = with pkgs.vimPlugins.nvim-treesitter-parsers; [ ... c ... ];
+        settings.highlight.enable = true;
+        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+          nix
+          yaml
+          lua
+          json
+          bash
+          markdown
+        ];
       };
 
-      # ---------- LSP：语法纠错 + 跳转 ----------
+      # --- LSP（对应 jnoortheen.nix-ide + redhat.vscode-yaml）---
       lsp = {
         enable = true;
+        inlayHints = true;
         servers = {
           nixd = {
             enable = true;
+            package = pkgs.nixd; # 和 vscode 用的是同一个 nixd
             settings = {
-              formatting.command = [ "alejandra" ];
+              formatting.command = ["alejandra"];
+              # 可选：让 nixd 补全你自己 flake 的 NixOS / HM 选项
+              # 把 <hostname> 换成你 nixosConfigurations 里的名字
+              # options = {
+              #   nixos.expr = ''(builtins.getFlake "/persist/home/davyjones/nixos").nixosConfigurations.<hostname>.options'';
+              #   home-manager.expr = ''(builtins.getFlake "/persist/home/davyjones/nixos").nixosConfigurations.<hostname>.options.home-manager.users.type.getSubOptions []'';
+              # };
             };
           };
-          yamlls.enable = true;      # yaml
-          jsonls.enable = true;      # json
-          taplo.enable = true;       # toml
-          bashls.enable = true;      # shell 脚本 / 配置片段
-          marksman.enable = true;    # markdown
-          clangd = {
-            enable = true;           # C/C++ (dwm 源码用)
-            extraOptions = {
-              background-index = true;
-              clang-tidy = true;
-              completion-style = "detailed";
-              header-insertion = "iwyu";
+          # vscode-yaml 背后就是 yaml-language-server
+          yamlls = {
+            enable = true;
+            settings.yaml = {
+              schemaStore.enable = true; # 自动匹配 k8s/GitHub Actions/compose 等 schema
+              format.enable = true;
+              keyOrdering = false;
             };
           };
+          lua_ls.enable = true; # 对应 sumneko.lua
         };
         keymaps = {
-          silent = true;
-          diagnostic = {
-            "<leader>dj" = "goto_next";
-            "<leader>dk" = "goto_prev";
-            "<leader>de" = "open_float"; # 查看当前行错误详情
-          };
           lspBuf = {
             gd = "definition";
             gr = "references";
-            gD = "declaration";
             K = "hover";
             "<leader>rn" = "rename";
             "<leader>ca" = "code_action";
           };
-        };
-      };
-
-      # 更细的 shell/bash 语法检查（LSP 之外的静态检查）
-      lint = {
-        enable = true;
-        lintersByFt = {
-          sh = [ "shellcheck" ];
-          bash = [ "shellcheck" ];
-        };
-      };
-
-      # ---------- 自动补全 ----------
-      cmp = {
-        enable = true;
-        autoEnableSources = true;
-        settings = {
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "path"; }
-            { name = "buffer"; }
-            { name = "luasnip"; }
-          ];
-          mapping = {
-            "<Tab>" = "cmp.mapping.select_next_item()";
-            "<S-Tab>" = "cmp.mapping.select_prev_item()";
-            "<CR>" = "cmp.mapping.confirm({ select = true })";
-            "<C-Space>" = "cmp.mapping.complete()";
-            "<C-e>" = "cmp.mapping.abort()";
+          diagnostic = {
+            "[d" = "goto_prev";
+            "]d" = "goto_next";
           };
         };
       };
-      cmp-nvim-lsp.enable = true;
-      cmp-path.enable = true;
-      cmp-buffer.enable = true;
-      luasnip.enable = true;
 
-      # ---------- 自动格式化（保存时自动修正格式）----------
+      # 补全
+      blink-cmp = {
+        enable = true;
+        settings.keymap.preset = "enter";
+      };
+
+      # 保存时格式化（对应 editor.formatOnSave，复用 alejandra）
       conform-nvim = {
         enable = true;
         settings = {
-          formatters_by_ft = {
-            nix = [ "alejandra" ];
-            yaml = [ "yamlfmt" ];
-            json = [ "jq" ];
-            toml = [ "taplo" ];
-            sh = [ "shfmt" ];
-            bash = [ "shfmt" ];
-            markdown = [ "prettier" ];
-            c = [ "clang-format" ];
-            cpp = [ "clang-format" ];
-          };
           format_on_save = {
             timeout_ms = 1000;
-            lsp_fallback = true;
+            lsp_format = "fallback";
+          };
+          formatters_by_ft = {
+            nix = ["alejandra"];
+            yaml = ["yamlfmt"];
           };
         };
       };
+
+      # 对应 github.copilot（不需要可删掉，首次使用 :Copilot auth）
+      # copilot-lua.enable = true;
     };
 
-    # ---------- 常用快捷键 ----------
+    # 对应 vscode 的 ctrl+shift+y 注释，复用 nvim 内建 gc/gcc
     keymaps = [
-      { mode = "n"; key = "<leader>w"; action = "<cmd>w<CR>"; options.desc = "保存"; }
-      { mode = "n"; key = "<leader>q"; action = "<cmd>q<CR>"; options.desc = "退出"; }
-      { mode = "n"; key = "<Esc>"; action = "<cmd>nohlsearch<CR>"; options.desc = "清除搜索高亮"; }
-      { mode = "n"; key = "<leader>e"; action = "<cmd>Neotree toggle<CR>"; options.desc = "切换文件树"; }
-      { mode = "n"; key = "<leader>o"; action = "<cmd>Neotree focus<CR>"; options.desc = "聚焦文件树"; }
+      {
+        mode = "n";
+        key = "<C-S-y>";
+        action = "gcc";
+        options.remap = true;
+      }
+      {
+        mode = "v";
+        key = "<C-S-y>";
+        action = "gc";
+        options.remap = true;
+      }
+      {
+        mode = "n";
+        key = "<leader>ff";
+        action = "<cmd>Telescope find_files<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>fg";
+        action = "<cmd>Telescope live_grep<cr>";
+      }
+    ];
+
+    # conform 调用的外部格式化程序
+    extraPackages = with pkgs; [
+      alejandra
+      yamlfmt
     ];
   };
 }
