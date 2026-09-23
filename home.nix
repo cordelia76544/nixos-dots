@@ -27,7 +27,7 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "hx";
+    #  EDITOR = "hx";
     LANG = "zh_CN.UTF-8";
   };
 
@@ -69,9 +69,10 @@
       ".config/PrismLauncher"
       ".steam"
 
-      # VSCode
+      # editors
       ".vscode"
       ".config/Code"
+      ".local/state/nvim"
 
       # shell
       ".local/share/direnv"

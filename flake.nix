@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     daeuniverse.url = "github:daeuniverse/flake.nix";
-    inputs.nixvim = {
+    nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
     home-manager = {

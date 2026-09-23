@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [inputs.nixvim.homeModules.nixvim];
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -15,14 +20,8 @@
       expandtab = true;
       signcolumn = "yes";
       termguicolors = true;
-      background = "light"; # 对应 "Ayu Light"
+      background = "dark"; # 对应 "Ayu Light"
       clipboard = "unnamedplus";
-    };
-
-    # 对应 teabyii.ayu
-    colorschemes.ayu = {
-      enable = true;
-      settings.mirage = false;
     };
 
     # 对应 usernamehw.errorlens：行尾直接显示诊断
