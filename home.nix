@@ -87,6 +87,7 @@
       ".config/Termius"
       ".config/networkmanager-dmenu"
       ".local/share/Trash"
+      ".local/share/org.localsend.localsend_app"
 
       # wechat
       ".xwechat"

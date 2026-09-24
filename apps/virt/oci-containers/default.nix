@@ -1,5 +1,6 @@
 {...}: {
   imports = [
-    ./umi-ocr.nix
+    #./umi-ocr.nix
+    ./ppocr.nix
   ];
 }
