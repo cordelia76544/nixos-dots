@@ -8,8 +8,8 @@
 
   inherit (lib.generators) mkLuaInline;
 
-  terminal = "ghostty";
-  fileManager = "ghostty -e yazi";
+  terminal = "foot";
+  fileManager = "${terminal} -e yazi";
   browser = "brave";
 
   mod = "SUPER";

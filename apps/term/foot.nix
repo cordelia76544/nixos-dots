@@ -17,16 +17,14 @@ lib.mkIf (osConfig.local.wm == "hyprland") {
       csd.preferred = "none";
 
       cursor = {
-        style = "block";
-        color = "000000 eaeaea";
+        style = "beam";
+        beam-thickness = 1;
       };
 
       mouse.hide-when-typing = "yes";
-
-      # Material Design Colors（与 Ghostty 主题一致），背景沿用 #000000 覆盖
-      # foot 新版本用 [colors-dark]，[colors] 已弃用
       colors-dark = {
-        alpha = 0.76; # 模糊交给 Hyprland 的 decoration:blur
+        alpha = 0.76;
+        cursor = "000000 eaeaea";
 
         foreground = "e7ebed";
         background = "000000";

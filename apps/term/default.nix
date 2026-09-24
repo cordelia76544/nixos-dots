@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     #./kitty.nix
-    ./ghostty.nix
+    #./ghostty.nix
     ./foot.nix
   ];
 }
