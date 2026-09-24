@@ -4,7 +4,7 @@
 
     openFirewall = {
       enable = true;
-      port = 12345;
+      port = 2026;
     };
 
     listen = "127.0.0.1:2026";

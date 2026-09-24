@@ -213,6 +213,11 @@
     gamemode = {
       enable = true;
     };
+
+    localsend = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 
   local.wm = "hyprland";
