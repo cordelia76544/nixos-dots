@@ -79,6 +79,7 @@ in {
                 hl.exec_cmd("dbus-update-activation-environment --systemd --all")
                 hl.exec_cmd("systemctl --user start hyprland-session.target")
                 hl.exec_cmd("sh -c 'for i in $(seq 10); do ${pkgs.xrdb}/bin/xrdb -merge ~/.Xresources 2>/dev/null && break; sleep 1; done'")
+                hl.exec_cmd("localsend_app --hidden")
               end'')
           ];
         }
