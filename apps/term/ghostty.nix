@@ -22,7 +22,6 @@
       shell-integration = "zsh";
       confirm-close-surface = false;
 
-      # 关掉内置标签页，交给 dwm 管窗口
       gtk-tabs-location = "hidden";
       gtk-single-instance = false;
     };
