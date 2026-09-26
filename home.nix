@@ -46,7 +46,7 @@
       ".ssh"
       ".gnupg"
       ".kube"
-      ".claude"
+      ".codex"
       ".config/helm"
       ".local/share/helm"
       ".cache/helm"
