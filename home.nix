@@ -177,6 +177,7 @@
     kubernetes-helm
     fluxcd
     imagemagick
+    nodejs
   ];
 
   programs.zoxide = {
