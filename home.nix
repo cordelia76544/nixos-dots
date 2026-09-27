@@ -115,7 +115,6 @@
     ];
     files = [
       ".fehbg"
-      ".claude.json"
     ];
   };
 
