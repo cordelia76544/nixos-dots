@@ -18,8 +18,8 @@
       openFirewall = true;
       ports = [18964];
       settings = {
-        passwordAuthentication = false;
-        kbdInteractiveAuthentication = false;
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
       };
     };
     flatpak.enable = false;
