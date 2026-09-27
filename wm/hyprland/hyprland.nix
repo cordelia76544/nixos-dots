@@ -560,6 +560,11 @@ in {
         opacity = "1.0 override 1.0 override 1.0 override",
         tag = "+hyprglass_disabled",
       })
+      hl.window_rule({
+        match = { class = ".virt-manager-wrapped" },
+        opacity = "1.0 override 1.0 override 1.0 override",
+        tag = "+hyprglass_disabled",
+      })
     '';
   };
 }
