@@ -17,8 +17,10 @@
       enable = true;
       openFirewall = true;
       ports = [18964];
-      passwordAuthentication = false;
-      kbdInteractiveAuthentication = false;
+      settings = {
+        passwordAuthentication = false;
+        kbdInteractiveAuthentication = false;
+      };
     };
     flatpak.enable = false;
     upower.enable = true;
