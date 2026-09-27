@@ -14,6 +14,6 @@
 
   programs.java = {
     enable = true;
-    package = pkgs.graalvmPackages.graalvm-oracle_17;
+    package = pkgs.graalvmPackages.graalvm-oracle;
   };
 }

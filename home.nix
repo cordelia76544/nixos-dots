@@ -88,6 +88,7 @@
       ".config/networkmanager-dmenu"
       ".local/share/Trash"
       ".local/share/org.localsend.localsend_app"
+      ".local/share/TelegramDesktop"
 
       # wechat
       ".xwechat"
@@ -177,6 +178,7 @@
     fluxcd
     imagemagick
     nodejs
+    telegram-desktop
   ];
 
   programs.zoxide = {
