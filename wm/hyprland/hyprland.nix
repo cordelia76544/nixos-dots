@@ -534,6 +534,10 @@ in {
           (bindOpt "XF86AudioPlay" "hl.dsp.exec_cmd(\"${pkgs.playerctl}/bin/playerctl play-pause\")" {locked = true;})
           (bindOpt "XF86AudioPause" "hl.dsp.exec_cmd(\"${pkgs.playerctl}/bin/playerctl play-pause\")" {locked = true;})
           (bindOpt "XF86AudioPrev" "hl.dsp.exec_cmd(\"${pkgs.playerctl}/bin/playerctl previous\")" {locked = true;})
+
+          # power
+          (bind "${mod} + P" "hl.dsp.exec_cmd(\"asus-profile-switcher\")")
+          (bind "${mod} + Shift + P" "hl.dsp.exec_cmd(\"rofi -show power-menu -modi power-menu:rofi-power-menu\")")
         ]
         ++ workspaceBinds;
     };

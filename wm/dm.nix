@@ -10,10 +10,10 @@ in {
     inputs.dank-greeter.nixosModules.default
   ];
 
-  services.displayManager.ly.enable = dwm;
+  services.displayManager.ly.enable = true;
 
   programs.dms-greeter = {
-    enable = !dwm;
+    enable = false;
     compositor.name = "hyprland";
     configHome = "/home/davyjones";
     configFiles = [
