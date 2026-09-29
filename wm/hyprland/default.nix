@@ -4,6 +4,7 @@
     ./hyprland.nix
     ./waybar.nix
     ./hyprlock-idle.nix
-    ./hyprpapers.nix
+    ./hyprpaper.nix
+    ./swaync.nix
   ];
 }

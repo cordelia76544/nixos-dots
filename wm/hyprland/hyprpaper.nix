@@ -6,7 +6,7 @@
       wallpaper = [
         {
           monitor = "eDP-1";
-          path = "../../wallpapers/001.jpg";
+          path = "/home/davyjones/nixos/wallpapers/001.jpg";
         }
       ];
     };
