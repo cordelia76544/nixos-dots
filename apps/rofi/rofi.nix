@@ -2,10 +2,8 @@
   lib,
   pkgs,
   config,
-  osConfig,
   ...
-}:
-lib.mkIf (osConfig.local.wm == "dwm") {
+}: {
   programs.rofi = {
     enable = true;
     theme = "~/.config/rofi/themes/black-transparent.rasi";

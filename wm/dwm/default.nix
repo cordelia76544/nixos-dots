@@ -7,7 +7,6 @@
   imports = [
     ./autostart.nix
     ./picom.nix
-    ./rofi.nix
     ./asus-switcher.nix
     ./polybar
     #./betterlockscreen.nix

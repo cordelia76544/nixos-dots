@@ -1,6 +1,9 @@
 {...}: {
   imports = [
-    ./dms.nix
+    #./dms.nix
     ./hyprland.nix
+    ./waybar.nix
+    ./hyprlock-idle.nix
+    ./hyprpapers.nix
   ];
 }

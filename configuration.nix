@@ -238,6 +238,7 @@
       enableGnomeKeyring = true;
     };
     swaylock.u2fAuth = true;
+    hyprlock = {};
   };
 
   environment.sessionVariables = {

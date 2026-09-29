@@ -24,6 +24,7 @@
     ./apps/browsers
     ./apps/medias/videos
     ./apps/mimeapp.nix
+    ./apps/rofi
   ];
 
   home.sessionVariables = {

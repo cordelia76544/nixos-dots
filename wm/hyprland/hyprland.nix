@@ -11,6 +11,8 @@
   terminal = "foot";
   fileManager = "${terminal} -e yazi";
   browser = "brave";
+  launchercmd = "rofi -show drun";
+  lockcmd = "loginctl lock-session";
 
   mod = "SUPER";
 
@@ -472,8 +474,8 @@ in {
           (bind "${mod} + Return" "hl.dsp.exec_cmd(\"${terminal}\")")
           (bind "${mod} + E" "hl.dsp.exec_cmd(\"${fileManager}\")")
           (bind "${mod} + B" "hl.dsp.exec_cmd(\"${browser}\")")
-          (bind "${mod} + space" "hl.dsp.exec_cmd(\"dms ipc call spotlight toggle\")")
-          (bind "${mod} + L" "hl.dsp.exec_cmd(\"dms ipc call lock lock\")")
+          (bind "${mod} + space" "hl.dsp.exec_cmd(\"${launchercmd}\")")
+          (bind "${mod} + L" "hl.dsp.exec_cmd(\"${lockcmd}\")")
 
           # 焦点 (dwm 风格 hjkl)
           (bind "${mod} + left" "hl.dsp.focus({ direction = \"left\" })")
