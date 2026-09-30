@@ -2,6 +2,7 @@
   osConfig,
   lib,
   pkgs,
+  config,
   ...
 }: let
   hypr = osConfig.local.wm == "hyprland";
@@ -571,6 +572,15 @@ in {
         opacity = "1.0 override 1.0 override 1.0 override",
         tag = "+hyprglass_disabled",
       })
+      do
+        local colors = "${config.home.homeDirectory}/.config/matugen/target/hyprland-colors.lua"
+        local f = io.open(colors, "r")
+
+        if f then
+          f:close()
+          dofile(colors)
+        end
+      end
     '';
   };
 }

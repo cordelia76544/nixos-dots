@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = [
     pkgs.mangohud
     (pkgs.prismlauncher.override {
