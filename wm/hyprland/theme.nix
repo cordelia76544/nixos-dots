@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   gtk = {
     enable = true;
     iconTheme = {
@@ -6,7 +10,7 @@
       package = pkgs.papirus-icon-theme;
     };
     gtk3.theme = {
-      name = "adw-gtk3-dark";
+      name = "adw-gtk3";
       package = pkgs.adw-gtk3;
     };
 

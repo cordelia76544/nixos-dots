@@ -208,7 +208,7 @@
       for path in "''${targets[@]}"; do
         mkdir -p -- "$(dirname -- "$path")"
       done
-      matugen -c ${configFile} -m dark -t scheme-tonal-spot image "$1"
+      matugen -c ${configFile} -m light -t scheme-tonal-spot image "$1"
       if pgrep -u "$(id -u)" -x swaync >/dev/null; then
         swaync-client -rs || printf 'SwayNC 样式重载失败。\n' >&2
       fi
@@ -225,7 +225,7 @@ in {
 
   # Optional integration styles, available for your existing application configs.
   xdg.configFile."matugen/rofi.rasi".text = ''
-    /* Standalone dark test theme. The colors file must be generated first. */
+    /* Standalone light test theme. The colors file must be generated first. */
     @import "${target}/rofi-colors.rasi"
     * {
         font: "Noto Sans CJK SC 12";

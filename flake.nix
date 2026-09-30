@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     daeuniverse.url = "github:daeuniverse/flake.nix";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
@@ -21,14 +22,6 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dank-greeter = {
-      url = "github:AvengeMedia/dank-greeter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dms-plugin-registry = {
-      url = "github:AvengeMedia/dms-plugin-registry";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -36,6 +29,7 @@
     nixpkgs,
     home-manager,
     impermanence,
+    determinate,
     nixvim,
     nix-cachyos-kernel,
     ...
@@ -48,6 +42,7 @@
 
         modules = [
           {nixpkgs.hostPlatform = "x86_64-linux";}
+          determinate.nixosModules.default
           ./configuration.nix
           impermanence.nixosModules.impermanence
           inputs.daeuniverse.nixosModules.dae

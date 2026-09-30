@@ -108,9 +108,7 @@
 
       # hyprland and dms
       ".config/hypr/dms"
-      ".local/state/DankMaterialShell"
-      ".cache/DankMaterialShell"
-      ".cache/quickshell"
+      ".config/matugen/target"
       ".config/qt6ct"
       ".cache/nvidia"
       ".cache/qtshadercache-x86_64-little_endian-lp64"

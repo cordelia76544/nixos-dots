@@ -538,7 +538,7 @@ in {
 
           # power
           (bind "${mod} + P" "hl.dsp.exec_cmd(\"asus-profile-switcher\")")
-          (bind "${mod} + Shift + P" "hl.dsp.exec_cmd(\"rofi -show power-menu -modi power-menu:rofi-power-menu\")")
+          (bind "${mod} + SHIFT + P" "hl.dsp.exec_cmd(\"rofi -show power-menu -modi power-menu:rofi-power-menu\")")
         ]
         ++ workspaceBinds;
     };

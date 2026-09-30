@@ -6,5 +6,7 @@
     ./hyprlock-idle.nix
     ./hyprpaper.nix
     ./swaync.nix
+    ./matugen.nix
+    ./theme.nix
   ];
 }
