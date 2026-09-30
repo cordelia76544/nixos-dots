@@ -4,8 +4,7 @@
 # 通知按钮使用已运行的 SwayNC；中文及 Nerd Font 沿用现有字体配置。
 # 点击操作用到的程序以 Nix store 路径引用，不依赖 nix shell。
 # hyprctl 则使用当前会话 PATH 中的版本，避免与正在运行的合成器版本不一致。
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   clockScript = pkgs.writeText "waybar-clock.py" ''
     import datetime, json, time
     try:
@@ -99,9 +98,7 @@ let
         args += ["workspace", workspace]
     subprocess.run(args, check=True)
   '';
-
-in
-{
+in {
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;
@@ -140,9 +137,9 @@ in
           "tray"
           "custom/notification"
           "network"
-          "bluetooth"
           "pulseaudio"
           "backlight"
+          "battery"
         ];
         "hyprland/workspaces" = {
           "format" = "{icon}";
@@ -164,7 +161,7 @@ in
           "sort-by-number" = true;
           "sort-by" = "number";
           "disable-scroll" = false;
-          "persistent-workspaces" = { };
+          "persistent-workspaces" = {};
           "tooltip" = false;
           "on-scroll-up" = "${pkgs.python3}/bin/python3 ${workspaceScrollScript} m-1";
           "on-scroll-down" = "${pkgs.python3}/bin/python3 ${workspaceScrollScript} m+1";
@@ -220,16 +217,6 @@ in
           "interval" = 10;
           "on-click" = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
-        "bluetooth" = {
-          "format" = "";
-          "format-disabled" = "󰂲";
-          "format-off" = "󰂲";
-          "format-connected" = "󰂱";
-          "tooltip-format" = "蓝牙 · {status}";
-          "tooltip-format-connected" = "已连接 {num_connections} 台设备\n{device_enumerate}";
-          "tooltip-format-enumerate-connected" = "{device_alias}";
-          "on-click" = "${pkgs.blueman}/bin/blueman-manager";
-        };
         "pulseaudio" = {
           "format" = "{icon}  {volume}%";
           "format-muted" = "󰝟";
@@ -258,6 +245,34 @@ in
           "icon-size" = 15;
           "spacing" = 8;
           "show-passive-items" = false;
+        };
+        "battery" = {
+          "interval" = 30;
+
+          "states" = {
+            "warning" = 20;
+            "critical" = 10;
+          };
+
+          "format" = "{icon} {capacity}%";
+          "format-charging" = "󰂄 {capacity}%";
+          "format-plugged" = "󰚥 {capacity}%";
+          "format-full" = "{icon} {capacity}%";
+
+          "format-icons" = [
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
+
+          "tooltip-format" = "{capacity}% · {timeTo}";
         };
       }
       {
@@ -377,23 +392,37 @@ in
         color: #f3f4f8;
       }
 
-      #custom-notification, #network, #bluetooth, #pulseaudio, #backlight {
+      #custom-notification, #network, #battery, #pulseaudio, #backlight {
         margin: 5px 1px;
         padding: 0 9px;
         border-radius: 14px;
         color: #c1c7d2;
       }
-      #custom-notification, #network, #bluetooth { font-size: 15px; }
-      #custom-notification:hover, #network:hover, #bluetooth:hover,
+      #custom-notification, #network, #battery { font-size: 15px; }
+      #custom-notification:hover, #network:hover, #battery:hover,
       #pulseaudio:hover, #backlight:hover {
         background: @hover;
         color: #ffffff;
       }
-      #network.disconnected, #bluetooth.off, #bluetooth.disabled,
+      #network.disconnected,
       #pulseaudio.muted { color: #737c8c; }
-      #bluetooth.connected { color: #bed0e8; }
       #custom-notification.notification { color: #e4c397; }
+      #battery {
+        padding: 0 10px;
+      }
 
+      #battery.warning:not(.charging):not(.plugged) {
+        color: #e5c07b;
+      }
+
+      #battery.critical:not(.charging):not(.plugged) {
+        color: #e06c75;
+      }
+
+      #battery.charging,
+      #battery.plugged {
+        color: #98c379;
+      }
       window#waybar.resource-alert {
         background: transparent;
         border: none;
