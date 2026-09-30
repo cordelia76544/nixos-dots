@@ -196,6 +196,18 @@
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
+    gtk3.theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
+
+    gtk3.extraCss = ''
+      @import url("${config.home.homeDirectory}/.config/matugen/target/gtk3-colors.css");
+    '';
+
+    gtk4.extraCss = ''
+      @import url("${config.home.homeDirectory}/.config/matugen/target/gtk4-colors.css");
+    '';
   };
 
   # 提到共用模块里

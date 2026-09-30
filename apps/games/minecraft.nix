@@ -16,4 +16,8 @@
     enable = true;
     package = pkgs.zulu21;
   };
+
+  xdg.dataFile."PrismLauncher/themes/Matugen".source =
+    config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/.config/matugen/target/prismlauncher";
 }
