@@ -237,7 +237,7 @@ in {
         border: 1px;
         border-color: @outline-variant;
         border-radius: 22px;
-        background-color: #101216f2;
+        background-color: @surface;
     }
     mainbox { padding: 18px; spacing: 12px; children: [ inputbar, listview ]; }
     inputbar { spacing: 10px; padding: 8px; children: [ prompt, entry ]; }
@@ -253,8 +253,8 @@ in {
   xdg.configFile."matugen/swaync.css".text = ''
     /* Append an import of this file AFTER the existing SwayNC style rules. */
     @import url("${target}/swaync-colors.css");
-    .control-center { background: rgba(15,17,22,0.94); border-color: @outline_variant; }
-    .notification { background: rgba(34,38,47,0.94); border-color: @outline_variant; }
+    .control-center { background: alpha(@surface, 0.94); border-color: @outline_variant; }
+    .notification { background: alpha(@surface_container, 0.96); border-color: @outline_variant; }
     .summary, .body, .widget-title, .widget-dnd { color: @on_surface; }
     .time { color: @on_surface_variant; }
     .widget-title > button, .notification-action, .close-button {

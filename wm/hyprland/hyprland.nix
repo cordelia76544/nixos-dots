@@ -543,7 +543,6 @@ in {
         ++ workspaceBinds;
     };
     extraConfig = ''
-      require("dms.colors")
       hl.unbind("SUPER + Q")
       hl.bind("SUPER + Q", hl.dsp.window.close(), { description = "Close window" })
       if hl.plugin.hyprglass then
@@ -554,10 +553,6 @@ in {
               default_preset = "glass",
               layers = { enabled = true },
           })
-
-          -- DMS 的 layer namespace
-          hg.layer("dms:bar",       { preset = "subtle", mask_threshold = 0.05 })
-          hg.layer("dms:dankisland", { mask_threshold = 0.3 })
       end
 
       hl.window_rule({ match = { class = "mpv" },      tag = "+hyprglass_disabled" })

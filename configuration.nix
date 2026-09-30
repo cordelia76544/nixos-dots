@@ -150,7 +150,6 @@
       "/etc/NetworkManager/system-connections"
       "/var/lib/NetworkManager"
       "/var/lib/bluetooth"
-      "/var/lib/dms-greeter"
       "/var/lib/ly"
       "/var/lib/AccountsService"
       "/var/lib/polkit-1"
