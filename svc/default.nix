@@ -4,5 +4,6 @@
     ./daed.nix
     ./dunst.nix
     ./tailscale.nix
+    ./dae
   ];
 }

@@ -1,0 +1,111 @@
+global {
+  tproxy_port: 12345
+  log_level: info
+  allow_insecure: false
+  auto_config_kernel_parameter: true
+
+  # wan 自动选择；容器和虚拟机的转发流量走 lan 接口
+  wan_interface: auto
+  lan_interface: podman0,virbr0
+
+  dial_mode: domain
+  tcp_check_url: 'http://cp.cloudflare.com,1.1.1.1,2606:4700:4700::1111'
+  udp_check_dns: 'dns.google:53,8.8.8.8,2001:4860:4860::8888'
+  check_interval: 30s
+  check_tolerance: 50ms
+}
+
+# 订阅链接不进仓库，放在 /persist/secrets/dae-subscription.dae
+include {
+  /persist/secrets/dae-subscription.dae
+}
+
+dns {
+  upstream {
+    alidns: 'udp://223.5.5.5:53'
+    googledns: 'tcp+udp://8.8.8.8:53'
+    alidoh: 'https://313510-yjs5pfa4ui89k60b.alidns.com/dns-query'
+    googledoh: 'https://dns.google/dns-query'
+  }
+  routing {
+    request {
+      qname(geosite:cn) -> alidns
+      qname(geosite:category-ads-all) -> reject
+      qname(geosite:google@cn) -> alidoh
+      qname(suffix: abc.com, keyword: google) -> googledoh
+      qname(suffix: steamchina.com, suffix: steamcontent.com, suffix: steamstatic.com, suffix: steamgames.com, suffix: 8686c.com, suffix: wmsj.cn) -> alidoh
+      qname(suffix: steamcommunity.com, suffix: steam-chat.com, suffix: s.team, suffix: steamserver.net) -> googledoh
+      qtype(https) -> reject
+      fallback: alidoh
+    }
+    response {
+      upstream(googledns) -> accept
+      ip(geoip:private) && !qname(geosite:cn) -> googledns
+      fallback: accept
+    }
+  }
+}
+
+group {
+  us {
+    filter: name(keyword: 'US', keyword: '美国', keyword: 'United States')
+    policy: min_moving_avg
+  }
+  jp {
+    filter: name(keyword: 'JP', keyword: '日本', keyword: 'Japan')
+    policy: min_moving_avg
+  }
+  hk {
+    filter: name(keyword: 'HK', keyword: '香港', keyword: 'Hong Kong')
+    policy: min_moving_avg
+  }
+  sg {
+    filter: name(keyword: 'SG', keyword: '新加坡', keyword: 'Singapore')
+    policy: min_moving_avg
+  }
+}
+
+routing {
+  pname(NetworkManager, systemd-resolved, dnsmasq) -> must_direct
+  dip(192.168.122.0/24) -> must_direct
+  domain(geosite:category-ads-all) -> reject
+  dip(224.0.0.0/3, 'ff00::/8') -> direct
+  dip(geoip:private) -> direct
+  dip(geoip:cn) -> direct
+
+  domain(suffix: simpfun.cn) -> direct
+  domain(suffix: bilibili.com) -> direct
+  domain(suffix: baidu.com) -> direct
+  domain(suffix: nodeseek.com) -> us
+  domain(suffix: nixos.org, suffix: nixos.dev, suffix: cachix.org, suffix: determinate.systems) -> hk
+  domain(geosite:github) -> us
+  domain(suffix: githubusercontent.com, suffix: github.io) -> us
+  pname(podman, skopeo, buildkitd) -> us
+
+  domain(suffix: steamcommunity.com, suffix: steamcommunity-a.akamaihd.net,
+         suffix: steamuserimages-a.akamaihd.net, suffix: steamusercontent-a.akamaihd.net,
+         suffix: steamstore-a.akamaihd.net, suffix: steam-chat.com,
+         suffix: s.team, suffix: steam-api.com, suffix: steamserver.net,
+         keyword: cm.steampowered.com,
+         full: store.steampowered.com, full: checkout.steampowered.com,
+         full: login.steampowered.com, full: help.steampowered.com,
+         full: api.steampowered.com) -> us
+
+  domain(suffix: steamchina.com, suffix: wmsj.cn, suffix: wmsjsteam.com,
+         suffix: 8686c.com, suffix: dl.steam.clngaa.com, suffix: dl.steam.ksyna.com,
+         suffix: st.dl.bscstorage.net, suffix: st.dl.eccdnx.com,
+         suffix: st.dl.pinyuncloud.com, suffix: steamcontent.tnkjmec.com,
+         suffix: steamcontent.com, suffix: steamstatic.com, suffix: steamgames.com,
+         suffix: steamcdn-a.akamaihd.net, suffix: steampipe.akamaized.net,
+         suffix: steampowered.com,
+         keyword: qtlglb.com) -> direct
+
+  domain(suffix: live.com) -> hk
+  domain(suffix: meitangdehulu.com) -> hk
+  domain(geosite:cn) -> direct
+  dip(64.204.204.114) -> hk
+  dip(100.64.0.0/10) -> direct
+  dip(120.53.9.163) -> direct
+
+  fallback: hk
+}
