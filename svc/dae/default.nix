@@ -1,6 +1,4 @@
 {pkgs, ...}: let
-  # Loyalsoldier 的 geodata，固定到具体 release（2026-10-01）。更新时改 tag 并重算 hash：
-  #   nix-prefetch-url --type sha256 <url> | xargs nix hash to-sri --type sha256
   geoip = pkgs.fetchurl {
     url = "https://github.com/Loyalsoldier/geoip/releases/download/202610010135/geoip.dat";
     hash = "sha256-d7QH0JDVVSXrPZNcC+UwGxfmYLkZMrtnCLwh3twamEA=";
@@ -20,7 +18,10 @@ in {
     configFile = "/etc/dae/config.dae";
     assets = [daeAssets];
   };
-  environment.etc."dae/config.dae".source = ./config.dae;
+  environment.etc."dae/config.dae" = {
+    source = ./config.dae;
+    mode = "0600";
+  };
 
   # 订阅文件不在仓库里，需手动创建 /persist/secrets/dae-subscription.dae：
   #   subscription {
