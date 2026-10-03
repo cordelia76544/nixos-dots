@@ -115,6 +115,7 @@
     ];
     files = [
       ".fehbg"
+      "ly-session.log"
     ];
   };
 
@@ -127,8 +128,6 @@
     unzip
     p7zip
     unrar
-    nix-prefetch-github
-    nix-prefetch
 
     # utils
     qimgv
@@ -182,13 +181,11 @@
 
   programs.zoxide = {
     enable = true;
-    enableNushellIntegration = true;
     options = [
       "--cmd cd"
     ];
   };
 
-  # 提到共用模块里
   xresources.properties = let
     dpi =
       if osConfig.local.wm == "dwm"

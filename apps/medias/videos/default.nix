@@ -1,5 +1,5 @@
 {...}: {
   imports = [
-#    ./kodi.nix
+    ./kodi.nix
   ];
 }

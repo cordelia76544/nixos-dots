@@ -17,9 +17,10 @@
 in {
   services.dae = {
     enable = true;
-    configFile = ./config.dae;
+    configFile = "/etc/dae/config.dae";
     assets = [daeAssets];
   };
+  environment.etc."dae/config.dae".source = ./config.dae;
 
   # 订阅文件不在仓库里，需手动创建 /persist/secrets/dae-subscription.dae：
   #   subscription {
