@@ -271,6 +271,7 @@
     memoryPercent = 25;
     algorithm = "zstd";
   };
+  documentation.nixos.enable = false;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   system.stateVersion = "26.05";
