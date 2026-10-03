@@ -459,6 +459,12 @@ in {
           match.namespace = "^dms:.*";
           no_anim = true;
         }
+        {
+          match.namespace = "selection";
+          blur = false;
+          dim_around = false;
+          no_anim = true;
+        }
       ];
 
       # KEYBINDINGS
@@ -547,6 +553,9 @@ in {
       hl.bind("SUPER + Q", hl.dsp.window.close(), { description = "Close window" })
       if hl.plugin.hyprglass then
           local hg = hl.plugin.hyprglass
+          hg.layer("selection", {
+            exclude = true,
+          })
 
           hg.config({
               default_theme  = "dark",

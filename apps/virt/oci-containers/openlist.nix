@@ -14,7 +14,7 @@
       ];
 
       volumes = [
-        "openlist:/opt/openlist/data"
+        "openlist:/opt/openlist/data:rw,U"
       ];
 
       environment = {
