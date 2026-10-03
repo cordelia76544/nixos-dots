@@ -28,5 +28,7 @@ in {
   #     mysub: 'https://你的订阅链接'
   #   }
   # 不存在时不启动 dae
-  systemd.services.dae.unitConfig.ConditionPathExists = "/persist/secrets/dae-subscription.dae";
+  systemd.tmpfiles.rules = [
+    "C+ /etc/dae/subscription.dae 0600 root root - /persist/secrets/dae-subscription.dae"
+  ];
 }
