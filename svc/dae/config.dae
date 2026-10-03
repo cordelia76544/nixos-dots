@@ -1,6 +1,6 @@
 global {
   tproxy_port: 12345
-  log_level: info
+  log_level: trace
   allow_insecure: false
   auto_config_kernel_parameter: true
 
@@ -36,7 +36,7 @@ dns {
       qname(suffix: steamchina.com, suffix: steamcontent.com, suffix: steamstatic.com, suffix: steamgames.com, suffix: 8686c.com, suffix: wmsj.cn) -> alidoh
       qname(suffix: steamcommunity.com, suffix: steam-chat.com, suffix: s.team, suffix: steamserver.net) -> googledoh
       qtype(https) -> reject
-      fallback: alidoh
+      fallback: googledoh
     }
     response {
       upstream(googledns) -> accept
@@ -71,16 +71,19 @@ routing {
   domain(geosite:category-ads-all) -> block
   dip(224.0.0.0/3, 'ff00::/8') -> direct
   dip(geoip:private) -> direct
+  domain(geosite:cn) -> direct
   dip(geoip:cn) -> direct
-
+  domain(geosite: category-game-platforms-download) -> direct
+  domain(geosite: category-ai-cn) -> direct
+  domain(geosite: category-netdisk-cn) -> direct
+  domain(geosite: google) -> us
+  domain(geosite: github) -> us
+  domain(geosite: category-ai-!cn) -> hk
   domain(suffix: simpfun.cn) -> direct
-  domain(suffix: bilibili.com) -> direct
-  domain(suffix: baidu.com) -> direct
   domain(suffix: nodeseek.com) -> us
   domain(suffix: nixos.org, suffix: nixos.dev, suffix: cachix.org, suffix: determinate.systems) -> hk
-  domain(geosite:github) -> us
   domain(suffix: githubusercontent.com, suffix: github.io) -> us
-  pname(podman, skopeo, buildkitd) -> us
+  domain(geosite: category-container) -> us
 
   domain(suffix: steamcommunity.com, suffix: steamcommunity-a.akamaihd.net,
          suffix: steamuserimages-a.akamaihd.net, suffix: steamusercontent-a.akamaihd.net,
