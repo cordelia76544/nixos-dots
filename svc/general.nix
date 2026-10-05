@@ -24,6 +24,7 @@
     };
     flatpak.enable = false;
     upower.enable = true;
+    pcscd.enable = true;
     tlp.enable = lib.mkForce false;
     fstrim.enable = lib.mkDefault true;
     gnome.gnome-keyring.enable = true;

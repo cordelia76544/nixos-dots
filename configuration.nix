@@ -94,7 +94,6 @@
 
   nixpkgs.overlays = [
     inputs.nix-cachyos-kernel.overlays.pinned
-    inputs.asusctl-x11.overlays.default
     (final: prev: {
       hyprglass = final.callPackage ./wm/hyprland/pkgs/hyprglass.nix {};
     })
@@ -199,6 +198,8 @@
     gtk3
     xauth
     freetype
+    ssh-to-age
+    sops
   ];
 
   programs = {
@@ -220,6 +221,8 @@
       enable = true;
       openFirewall = true;
     };
+
+    gnupg.agent.enable = true;
   };
 
   local.wm = "hyprland";

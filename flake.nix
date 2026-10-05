@@ -6,6 +6,7 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     daeuniverse.url = "github:daeuniverse/flake.nix";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    impermanence.url = "github:nix-community/impermanence";
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
@@ -13,13 +14,8 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    asusctl-x11 = {
-      url = "github:cordelia76544/asusctl-x11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    impermanence.url = "github:nix-community/impermanence";
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -32,6 +28,7 @@
     determinate,
     nixvim,
     nix-cachyos-kernel,
+    sops-nix,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -47,6 +44,7 @@
           impermanence.nixosModules.impermanence
           inputs.daeuniverse.nixosModules.dae
           inputs.daeuniverse.nixosModules.daed
+          sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager = {
