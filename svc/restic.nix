@@ -32,10 +32,10 @@
     ];
 
     rcloneOptions = {
-      transfers = 2;
-      checkers = 4;
-      retries = 10;
-      low-level-retries = 20;
+      transfers = "2";
+      checkers = "4";
+      retries = "10";
+      low-level-retries = "20";
       timeout = "5m";
       contimeout = "2m";
       onedrive-chunk-size = "10M";
