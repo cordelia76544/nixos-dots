@@ -64,6 +64,10 @@
         fi
       '')
 
+      (lib.mkOrder 550 ''
+        export GPG_TTY=$TTY
+      '')
+
       # ---- 中期：补全样式，必须在 compinit(570) 之后 ----
       (lib.mkOrder 1000 ''
         # 补全时忽略大小写

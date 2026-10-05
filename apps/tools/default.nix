@@ -11,5 +11,6 @@
     ./ai.nix
     ./wechat.nix
     ./nixvim.nix
+    ./gnupg.nix
   ];
 }

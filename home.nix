@@ -45,7 +45,14 @@
 
       # ssh, gnupg, k8s...
       ".ssh"
-      ".gnupg"
+      {
+        directory = ".gnupg/openpgp-revocs.d";
+        mode = "0700";
+      }
+      {
+        directory = ".gnupg/private-keys-v1.d";
+        mode = "0700";
+      }
       ".kube"
       ".codex"
       ".config/helm"

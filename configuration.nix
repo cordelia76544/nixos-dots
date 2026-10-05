@@ -11,7 +11,7 @@
   imports = [
     ./hardwares
     ./apps/virt
-    #./apps/tools/fcitx5.nix
+    ./secrets
     ./apps/tools/asusd.nix
     ./apps/games/steam.nix
     ./apps/medias/musics
@@ -222,7 +222,7 @@
       openFirewall = true;
     };
 
-    gnupg.agent.enable = true;
+    # gnupg.agent.enable = true;
   };
 
   local.wm = "hyprland";
