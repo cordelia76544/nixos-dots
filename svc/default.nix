@@ -5,5 +5,6 @@
     ./dunst.nix
     ./tailscale.nix
     ./dae
+    ./restic.nix
   ];
 }

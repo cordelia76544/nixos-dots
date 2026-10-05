@@ -9,10 +9,7 @@
         owner = "davyjones";
         mode = "0400";
       };
-      restic-password = {
-        owner = "davyjones";
-        mode = "0400";
-      };
+      restic-password = {};
     };
   };
 }

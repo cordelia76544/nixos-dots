@@ -7,7 +7,7 @@
     ./inputs
     ./yazi.nix
     ./git.nix
-    ./backup.nix
+    ./rclone.nix
     ./ai.nix
     ./wechat.nix
     ./nixvim.nix
