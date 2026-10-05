@@ -17,6 +17,7 @@
       ls = "eza --icons=always";
       update = "sudo nixos-rebuild switch --flake ~/nixos#nixos";
       upgrade = "sudo nixos-rebuild boot --flake ~/nixos#nixos";
+      web = "jwebserver -b 0.0.0.0 -p 18000 -d $HOME/Documents/share";
       sduo = "sudo";
     };
 
@@ -78,22 +79,8 @@
         zstyle ':fzf-tab:*' switch-group ',' '.'
       '')
 
-      # ---- 函数：从 fish 翻译过来 ----
-      (lib.mkOrder 1100 ''
-        # Run OpenCode in rootful Podman
-        opencode() {
-          sudo podman run --rm -it \
-            --runtime=runsc \
-            --user "$(id -u):$(id -g)" \
-            -e HOME=/home/opencode \
-            -v "$HOME/Documents/opencode/workspace:/workspace:Z" \
-            -v "$HOME/Documents/opencode/home:/home/opencode:Z" \
-            -w /workspace \
-            localhost/opencode-dev:local "$@"
-        }
-      '')
       (
-        lib.mkOrder 1200 ''
+        lib.mkOrder 1100 ''
           k8sbox() {
               sudo podman run --rm -it \
                 --name k8s-toolbox-$$ \

@@ -31,4 +31,8 @@ in {
   systemd.tmpfiles.rules = [
     "C+ /etc/dae/subscription.dae 0600 root root - /persist/secrets/dae-subscription.dae"
   ];
+  systemd.services.dae = {
+    after = ["network-online.target"];
+    wants = ["network-online.target"];
+  };
 }
