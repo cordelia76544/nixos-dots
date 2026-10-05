@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  osConfig,
+  ...
+}: {
   home.packages = with pkgs; [rclone restic];
 
   programs.rclone = {
@@ -9,7 +13,7 @@
         drive_type = "personal";
         drive_id = "45DE9F86D646D8B1";
       };
-      secrets.token = "/persist/secrets/rclone-onedrive-token";
+      secrets.token = osConfig.sops.secrets.rclone-onedrive-token.path;
     };
   };
 
@@ -17,7 +21,7 @@
     enable = true;
     backups.persist = {
       repository = "rclone:OneDrive:backups/restic";
-      passwordFile = "/persist/secrets/restic-password";
+      passwordFile = osConfig.sops.secrets.restic-password.path;
       initialize = true;
 
       paths = [

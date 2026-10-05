@@ -135,7 +135,7 @@
     description = "Davy Jones";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "asus-users"];
     shell = pkgs.zsh;
-    hashedPasswordFile = "/persist/secrets/davyjones";
+    hashedPasswordFile = config.sops.secrets.davyjones-password.path;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINc6JEWFEza8HxJzyFGSGewNI6ej+c32FeA2AKlOVEOy cordeliahoward@outlook.com"
     ];
