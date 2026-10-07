@@ -7,6 +7,10 @@
         source = ../../secrets/canokey1.pub.asc;
         trust = "ultimate";
       }
+      {
+        source = ../../secrets/canokey2.pub.asc;
+        trust = "ultimate";
+      }
     ];
   };
 

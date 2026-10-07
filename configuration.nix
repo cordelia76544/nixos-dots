@@ -158,6 +158,7 @@
     ];
     files = [
       "/etc/machine-id"
+      "/etc/ly/save.txt"
     ];
   };
 

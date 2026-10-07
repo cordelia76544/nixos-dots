@@ -1,10 +1,10 @@
 keys:
   - &canokey1 BE895335722BADDF8FB945ED8BA5BC0E15745A1D
-  # - &canokey2 第二张卡的指纹
+  - &canokey2 F799CECAE7820AB2D5EB91CDC4AE28D51CE98F59
   - &host age15n2ugh0djkdp6xnqgyxjqvxehezyg953hxrtvvrjqpklry295qyq927wrm
 creation_rules:
   - path_regex: secrets/[^/]+\.yaml$
     key_groups:
-      # - pgp: [*canokey1, *canokey2]
-      - pgp: [*canokey1]
+      - pgp: [*canokey1, *canokey2]
+        #- pgp: [*canokey1]
         age: [*host]
