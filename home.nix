@@ -113,8 +113,7 @@
       ".cache/mesa_shader_cache"
       ".cache/protonfixes"
 
-      # hyprland and dms
-      ".config/hypr/dms"
+      ".kodi"
       ".config/matugen/target"
       ".config/qt6ct"
       ".cache/nvidia"
