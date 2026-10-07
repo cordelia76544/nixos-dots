@@ -153,7 +153,7 @@
       "/var/lib/AccountsService"
       "/var/lib/polkit-1"
       "/var/lib/asusd"
-      "/etc/daed"
+      "/etc/dae/persist.d"
       "/etc/ssh"
     ];
     files = [

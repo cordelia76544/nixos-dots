@@ -2,6 +2,7 @@
   pkgs,
   lib,
   osConfig,
+  config,
   ...
 }: {
   home.username = "davyjones";
@@ -214,5 +215,9 @@
     };
   };
 
+  fonts.fontconfig.enable = true;
+  xdg.dataFile."fonts/windows".source =
+    config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/Documents/msfonts";
   home.stateVersion = "26.05";
 }

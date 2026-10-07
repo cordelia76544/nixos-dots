@@ -68,33 +68,15 @@ group {
 routing {
   pname(NetworkManager, systemd-resolved, dnsmasq) -> must_direct
   dip(192.168.122.0/24) -> must_direct
-  dip(100.64.0.0/10) -> direct
+  domain(suffix: neverssl.com) -> must_direct
   domain(geosite:category-ads-all) -> block
+  dip(geoip:private) -> must_direct
+  dip(100.64.0.0/10) -> direct 
   dip(224.0.0.0/3, 'ff00::/8') -> direct
-  dip(geoip:private) -> direct
+  dip(120.53.9.163) -> direct
   domain(geosite:cn) -> direct
   dip(geoip:cn) -> direct
   domain(geosite: category-game-platforms-download) -> direct
-  domain(geosite: category-ai-cn) -> direct
-  domain(geosite: category-netdisk-cn) -> direct
-  domain(geosite: google) -> us
-  domain(geosite: github) -> us
-  domain(geosite: category-ai-!cn) -> hk
-  domain(suffix: simpfun.cn) -> direct
-  domain(suffix: nodeseek.com) -> us
-  domain(suffix: nixos.org, suffix: nixos.dev, suffix: cachix.org, suffix: determinate.systems) -> hk
-  domain(suffix: githubusercontent.com, suffix: github.io) -> us
-  domain(geosite: category-container) -> us
-
-  domain(suffix: steamcommunity.com, suffix: steamcommunity-a.akamaihd.net,
-         suffix: steamuserimages-a.akamaihd.net, suffix: steamusercontent-a.akamaihd.net,
-         suffix: steamstore-a.akamaihd.net, suffix: steam-chat.com,
-         suffix: s.team, suffix: steam-api.com, suffix: steamserver.net,
-         keyword: cm.steampowered.com,
-         full: store.steampowered.com, full: checkout.steampowered.com,
-         full: login.steampowered.com, full: help.steampowered.com,
-         full: api.steampowered.com) -> us
-
   domain(suffix: steamchina.com, suffix: wmsj.cn, suffix: wmsjsteam.com,
          suffix: 8686c.com, suffix: dl.steam.clngaa.com, suffix: dl.steam.ksyna.com,
          suffix: st.dl.bscstorage.net, suffix: st.dl.eccdnx.com,
@@ -103,13 +85,26 @@ routing {
          suffix: steamcdn-a.akamaihd.net, suffix: steampipe.akamaized.net,
          suffix: steampowered.com,
          keyword: qtlglb.com) -> direct
-
+  domain(geosite: category-ai-cn) -> direct
+  domain(geosite: category-netdisk-cn) -> direct
+  domain(suffix: simpfun.cn) -> direct
+  domain(geosite: google) -> us
+  domain(geosite: github) -> us
+  domain(geosite: category-ai-!cn) -> hk
+  domain(suffix: nodeseek.com) -> us
+  domain(suffix: nixos.org, suffix: nixos.dev, suffix: cachix.org, suffix: determinate.systems) -> hk
+  domain(suffix: githubusercontent.com, suffix: github.io) -> us
+  domain(geosite: category-container) -> us
+  domain(suffix: steamcommunity.com, suffix: steamcommunity-a.akamaihd.net,
+         suffix: steamuserimages-a.akamaihd.net, suffix: steamusercontent-a.akamaihd.net,
+         suffix: steamstore-a.akamaihd.net, suffix: steam-chat.com,
+         suffix: s.team, suffix: steam-api.com, suffix: steamserver.net,
+         keyword: cm.steampowered.com,
+         full: store.steampowered.com, full: checkout.steampowered.com,
+         full: login.steampowered.com, full: help.steampowered.com,
+         full: api.steampowered.com) -> us 
   domain(suffix: live.com) -> hk
   domain(suffix: meitangdehulu.com) -> hk
-  domain(geosite:cn) -> direct
   dip(64.204.204.114) -> hk
-  
-  dip(120.53.9.163) -> direct
-
   fallback: hk
 }
