@@ -215,7 +215,8 @@ in {
           "tooltip-format-ethernet" = "有线网络 · {ifname}\n{ipaddr}";
           "tooltip-format-disconnected" = "网络未连接";
           "interval" = 10;
-          "on-click" = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+          "on-click" = "${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
+          "on-click-right" = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
         "pulseaudio" = {
           "format" = "{icon}  {volume}%";

@@ -448,22 +448,15 @@ in {
           no_anim = true;
         }
         {
-          match.namespace = "^(quickshell)$";
-          no_anim = true;
-        }
-        {
-          match.namespace = "^dms:.*$";
-          xray = true;
-        }
-        {
-          match.namespace = "^dms:.*";
-          no_anim = true;
-        }
-        {
           match.namespace = "selection";
           blur = false;
           dim_around = false;
           no_anim = true;
+        }
+        {
+          match.namespace = "rofi";
+          blur = true;
+          ignore_alpha = 0.2;
         }
       ];
 

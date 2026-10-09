@@ -136,6 +136,7 @@
           surface-container: {{colors.surface_container.default.hex}};
           surface-container-high: {{colors.surface_container_high.default.hex}};
           surface-container-highest: {{colors.surface_container_highest.default.hex}};
+          surface-translucent: #{{colors.surface.default.hex_stripped}}d9;
       }
 
     '';
@@ -237,7 +238,8 @@ in {
         border: 1px;
         border-color: @outline-variant;
         border-radius: 22px;
-        background-color: @surface;
+        transparency: "real";
+        background-color: @surface-translucent;
     }
     mainbox { padding: 18px; spacing: 12px; children: [ inputbar, listview ]; }
     inputbar { spacing: 10px; padding: 8px; children: [ prompt, entry ]; }

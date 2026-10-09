@@ -155,6 +155,7 @@
       "/var/lib/asusd"
       "/etc/dae/persist.d"
       "/etc/ssh"
+      "var/lib/honk"
     ];
     files = [
       "/etc/machine-id"

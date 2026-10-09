@@ -17,7 +17,7 @@ in {
     enable = true;
     configFile = "/etc/dae/config.dae";
     assets = [daeAssets];
-    openFirewall.enable = true;
+    #openFirewall.enable = true;
   };
   environment.etc."dae/config.dae" = {
     source = ./config.dae;
