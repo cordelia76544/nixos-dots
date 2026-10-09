@@ -32,7 +32,10 @@
     #kernelPackages = pkgs.linuxPackages;
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
     zfs.package = config.boot.kernelPackages.zfs_cachyos;
-    kernelModules = ["tcp_bbr"];
+    kernelModules = [
+      "tcp_bbr"
+      "nfnetlink_queue"
+    ];
     #kernelParams = [
     #  "mem_sleep_default=s2idle"
     #  ''acpi_osi="!Windows 2020"''

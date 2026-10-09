@@ -86,6 +86,7 @@ in {
     after = [
       "network-online.target"
       "systemd-sysctl.service"
+      "systemd-modules-load.service"
       "dae.service"
     ];
 
