@@ -10,7 +10,7 @@
   hardware = {
     nvidia-container-toolkit.enable = false;
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.new_feature;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
       prime = {
         offload = {
           enable = true;
