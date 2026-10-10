@@ -151,7 +151,7 @@ in {
           kb_layout = "";
           numlock_by_default = true;
           follow_mouse = 1;
-          sensitivity = 0;
+          sensitivity = -0.3;
 
           touchpad = {
             natural_scroll = true;

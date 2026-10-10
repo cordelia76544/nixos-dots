@@ -1,10 +1,9 @@
 {...}: {
   imports = [
     ./general.nix
-    #./daed.nix
     ./dunst.nix
     ./tailscale.nix
-    ./dae
+    #./dae
     ./restic.nix
     ./honk.nix
   ];
