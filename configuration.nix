@@ -205,6 +205,7 @@
     freetype
     ssh-to-age
     sops
+    age
   ];
 
   programs = {

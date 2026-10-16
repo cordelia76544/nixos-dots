@@ -456,7 +456,7 @@ in {
         {
           match.namespace = "rofi";
           blur = true;
-          ignore_alpha = 0.2;
+          ignore_alpha = 0.01;
         }
       ];
 

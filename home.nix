@@ -54,6 +54,7 @@
         directory = ".gnupg/private-keys-v1.d";
         mode = "0700";
       }
+      ".config/sops/age"
       ".kube"
       ".codex"
       ".config/helm"
@@ -178,9 +179,6 @@
     remmina
     wpsoffice-cn
     zathura
-    kubectl
-    kubernetes-helm
-    fluxcd
     imagemagick
     nodejs
     telegram-desktop
@@ -191,6 +189,11 @@
     options = [
       "--cmd cd"
     ];
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 
   xresources.properties = let
