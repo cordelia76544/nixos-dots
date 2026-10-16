@@ -32,7 +32,7 @@
     #kernelPackages = pkgs.linuxPackages;
     #kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
     #zfs.package = config.boot.kernelPackages.zfs_cachyos;
-    ernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages;
     zfs.package = pkgs.zfs;
     kernelModules = [
       "tcp_bbr"
