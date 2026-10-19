@@ -11,7 +11,7 @@
       };
       fast = {
         driver = "zfs";
-        pool = "zpool/chadm";
+        pool = "rpool/chadm";
       };
     };
 
