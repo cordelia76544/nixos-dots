@@ -18,6 +18,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    chadm = {
+      url = "github:cordelia76544/chadm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -29,6 +33,7 @@
     nixvim,
     nix-cachyos-kernel,
     sops-nix,
+    chadm,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -45,6 +50,7 @@
           inputs.daeuniverse.nixosModules.dae
           inputs.daeuniverse.nixosModules.daed
           sops-nix.nixosModules.sops
+          chadm.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {

@@ -5,5 +5,6 @@
     #./incus.nix
     ./oci-containers
     ./podman.nix
+    ./chadm.nix
   ];
 }
