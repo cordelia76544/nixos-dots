@@ -4,7 +4,7 @@
   targets = {
     x86_64-linux = {
       target = "x86_64-unknown-linux-musl";
-      sha256 = "8b5c96b70f30f914b409e9e471c47faf347e19c048d6fa7964e4fec6ca293040";
+      sha256 = "sha256-ME8Nj27MsJFfBlPw3+nEqYzsKX9ijQ7dIdrwc4tYtg8=";
     };
 
     aarch64-linux = {
