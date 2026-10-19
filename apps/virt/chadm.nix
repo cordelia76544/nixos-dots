@@ -9,6 +9,10 @@
         driver = "file";
         path = "/var/lib/chadm/cloudinit";
       };
+      templates = {
+        driver = "file";
+        path = "/var/lib/chadm/templates";
+      };
       fast = {
         driver = "zfs";
         pool = "rpool/chadm";
