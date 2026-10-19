@@ -138,7 +138,7 @@
   users.users.davyjones = {
     isNormalUser = true;
     description = "Davy Jones";
-    extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "asus-users"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "kvm" "gamemode" "audio" "asus-users" "incus-admi"];
     shell = pkgs.zsh;
     hashedPasswordFile = config.sops.secrets.davyjones-password.path;
     openssh.authorizedKeys.keys = [
