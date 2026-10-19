@@ -2,9 +2,9 @@
   imports = [
     #./containerd.nix
     ./virt-manager.nix
-    #./incus.nix
+    ./incus.nix
     ./oci-containers
     ./podman.nix
-    ./chadm.nix
+    #./chadm.nix
   ];
 }

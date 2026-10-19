@@ -161,7 +161,7 @@
       "/etc/dae/persist.d"
       "/etc/ssh"
       "/var/lib/honk"
-      "/var/llib/chadm"
+      "/var/lib/incus"
     ];
     files = [
       "/etc/machine-id"
