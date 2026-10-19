@@ -24,11 +24,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792394109,
-        "narHash": "sha256-abChNlwbqed3DYDPwy8Nuz49Thl+hzmBiSRx/Me9ikI=",
+        "lastModified": 1792410671,
+        "narHash": "sha256-OhNXedArhib7WkjghdhqnFT+HBevF61wfmL/Qh+82GE=",
         "owner": "cordelia76544",
         "repo": "chadm",
-        "rev": "72fa53e8a37fb31a587f630d99b2b2575a5ff987",
+        "rev": "dfeedf220c53e9f8a5ce5f94c1977a06c057435c",
         "type": "github"
       },
       "original": {
