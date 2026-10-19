@@ -17,6 +17,26 @@
         "type": "github"
       }
     },
+    "chadm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792385100,
+        "narHash": "sha256-s25kHw4wVV1qD+nSCMrI43o0xM+wytTOmUdKj5GbE1o=",
+        "owner": "cordelia76544",
+        "repo": "chadm",
+        "rev": "7de69a53c39f7f232e5a59363e48d9f949b18f15",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cordelia76544",
+        "repo": "chadm",
+        "type": "github"
+      }
+    },
     "daeuniverse": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -522,6 +542,7 @@
     },
     "root": {
       "inputs": {
+        "chadm": "chadm",
         "daeuniverse": "daeuniverse",
         "determinate": "determinate",
         "home-manager": "home-manager",
