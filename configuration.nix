@@ -160,7 +160,8 @@
       "/var/lib/asusd"
       "/etc/dae/persist.d"
       "/etc/ssh"
-      "var/lib/honk"
+      "/var/lib/honk"
+      "/var/llib/chadm"
     ];
     files = [
       "/etc/machine-id"

@@ -7,7 +7,7 @@
     repos = {
       cloudinit = {
         driver = "file";
-        path = "/srv/chadm/cloudinit";
+        path = "/var/lib/chadm/cloudinit";
       };
       fast = {
         driver = "zfs";
