@@ -46,6 +46,7 @@
 
       # ssh, gnupg, k8s...
       ".ssh"
+      ".pki"
       {
         directory = ".gnupg/openpgp-revocs.d";
         mode = "0700";
@@ -120,6 +121,7 @@
       ".config/qt6ct"
       ".cache/nvidia"
       ".cache/qtshadercache-x86_64-little_endian-lp64"
+      ".config/incus"
     ];
     files = [
       ".fehbg"
