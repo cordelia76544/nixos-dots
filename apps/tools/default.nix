@@ -9,7 +9,7 @@
     ./git.nix
     ./rclone.nix
     ./ai.nix
-    ./wechat.nix
+    #./wechat.nix # use flatpak instead
     ./nixvim.nix
     ./gnupg.nix
   ];

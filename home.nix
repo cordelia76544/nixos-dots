@@ -103,8 +103,8 @@
       ".local/share/TelegramDesktop"
 
       # wechat
-      ".xwechat"
-      "xwechat_files"
+      #".xwechat"
+      #"xwechat_files"
 
       # wps
       ".config/Kingsoft"
