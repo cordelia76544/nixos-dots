@@ -22,7 +22,7 @@
         KbdInteractiveAuthentication = false;
       };
     };
-    flatpak.enable = false;
+    flatpak.enable = true;
     upower.enable = true;
     pcscd.enable = true;
     tlp.enable = lib.mkForce false;

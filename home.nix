@@ -47,6 +47,7 @@
       # ssh, gnupg, k8s...
       ".ssh"
       ".pki"
+      "~/.local/share/pki"
       {
         directory = ".gnupg/openpgp-revocs.d";
         mode = "0700";
@@ -108,6 +109,10 @@
       # wps
       ".config/Kingsoft"
       ".local/share/Kingsoft"
+
+      # flatpak
+      ".local/share/flatpak"
+      ".var/app"
 
       # cache
       ".cache/restic"
