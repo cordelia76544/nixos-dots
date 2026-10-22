@@ -364,7 +364,7 @@ in {
           no_focus = true;
         }
         {
-          match.class = "^(pavucontrol)$";
+          match.class = "^(org\\.pulseaudio\\.)?pavucontrol$";
           float = true;
         }
         {
@@ -372,7 +372,7 @@ in {
           float = true;
         }
         {
-          match.class = "^(blueman-manager)$";
+          match.class = "^(\\.blueman-manager-wrapped|blueman-manager)$";
           float = true;
         }
         {
@@ -552,7 +552,7 @@ in {
 
           hg.config({
               default_theme  = "dark",
-              default_preset = "glass",
+              default_preset = "pomme",
               layers = { enabled = true },
           })
       end

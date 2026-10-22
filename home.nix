@@ -29,7 +29,6 @@
   ];
 
   home.sessionVariables = {
-    #  EDITOR = "hx";
     LANG = "zh_CN.UTF-8";
   };
 

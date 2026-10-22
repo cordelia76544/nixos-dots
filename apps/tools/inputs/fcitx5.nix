@@ -7,8 +7,7 @@
   hypr = osConfig.local.wm == "hyprland";
 in {
   home.sessionVariables = lib.mkIf hypr {
-    GTK_IM_MODULE = "";
-    QT_IM_MODULE = "fcitx";
+    QT_IM_MODULES = "wayland;fcitx;ibus";
     XMODIFIERS = "@im=fcitx";
   };
 
