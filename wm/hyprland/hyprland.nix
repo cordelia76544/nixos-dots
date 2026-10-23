@@ -552,7 +552,7 @@ in {
 
           hg.config({
               default_theme  = "dark",
-              default_preset = "pomme",
+              default_preset = "glass",
               layers = { enabled = true },
           })
       end
