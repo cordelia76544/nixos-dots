@@ -46,7 +46,6 @@
       # ssh, gnupg, k8s...
       ".ssh"
       ".pki"
-      "~/.local/share/pki"
       {
         directory = ".gnupg/openpgp-revocs.d";
         mode = "0700";
