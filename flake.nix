@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     daeuniverse.url = "github:daeuniverse/flake.nix";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";

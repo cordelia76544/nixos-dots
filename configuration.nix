@@ -7,16 +7,13 @@
   config,
   inputs,
   ...
-}: let
-  pkgsUnstable = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-  };
-in {
+}: {
   imports = [
     ./hardwares
     ./apps/virt
     ./secrets
     ./apps/tools/asusd.nix
+    ./apps/tools/singbox.nix
     ./apps/games/steam.nix
     ./apps/medias/musics
     ./svc
@@ -86,18 +83,24 @@ in {
   };
   nix.optimise.automatic = true;
 
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
-  networking.nftables.enable = true;
+  networking = {
+    hostName = "nixos";
+    hostId = "78f5e633";
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
+    nftables.enable = true;
+  };
 
   nix.settings.substituters = [
-    "https://cache.garnix.io"
+    #"https://cache.garnix.io"
     #"https://attic.xuyh0120.win/lantian"
     #"https://prismlauncher.cachix.org"
     #"https://cordelia-nix.cachix.org"
   ];
   nix.settings.trusted-public-keys = [
-    "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+    #"cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     #"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     #"prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
     #"cordelia-nix.cachix.org-1:wzCGlaWVFKpKH4JPVbkj7658BVJZgtjA9KrTd8a2cM0="
@@ -115,7 +118,6 @@ in {
   # Configure network proxy if necessary
   #networking.proxy.default = "http://172.20.10.5:7897/";
   #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain,192.168.0.0/16,172.16.0.0/12,10.0.0.0/8";
-  networking.hostId = "78f5e633";
   i18n = {
     defaultLocale = "zh_CN.UTF-8";
     supportedLocales = [
@@ -215,8 +217,6 @@ in {
     ssh-to-age
     sops
     age
-    pkgsUnstable.gui-for-singbox
-    pkgsUnstable.singbox
   ];
 
   programs = {

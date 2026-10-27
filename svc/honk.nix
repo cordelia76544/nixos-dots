@@ -123,9 +123,8 @@ in {
       "dae.service"
     ];
 
-    # 首次测试先手动启动。
-    # 确认正常后取消注释：
-    wantedBy = ["multi-user.target"];
+    # 手动启动。
+    #wantedBy = ["multi-user.target"];
 
     environment = {
       SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
