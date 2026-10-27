@@ -13,6 +13,14 @@ in {
     pkgsUnstable.gui-for-singbox
   ];
 
+  security.wrappers.sing-box = {
+    source = "${pkgsUnstable.sing-box}/bin/sing-box";
+    owner = "root";
+    group = "users";
+    permissions = "u+rx,g+rx,o-rwx";
+    capabilities = "cap_net_admin,cap_net_raw,cap_net_bind_service+ep";
+  };
+
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       var dnsActions = [
