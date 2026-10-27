@@ -5,7 +5,7 @@
     ./tailscale.nix
     #./dae
     ./restic.nix
-    #./honk.nix
+    ./honk.nix
     #./daed.nix
   ];
 }

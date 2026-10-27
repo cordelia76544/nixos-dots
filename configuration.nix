@@ -7,7 +7,11 @@
   config,
   inputs,
   ...
-}: {
+}: let
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+  };
+in {
   imports = [
     ./hardwares
     ./apps/virt
@@ -211,7 +215,8 @@
     ssh-to-age
     sops
     age
-    gui-for-singbox
+    pkgsUnstable.gui-for-singbox
+    pkgsUnstable.singbox
   ];
 
   programs = {

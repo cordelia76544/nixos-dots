@@ -125,6 +125,7 @@
       ".cache/nvidia"
       ".cache/qtshadercache-x86_64-little_endian-lp64"
       ".config/incus"
+      ".config/GUI.for.SingBox"
     ];
     files = [
       ".fehbg"
