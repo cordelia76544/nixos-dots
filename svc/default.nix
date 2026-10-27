@@ -6,6 +6,6 @@
     #./dae
     ./restic.nix
     #./honk.nix
-    ./daed.nix
+    #./daed.nix
   ];
 }

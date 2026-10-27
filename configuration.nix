@@ -211,6 +211,7 @@
     ssh-to-age
     sops
     age
+    gui-for-singbox
   ];
 
   programs = {
