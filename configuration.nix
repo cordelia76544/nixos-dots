@@ -87,11 +87,13 @@
   networking.nftables.enable = true;
 
   nix.settings.substituters = [
+    "https://cache.garnix.io"
     #"https://attic.xuyh0120.win/lantian"
     #"https://prismlauncher.cachix.org"
     #"https://cordelia-nix.cachix.org"
   ];
   nix.settings.trusted-public-keys = [
+    "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     #"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     #"prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
     #"cordelia-nix.cachix.org-1:wzCGlaWVFKpKH4JPVbkj7658BVJZgtjA9KrTd8a2cM0="
