@@ -19,6 +19,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sfl-ref1nd = {
+      url = "github:cordelia76544/sfl-ref1nd-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -45,6 +49,7 @@
           impermanence.nixosModules.impermanence
           inputs.daeuniverse.nixosModules.dae
           inputs.daeuniverse.nixosModules.daed
+          inputs.sfl-ref1nd.nixosModules.default
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {

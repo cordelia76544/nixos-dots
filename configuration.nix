@@ -238,7 +238,7 @@
       enable = true;
       openFirewall = true;
     };
-
+    sfl-ref1nd.enable = true;
     # gnupg.agent.enable = true;
   };
 
