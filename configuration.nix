@@ -13,7 +13,7 @@
     ./apps/virt
     ./secrets
     ./apps/tools/asusd.nix
-    ./apps/tools/singbox.nix
+    #./apps/tools/singbox.nix
     ./apps/games/steam.nix
     ./apps/medias/musics
     ./svc
