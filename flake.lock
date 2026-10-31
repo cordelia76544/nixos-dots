@@ -546,7 +546,28 @@
         "nixpkgs": "nixpkgs_6",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
+        "sfl-ref1nd": "sfl-ref1nd",
         "sops-nix": "sops-nix"
+      }
+    },
+    "sfl-ref1nd": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793439223,
+        "narHash": "sha256-TmOWkvt6pV82o9WQpz//DRCT+IX+cYIMOGmiw2un9Mo=",
+        "owner": "cordelia76544",
+        "repo": "sfl-ref1nd-flake",
+        "rev": "5a8d63d8ecca328dbe7e14b8be82dd9717949b09",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cordelia76544",
+        "repo": "sfl-ref1nd-flake",
+        "type": "github"
       }
     },
     "sops-nix": {
