@@ -3,13 +3,8 @@
   lib,
   osConfig,
   config,
-  inputs,
   ...
-}: let
-  pkgsUnstable = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-  };
-in {
+}: {
   home.username = "davyjones";
   home.homeDirectory = "/home/davyjones";
   home.pointerCursor = {
@@ -186,7 +181,6 @@ in {
     pciutils # lspci
     usbutils # lsusb
     googlesans-code
-    pkgsUnstable.obsidian
     remmina
     wpsoffice-cn
     zathura

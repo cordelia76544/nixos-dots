@@ -12,5 +12,6 @@
     #./wechat.nix # use flatpak instead
     ./nixvim.nix
     ./gnupg.nix
+    ./obsidian.nix
   ];
 }

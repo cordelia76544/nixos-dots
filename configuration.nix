@@ -170,6 +170,7 @@
       "/etc/ssh"
       "/var/lib/honk"
       "/var/lib/incus"
+      "/var/lib/sing-box-daemon-reF1nd"
     ];
     files = [
       "/etc/machine-id"
