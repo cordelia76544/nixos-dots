@@ -20,6 +20,7 @@
       "/persist/home/davyjones/.local/share/keyrings"
       "/persist/etc/ssh"
       "/persist/secrets"
+      "/persist/home/davyjones/backup"
     ];
 
     exclude = [

@@ -42,6 +42,7 @@
       "Videos"
       "Music"
       "Workspace"
+      "backup"
 
       # ssh, gnupg, k8s...
       ".ssh"
@@ -118,6 +119,9 @@
       ".cache/nix"
       ".cache/mesa_shader_cache"
       ".cache/protonfixes"
+
+      # files
+      ".config/files"
 
       ".kodi"
       ".config/matugen/target"

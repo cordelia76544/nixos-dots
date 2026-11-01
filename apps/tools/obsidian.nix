@@ -1,12 +1,11 @@
 {
-  config,
   pkgs,
   inputs,
   ...
 }: let
   unstable = import inputs.nixpkgs-unstable {
     system = pkgs.stdenv.hostPlatform.system;
-    config = config.nixpkgs.config;
+    config = pkgs.config;
   };
 in {
   home.packages = [
