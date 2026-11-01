@@ -53,7 +53,7 @@ in {
       "application/pdf" = ["org.pwmt.zathura.desktop"];
 
       # file
-      "inode/directory" = ["yazi-kitty.desktop"];
+      #"inode/directory" = ["yazi-kitty.desktop"];
 
       # 常见图片格式
       "image/jpeg" = imageViewer;
