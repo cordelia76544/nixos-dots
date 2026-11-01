@@ -8,6 +8,7 @@
     daeuniverse.url = "github:daeuniverse/flake.nix";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     impermanence.url = "github:nix-community/impermanence";
+    linuxfiles.url = "github:MemerGamer/LinuxFiles";
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
@@ -51,6 +52,7 @@
           inputs.daeuniverse.nixosModules.daed
           inputs.sfl-ref1nd.nixosModules.default
           sops-nix.nixosModules.sops
+          inputs.linuxfiles.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {

@@ -238,6 +238,10 @@
       enable = true;
       openFirewall = true;
     };
+    linuxfiles = {
+      enable = true;
+      rootActions = false;
+    };
     sfl-ref1nd.enable = true;
     # gnupg.agent.enable = true;
   };
