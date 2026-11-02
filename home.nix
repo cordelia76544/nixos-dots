@@ -123,6 +123,8 @@
       # files
       ".config/files"
 
+      # notion
+
       ".kodi"
       ".config/matugen/target"
       ".config/qt6ct"
@@ -191,6 +193,7 @@
     imagemagick
     nodejs
     telegram-desktop
+    notion-app
   ];
 
   programs.zoxide = {
