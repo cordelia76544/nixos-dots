@@ -115,7 +115,6 @@
 
       # cache
       ".cache/restic"
-      ".cache/rofi"
       ".cache/nix"
       ".cache/mesa_shader_cache"
       ".cache/protonfixes"
@@ -134,6 +133,8 @@
     files = [
       ".fehbg"
       "ly-session.log"
+      ".cache/rofi-entry-history.txt"
+      ".cache/rofi3.druncache"
     ];
   };
 
