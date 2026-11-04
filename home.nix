@@ -20,7 +20,7 @@
     ./wm/dwm
     ./apps/shell/zsh.nix
     ./apps/games
-    ./apps/tools
+    ./apps/tools/hm
     ./apps/term
     ./apps/browsers
     ./apps/medias/videos

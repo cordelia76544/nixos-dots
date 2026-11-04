@@ -12,7 +12,7 @@
     ./hardwares
     ./apps/virt
     ./secrets
-    ./apps/tools/asusd.nix
+    ./apps/tools/system/
     #./apps/tools/singbox.nix
     ./apps/games/steam.nix
     ./apps/medias/musics

@@ -1,7 +1,10 @@
-{ pkgs, lib, inputs, ... }: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zed-editor = {
     enable = true;
-    package = inputs.zedg.packages.${pkgs.system}.default;
 
     extensions = [
       "nix"
@@ -17,7 +20,7 @@
     userSettings = {
       buffer_font_size = 15;
       ui_font_size = 15;
-      buffer_font_features = { calt = true; };
+      buffer_font_features = {calt = true;};
       format_on_save = "on";
       load_direnv = "direct";
       auto_update = false;
@@ -35,7 +38,7 @@
             path = lib.getExe pkgs.nixd;
           };
           formatting = {
-            command = [ "nixpkgs-fmt" ];
+            command = ["nixpkgs-fmt"];
           };
         };
         clangd = {

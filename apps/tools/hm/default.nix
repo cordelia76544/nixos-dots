@@ -5,7 +5,7 @@
     ./fastfetch.nix
     ./termius-cn.nix
     ./inputs
-    ./yazi.nix
+    #./yazi.nix
     ./git.nix
     ./rclone.nix
     ./ai.nix
