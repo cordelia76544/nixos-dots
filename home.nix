@@ -119,8 +119,8 @@
       ".cache/mesa_shader_cache"
       ".cache/protonfixes"
 
-      # files
-      ".config/files"
+      # filesManager
+      ".config/Thunar"
 
       ".kodi"
       ".config/matugen/target"

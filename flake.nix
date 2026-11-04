@@ -5,10 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    daeuniverse.url = "github:daeuniverse/flake.nix";
+    #daeuniverse.url = "github:daeuniverse/flake.nix";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     impermanence.url = "github:nix-community/impermanence";
-    linuxfiles.url = "github:MemerGamer/LinuxFiles";
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
@@ -48,11 +47,10 @@
           determinate.nixosModules.default
           ./configuration.nix
           impermanence.nixosModules.impermanence
-          inputs.daeuniverse.nixosModules.dae
-          inputs.daeuniverse.nixosModules.daed
+          #inputs.daeuniverse.nixosModules.dae
+          #inputs.daeuniverse.nixosModules.daed
           inputs.sfl-ref1nd.nixosModules.default
           sops-nix.nixosModules.sops
-          inputs.linuxfiles.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
