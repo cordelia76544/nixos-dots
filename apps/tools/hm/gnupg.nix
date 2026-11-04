@@ -4,11 +4,11 @@
     scdaemonSettings.disable-ccid = true;
     publicKeys = [
       {
-        source = ../../secrets/canokey1.pub.asc;
+        source = ../../../secrets/canokey1.pub.asc;
         trust = "ultimate";
       }
       {
-        source = ../../secrets/canokey2.pub.asc;
+        source = ../../../secrets/canokey2.pub.asc;
         trust = "ultimate";
       }
     ];
