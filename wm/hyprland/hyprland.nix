@@ -10,7 +10,7 @@
   inherit (lib.generators) mkLuaInline;
 
   terminal = "foot";
-  fileManager = "files";
+  fileManager = "thunar";
   browser = "brave";
   launchercmd = "rofi -show drun";
   lockcmd = "loginctl lock-session";
