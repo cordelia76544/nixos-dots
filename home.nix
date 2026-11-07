@@ -178,6 +178,7 @@
     ltrace # library call monitoring
     lsof # list open files
     libnotify
+    kubectl
 
     # system tools
     sysstat

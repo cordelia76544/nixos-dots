@@ -85,16 +85,9 @@
 
       (
         lib.mkOrder 1100 ''
-          k8sbox() {
-              sudo podman run --rm -it \
-                --name k8s-toolbox-$$ \
-                --hostname k8s-toolbox --uts=private \
-                --net=host \
-                -v "$HOME/.kube:/home/davyjones/.kube:ro,Z" \
-                -v "$HOME/Documents/workspace/k8s:/home/davyjones/workspace:Z" \
-                -w /home/davyjones/workspace \
-                ghcr.io/cordelia76544/k8s-toolbox:latest "$@"
-            }
+          if (( $+commands[kubectl] )); then
+            source <(kubectl completion zsh)
+          fi
         ''
       )
     ];

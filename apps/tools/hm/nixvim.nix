@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   imports = [inputs.nixvim.homeModules.nixvim];
@@ -48,7 +49,7 @@
       treesitter = {
         enable = true;
         settings.highlight.enable = true;
-        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
           nix
           yaml
           lua
@@ -58,34 +59,26 @@
         ];
       };
 
-      # --- LSP（对应 jnoortheen.nix-ide + redhat.vscode-yaml）---
       lsp = {
         enable = true;
         inlayHints = true;
         servers = {
           nixd = {
             enable = true;
-            package = pkgs.nixd; # 和 vscode 用的是同一个 nixd
+            package = pkgs.nixd;
             settings = {
               formatting.command = ["alejandra"];
-              # 可选：让 nixd 补全你自己 flake 的 NixOS / HM 选项
-              # 把 <hostname> 换成你 nixosConfigurations 里的名字
-              # options = {
-              #   nixos.expr = ''(builtins.getFlake "/persist/home/davyjones/nixos").nixosConfigurations.<hostname>.options'';
-              #   home-manager.expr = ''(builtins.getFlake "/persist/home/davyjones/nixos").nixosConfigurations.<hostname>.options.home-manager.users.type.getSubOptions []'';
-              # };
             };
           };
-          # vscode-yaml 背后就是 yaml-language-server
           yamlls = {
             enable = true;
             settings.yaml = {
-              schemaStore.enable = true; # 自动匹配 k8s/GitHub Actions/compose 等 schema
+              schemaStore.enable = true;
               format.enable = true;
               keyOrdering = false;
             };
           };
-          lua_ls.enable = true; # 对应 sumneko.lua
+          lua_ls.enable = true;
         };
         keymaps = {
           lspBuf = {
@@ -108,7 +101,6 @@
         settings.keymap.preset = "enter";
       };
 
-      # 保存时格式化（对应 editor.formatOnSave，复用 alejandra）
       conform-nvim = {
         enable = true;
         settings = {
@@ -122,12 +114,8 @@
           };
         };
       };
-
-      # 对应 github.copilot（不需要可删掉，首次使用 :Copilot auth）
-      # copilot-lua.enable = true;
     };
 
-    # 对应 vscode 的 ctrl+shift+y 注释，复用 nvim 内建 gc/gcc
     keymaps = [
       {
         mode = "n";
