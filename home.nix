@@ -194,7 +194,6 @@
     imagemagick
     nodejs
     telegram-desktop
-    chatgpt
   ];
 
   programs.zoxide = {
