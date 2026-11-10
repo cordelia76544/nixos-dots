@@ -14,6 +14,7 @@
     name = "Adwaita";
     package = pkgs.adwaita-icon-theme;
   };
+  xdg.portal.enable = lib.mkForce false;
 
   imports = [
     ./wm/hyprland

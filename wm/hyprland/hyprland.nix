@@ -67,6 +67,7 @@ in {
     enable = hypr;
     configType = "lua";
     systemd.enable = false;
+    portalPackage = null;
     plugins = [pkgs.hyprglass];
 
     settings = {

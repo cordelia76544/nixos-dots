@@ -9,6 +9,7 @@ in {
   home.sessionVariables = lib.mkIf hypr {
     QT_IM_MODULES = "wayland;fcitx;ibus";
     XMODIFIERS = "@im=fcitx";
+    QT_IM_MODULE = "fcitx";
   };
 
   xdg.dataFile."fcitx5/rime" = {
