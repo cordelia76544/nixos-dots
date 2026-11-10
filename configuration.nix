@@ -111,6 +111,15 @@
     (final: prev: {
       hyprglass = final.callPackage ./wm/hyprland/pkgs/hyprglass.nix {};
     })
+    (final: prev: {
+      vscode = prev.vscode.overrideAttrs (old: {
+        postPatch =
+          prev.lib.replaceStrings
+          ["resources/app/node_modules/@vscode/ripgrep/bin/rg"]
+          ["resources/app/node_modules/@vscode/ripgrep-universal/bin/linux-x64/rg"]
+          (old.postPatch or "");
+      });
+    })
   ];
 
   time.timeZone = "Asia/Shanghai";
