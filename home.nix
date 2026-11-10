@@ -58,7 +58,7 @@
       }
       ".config/sops/age"
       ".kube"
-      ".codex"
+      ".config/Codex"
       ".config/helm"
       ".local/share/helm"
       ".cache/helm"
@@ -194,6 +194,7 @@
     imagemagick
     nodejs
     telegram-desktop
+    chatgpt
   ];
 
   programs.zoxide = {
