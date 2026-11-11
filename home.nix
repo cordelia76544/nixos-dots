@@ -34,6 +34,7 @@
   };
 
   home.persistence."/persist" = {
+    allowTrash = true;
     directories = [
       # user dir
       "Desktop"
