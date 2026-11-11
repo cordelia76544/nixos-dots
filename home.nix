@@ -74,8 +74,8 @@
       # input methods
       #".config/fcitx5"
       ".local/share/fcitx5"
-      ".config/copyq"
-      ".local/share/copyq"
+      #".config/copyq"
+      #".local/share/copyq"
 
       # games
       ".local/share/PrismLauncher"
@@ -99,7 +99,7 @@
       ".config/obsidian"
       ".config/Termius"
       ".config/networkmanager-dmenu"
-      ".local/share/Trash"
+      #".local/share/Trash"
       ".local/share/org.localsend.localsend_app"
       ".local/share/TelegramDesktop"
 

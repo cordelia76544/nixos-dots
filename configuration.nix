@@ -166,6 +166,7 @@
 
   environment.persistence."/persist" = {
     hideMounts = true;
+    allowTrash = true;
     directories = [
       "/var/lib/nixos"
       "/var/lib/systemd"
