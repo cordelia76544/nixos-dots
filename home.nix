@@ -44,6 +44,7 @@
       "Music"
       "Workspace"
       "backup"
+      "ChatGPT"
 
       # ssh, gnupg, k8s...
       ".ssh"
