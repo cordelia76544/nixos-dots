@@ -23,12 +23,11 @@
         export AWS_LC_SYS_USE_SYSTEM=0
       '';
   });
-
-  chatgpt-fixed = unstable.chatgpt.override {
-    tectonic-unwrapped = tectonic-fixed;
-  };
 in {
   home.packages = [
-    chatgpt-fixed
+    (unstable.chatgpt.override {
+      tectonic-unwrapped = tectonic-fixed;
+      codex = null;
+    })
   ];
 }
