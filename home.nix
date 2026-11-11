@@ -60,7 +60,7 @@
       }
       ".config/sops/age"
       ".kube"
-      ".config/Codex"
+
       ".config/helm"
       ".local/share/helm"
       ".cache/helm"
@@ -115,6 +115,14 @@
       # flatpak
       ".local/share/flatpak"
       ".var/app"
+
+      # ai
+      ".config/Codex"
+      ".codex"
+
+      # zotero
+      ".zotero"
+      ".mozilla"
 
       # cache
       ".cache/restic"
