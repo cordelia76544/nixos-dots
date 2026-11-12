@@ -441,6 +441,16 @@ in {
           opacity = "1.0 override 1.0 override 1.0 override";
           tag = "+hyprglass_disabled";
         }
+        {
+          name = "zotero-opaque";
+          match.class = "^org[.]zotero[.]Zotero$";
+          opacity = "1.0 override 1.0 override 1.0 override";
+        }
+        {
+          name = "tsukimi-opaque";
+          match.class = "^moe[.]tsuna[.]tsukimi$";
+          opacity = "1.0 override 1.0 override 1.0 override";
+        }
       ];
 
       layer_rule = [

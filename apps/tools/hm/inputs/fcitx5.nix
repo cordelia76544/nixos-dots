@@ -30,6 +30,14 @@ in {
       "style/border_height": 4
       "style/font_point": 12
       "style/line_spacing": 2
+
+      "ascii_composer/good_old_caps_lock": true
+      "ascii_composer/switch_key":
+        Caps_Lock: noop
+        Shift_L: commit_code
+        Shift_R: noop
+        Control_L: noop
+        Control_R: noop
   '';
 
   xdg.dataFile."fcitx5/rime/rime_frost_double_pinyin_flypy.custom.yaml".text = ''
@@ -55,8 +63,8 @@ in {
       settings = {
         globalOptions = {
           Behavior = {
-            ActiveByDefault = false;
-            ShareInputState = "No";
+            ActiveByDefault = true;
+            ShareInputState = "All";
             resetStateWhenFocusIn = "No";
             PreeditEnabledByDefault = true;
             ShowInputMethodInformation = true;
@@ -68,22 +76,20 @@ in {
           };
 
           Hotkey = {
-            EnumerateWithTriggerKeys = true;
+            EnumerateWithTriggerKeys = false;
             EnumerateSkipFirst = false;
             ModifierOnlyKeyTimeout = 250;
           };
+          "Hotkey/TriggerKeys" = {};
+          "Hotkey/AltTriggerKeys" = {};
+          "Hotkey/ActivateKeys" = {};
+          "Hotkey/DeactivateKeys" = {};
+          "Hotkey/EnumerateForwardKeys" = {};
+          "Hotkey/EnumerateBackwardKeys" = {};
 
-          "Hotkey/TriggerKeys" = {
-            "0" = "Control+space";
-          };
-
-          "Hotkey/AltTriggerKeys" = {
-            "0" = "Shift_L";
-          };
-
-          "Hotkey/EnumerateGroupForwardKeys" = {
-            "0" = "Super+space";
-          };
+          # 避免占用 Hyprland 的 Super+Space 等快捷键
+          "Hotkey/EnumerateGroupForwardKeys" = {};
+          "Hotkey/EnumerateGroupBackwardKeys" = {};
 
           "Hotkey/PrevPage" = {"0" = "Up";};
           "Hotkey/NextPage" = {"0" = "Down";};
