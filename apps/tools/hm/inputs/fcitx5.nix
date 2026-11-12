@@ -34,7 +34,7 @@ in {
       "ascii_composer/good_old_caps_lock": true
       "ascii_composer/switch_key":
         Caps_Lock: noop
-        Shift_L: commit_code
+        Shift_L: noop
         Shift_R: noop
         Control_L: noop
         Control_R: noop
@@ -43,6 +43,8 @@ in {
   xdg.dataFile."fcitx5/rime/rime_frost_double_pinyin_flypy.custom.yaml".text = ''
     patch:
       "menu/page_size": 10
+      "key_binder/bindings/+":
+        - { when: always, accept: Control+space, toggle: ascii_mode }
   '';
 
   i18n.inputMethod = {
