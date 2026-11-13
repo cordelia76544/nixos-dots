@@ -1,7 +1,7 @@
 {...}: {
   services.honk-proxy = {
     enable = true;
-    startAtBoot = false; # omit or set true to start at boot
+    startAtBoot = false;
   };
 
   environment.persistence."/persist".directories = [
