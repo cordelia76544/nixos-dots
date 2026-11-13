@@ -50,6 +50,7 @@
           #inputs.daeuniverse.nixosModules.dae
           #inputs.daeuniverse.nixosModules.daed
           inputs.sfl-ref1nd.nixosModules.default
+          inputs.sfl-ref1nd.nixosModules.honk
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
