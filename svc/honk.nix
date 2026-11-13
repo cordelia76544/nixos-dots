@@ -14,7 +14,7 @@
   ];
 
   networking.firewall = {
-    checkReversePath = "loose";
+    checkReversePath = true;
     trustedInterfaces = ["dae0"]; # 与已有接口列表合并
     logReversePathDrops = true;
   };
