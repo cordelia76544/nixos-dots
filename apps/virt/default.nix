@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     #./containerd.nix
-    ./virt-manager.nix
+    #./virt-manager.nix
     ./incus.nix
     ./oci-containers
     ./podman.nix

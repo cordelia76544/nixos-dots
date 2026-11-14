@@ -88,7 +88,7 @@
     hostId = "78f5e633";
     networkmanager = {
       enable = true;
-      dns = "systemd-resolved";
+      #dns = "systemd-resolved";
     };
     nftables.enable = true;
   };
