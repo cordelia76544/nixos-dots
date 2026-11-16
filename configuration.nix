@@ -30,11 +30,10 @@
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 10;
     };
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto-x86_64-v3;
+    zfs.package = config.boot.kernelPackages.zfs_cachyos-lts-lto;
     #kernelPackages = pkgs.linuxPackages;
-    #kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
-    #zfs.package = config.boot.kernelPackages.zfs_cachyos;
-    kernelPackages = pkgs.linuxPackages;
-    zfs.package = pkgs.zfs;
+    #zfs.package = pkgs.zfs;
     kernelModules = [
       "tcp_bbr"
       "nfnetlink_queue"
@@ -95,13 +94,13 @@
 
   nix.settings.substituters = [
     #"https://cache.garnix.io"
-    #"https://attic.xuyh0120.win/lantian"
+    "https://cache.lantian.pub/lantian"
     #"https://prismlauncher.cachix.org"
     #"https://cordelia-nix.cachix.org"
   ];
   nix.settings.trusted-public-keys = [
     #"cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-    #"lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+    "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
     #"prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
     #"cordelia-nix.cachix.org-1:wzCGlaWVFKpKH4JPVbkj7658BVJZgtjA9KrTd8a2cM0="
   ];
