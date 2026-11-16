@@ -31,7 +31,7 @@
       systemd-boot.configurationLimit = 10;
     };
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto-x86_64-v3;
-    zfs.package = config.boot.kernelPackages.zfs_cachyos-lts-lto;
+    zfs.package = config.boot.kernelPackages.zfs_cachyos;
     #kernelPackages = pkgs.linuxPackages;
     #zfs.package = pkgs.zfs;
     kernelModules = [
