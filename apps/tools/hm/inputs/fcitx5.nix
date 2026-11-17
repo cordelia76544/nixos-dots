@@ -43,6 +43,7 @@ in {
   xdg.dataFile."fcitx5/rime/rime_frost_double_pinyin_flypy.custom.yaml".text = ''
     patch:
       "menu/page_size": 10
+      "switches/@0/reset": 1
       "key_binder/bindings/+":
         - { when: always, accept: Control+space, toggle: ascii_mode }
   '';
@@ -66,7 +67,7 @@ in {
         globalOptions = {
           Behavior = {
             ActiveByDefault = true;
-            ShareInputState = "All";
+            ShareInputState = "No";
             resetStateWhenFocusIn = "No";
             PreeditEnabledByDefault = true;
             ShowInputMethodInformation = true;
@@ -134,7 +135,7 @@ in {
 
           rime.globalSection = {
             PreeditMode = "Composing text";
-            InputState = "All";
+            InputState = "No";
             PreeditCursorPositionAtBeginning = true;
             SwitchInputMethodBehavior = "Commit commit preview";
           };
