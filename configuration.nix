@@ -37,6 +37,7 @@
     kernelModules = [
       "tcp_bbr"
       "nfnetlink_queue"
+      "ntsync"
     ];
     #kernelParams = [
     #  "mem_sleep_default=s2idle"
