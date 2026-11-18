@@ -84,9 +84,11 @@
       ".steam"
 
       # editors
-      ".vscode"
-      ".config/Code"
+      #".vscode"
+      #".config/Code"
       ".local/state/nvim"
+      ".config/zed"
+      ".local/share/zed"
 
       # shell
       ".local/share/direnv"
