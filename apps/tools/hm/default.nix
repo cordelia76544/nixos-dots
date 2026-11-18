@@ -1,6 +1,7 @@
 {...}: {
   imports = [
-    ./vscode.nix
+    #./vscode.nix
+    ./zed.nix
     ./screenshot.nix
     ./fastfetch.nix
     ./termius-cn.nix

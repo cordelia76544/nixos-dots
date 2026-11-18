@@ -31,16 +31,17 @@
         diagnostics = false;
       };
 
+      languages.Nix = {
+        language_servers = ["nixd" "!nil"];
+        formatter.external = {
+          command = lib.getExe pkgs.alejandra;
+          arguments = ["--quiet" "--"];
+        };
+      };
+
       # 保持之前为你配置好的绝对路径 LSP
       lsp = {
-        nixd = {
-          binary = {
-            path = lib.getExe pkgs.nixd;
-          };
-          formatting = {
-            command = ["nixpkgs-fmt"];
-          };
-        };
+        nixd.binary.path = lib.getExe pkgs.nixd;
         clangd = {
           binary = {
             path = lib.getExe' pkgs.clang-tools "clangd";

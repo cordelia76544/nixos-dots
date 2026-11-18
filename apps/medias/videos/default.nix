@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./kodi.nix
+    #./kodi.nix
     ./tsukimi.nix
   ];
 }
