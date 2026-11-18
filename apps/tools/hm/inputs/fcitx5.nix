@@ -16,8 +16,8 @@ in {
     source = pkgs.fetchFromGitHub {
       owner = "gaboolic";
       repo = "rime-frost";
-      rev = "2aedeea96c1468c1caa17cea01864419a11a4b26";
-      sha256 = "sha256-XyOX3Vhv1Qa+0WIKrTvtZkG/eFMCa/VuHmX7ZEJxF5c=";
+      rev = "60e84477cadd07db60bd29a852212f075f0814a9";
+      sha256 = "sha256-XyOX3Vhv1Qa+0WIKrTvtZkG/eFaaaaVuHmX7ZEJxF5c=";
     };
     recursive = true;
   };
