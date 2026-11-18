@@ -15,7 +15,7 @@
         showRandomTip = false;
       };
       git = {
-        pagers = [
+        diffRenderers = [
           {
             colorArg = "always";
             command = "delta --dark --paging=never";
