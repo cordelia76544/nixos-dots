@@ -3,26 +3,39 @@
   asus-profile-switcher = pkgs.writeShellScriptBin "asus-profile-switcher" ''
     #!${pkgs.bash}/bin/bash
 
-    # 1. 定义选项列表（使用 Font Awesome 图标装点一下）
-    OPTIONS="󰈐 Quiet\n󰓅 Balanced\n󱗗 Performance"
+    ASUSCTL="${pkgs.asusctl}/bin/asusctl"
+    ROFI="${pkgs.rofi}/bin/rofi"
+    NOTIFY="${pkgs.libnotify}/bin/notify-send"
 
-    # 2. 呼出 rofi 菜单并获取用户选择
-    # -dmenu 代表列表模式，-p 设置提示符
-    CHOICE=$(echo -e "$OPTIONS" | ${pkgs.rofi}/bin/rofi -dmenu -p "Asus Profile" -i)
+    # 1. 动态获取当前系统支持的所有电源模式列表
+    PROFILES=$($ASUSCTL profile list 2>/dev/null)
 
-    # 3. 根据选择执行对应的 asusctl 命令
+    # 2. 自动探测静音/省电模式的实际名称（兼容 LowPower 和 Quiet）
+    if echo "$PROFILES" | grep -qw "LowPower"; then
+        QUIET_MODE="LowPower"
+    else
+        QUIET_MODE="Quiet"
+    fi
+
+    # 3. 动态拼接菜单选项（展示名称随实际支持的名称自动变化）
+    OPTIONS="󰈐 $QUIET_MODE\n󰓅 Balanced\n󱗗 Performance"
+
+    # 4. 呼出 rofi 菜单并获取用户选择
+    CHOICE=$(echo -e "$OPTIONS" | $ROFI -dmenu -p "Asus Profile" -i)
+
+    # 5. 根据选择执行对应的 asusctl 命令
     case "$CHOICE" in
-        *Quiet*)
-            ${pkgs.asusctl}/bin/asusctl profile set Quiet
-            ${pkgs.libnotify}/bin/notify-send "Asusctl" "已切换至 静音模式 (Quiet)" -i speedm4
+        *"$QUIET_MODE"*)
+            $ASUSCTL profile set "$QUIET_MODE"
+            $NOTIFY "Asusctl" "已切换至 静音/省电模式 ($QUIET_MODE)" -i speedm4
             ;;
         *Balanced*)
-            ${pkgs.asusctl}/bin/asusctl profile set Balanced
-            ${pkgs.libnotify}/bin/notify-send "Asusctl" "已切换至 平衡模式 (Balanced)" -i speedm4
+            $ASUSCTL profile set Balanced
+            $NOTIFY "Asusctl" "已切换至 平衡模式 (Balanced)" -i speedm4
             ;;
         *Performance*)
-            ${pkgs.asusctl}/bin/asusctl profile set Performance
-            ${pkgs.libnotify}/bin/notify-send "Asusctl" "已切换至 增强模式 (Performance)" -i speedm4
+            $ASUSCTL profile set Performance
+            $NOTIFY "Asusctl" "已切换至 增强模式 (Performance)" -i speedm4
             ;;
     esac
   '';
