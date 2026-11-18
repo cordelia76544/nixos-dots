@@ -17,7 +17,7 @@ in {
       owner = "gaboolic";
       repo = "rime-frost";
       rev = "60e84477cadd07db60bd29a852212f075f0814a9";
-      sha256 = "sha256-XyOX3Vhv1Qa+0WIKrTvtZkG/eFaaaaVuHmX7ZEJxF5c=";
+      sha256 = "sha256-Fwp1UGI+Ulrt/krJzEuMIOWZy/+OzzP13BP1/6gtGmQ=";
     };
     recursive = true;
   };
